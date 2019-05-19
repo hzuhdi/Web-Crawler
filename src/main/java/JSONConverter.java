@@ -9,6 +9,12 @@ public class JSONConverter {
     private  List <Movie> movies;
     private  Object objectMapper;
 
+    /**
+     *
+     * @param object could be our three types of models
+     * @return a string of a json
+     */
+
     public  String toJson (Object object)
     {
         return  null;
