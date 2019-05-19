@@ -1,5 +1,5 @@
 package models;
 
-public class Movies {
+public class Movie {
     // test movie class .........
 }
