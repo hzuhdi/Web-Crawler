@@ -1,6 +1,8 @@
 package models;
 
 public class Music {
+
+    private int id;
     private String genre;
     private String format;
     private  int year;
@@ -9,11 +11,29 @@ public class Music {
     public Music (){
 
     }
-    public Music(String genre, String format, int year, String artist) {
+
+    /**
+     *
+     * @param id
+     * @param genre
+     * @param format
+     * @param year
+     * @param artist
+     */
+    public Music(int id, String genre, String format, int year, String artist) {
+        this.id = id;
         this.genre = genre;
         this.format = format;
         this.year = year;
         this.artist = artist;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getGenre ()

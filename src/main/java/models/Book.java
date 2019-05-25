@@ -16,6 +16,17 @@ public class Book {
     public Book() {
     }
 
+    /**
+     *
+     * @param id
+     * @param title
+     * @param genre
+     * @param format
+     * @param year
+     * @param authors
+     * @param publisher
+     * @param ISBN
+     */
     public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) {
         this.id = id;
         this.title = title;
