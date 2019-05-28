@@ -30,4 +30,10 @@ public class BookTest {
 //        assertEquals(book.ge);
     }
 
+    @Test
+    public void idShouldBeBiggerThanZero(){
+        book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        assertThat(book.getId(), greaterThan(0));
+    }
+
 }
