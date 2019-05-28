@@ -25,14 +25,19 @@ public class Book {
      * @param ISBN
      */
     public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) {
-        this.id = id;
-        this.title = title;
-        this.genre = genre;
-        this.format = format;
-        this.year = year;
-        this.authors = authors;
-        this.publisher = publisher;
-        this.ISBN = ISBN;
+        if(id < 1){
+            this.id = id;
+            this.title = title;
+            this.genre = genre;
+            this.format = format;
+            this.year = year;
+            this.authors = authors;
+            this.publisher = publisher;
+            this.ISBN = ISBN;
+        } else {
+            throw new IllegalArgumentException();
+        }
+
     }
 
     public int getId() {
