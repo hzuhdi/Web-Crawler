@@ -28,14 +28,18 @@ public class Book {
      */
     public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) throws IDException {
         if(id > 0){
-            this.id = id;
-            this.title = title;
-            this.genre = genre;
-            this.format = format;
-            this.year = year;
-            this.authors = authors;
-            this.publisher = publisher;
-            this.ISBN = ISBN;
+            if(title.isEmpty() || genre.isEmpty() || format.isEmpty() || year == 0 || authors.isEmpty() || publisher.isEmpty() || ISBN.isEmpty()){
+                throw new NullPointerException();
+            } else{
+                this.id = id;
+                this.title = title;
+                this.genre = genre;
+                this.format = format;
+                this.year = year;
+                this.authors = authors;
+                this.publisher = publisher;
+                this.ISBN = ISBN;
+            }
         } else {
             throw new IDException();
         }
