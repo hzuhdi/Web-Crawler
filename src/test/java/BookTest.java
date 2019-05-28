@@ -18,7 +18,6 @@ public class BookTest {
     public void setUp(){
         authors = new ArrayList<>();
         String author1 = "Paul Pogba";
-        String author2 = "Dani Alves";
         authors.add(author1);
     }
 
@@ -39,6 +38,20 @@ public class BookTest {
     @Test(expected = NullPointerException.class)
     public void shouldThrownAnExceptionWhileAddingBookWithSomeNullParams() throws IDException{
         book = new Book(1, "", "", "", 2009, authors, "", "");
+    }
+
+    @Test
+    public void shouldAddAnAuthorToTheBook() throws IDException {
+        //Arrange
+        String author2 = "Dani Alves";
+        String author3 = "Christiano Ronaldo";
+        //Act
+        authors.add(author2);
+        authors.add(author3);
+        book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        //Assert
+        assertEquals(book.getAuthors().size(), 3);
+
     }
 
 }
