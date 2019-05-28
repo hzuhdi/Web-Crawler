@@ -36,4 +36,13 @@ public class BookTest {
         book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
     }
 
+    @Test(expected = BookException.class)
+    public void shouldThrownAnExceptionWhileAddingBookWithSomeNullParams() throws IDException, BookException{
+        //Arrange
+        book = new Book(1, "", "", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        //Assert
+        
+
+    }
+
 }
