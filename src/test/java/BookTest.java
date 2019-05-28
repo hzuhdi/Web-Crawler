@@ -1,3 +1,4 @@
+import exception.IDException;
 import models.Book;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class BookTest {
     }
 
     @Test
-    public void constructorShouldNotNull(){
+    public void constructorShouldNotNull() throws IDException {
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
         assertThat(book.getAuthors(), equalTo(authors));
 //        assertEquals(book.getTitle(), "How to code in Java");
@@ -30,10 +31,9 @@ public class BookTest {
 //        assertEquals(book.ge);
     }
 
-    @Test
-    public void idShouldBeBiggerThanZero(){
+    @Test(expected = IDException.class)
+    public void idShouldBeBiggerThanZero() throws IDException {
         book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
-        assertThat(book.getId(), greaterThan(0));
     }
 
 }

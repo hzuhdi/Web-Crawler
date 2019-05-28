@@ -1,5 +1,7 @@
 package models;
 
+import exception.IDException;
+
 import java.util.List;
 
 public class Book {
@@ -24,8 +26,8 @@ public class Book {
      * @param publisher
      * @param ISBN
      */
-    public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) {
-        if(id < 1){
+    public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) throws IDException {
+        if(id > 0){
             this.id = id;
             this.title = title;
             this.genre = genre;
@@ -35,7 +37,7 @@ public class Book {
             this.publisher = publisher;
             this.ISBN = ISBN;
         } else {
-            throw new IllegalArgumentException();
+            throw new IDException();
         }
 
     }
