@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MoviesTest {
 
@@ -17,12 +18,13 @@ public class MoviesTest {
     }
 
     @Test
-    public void titleShouldNotBeNull() {
+    public void titleShouldNotBeNull_MovieObjectInitializedSuccessfully() {
         //Arrange
-        String title = "X Man";
+        String title = "Office Space";
         //Act
-        movie=new Movie(title);
+        movie=new Movie(0,title,null,null,0,null,null,null);
         //Assert
+        assertNotNull(movie);
     }
 
 }
