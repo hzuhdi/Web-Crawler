@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class MoviesTest {
 
@@ -57,5 +56,16 @@ public class MoviesTest {
         //Act
         movie=new Movie(id,title,null,null,0,null,null,null);
         //Assert
+    }
+
+    @Test
+    public void SixWriters_MovieObjectInitializationFail() {
+        //Arrange
+        String title = "Office Space";
+        int id = 2;
+        //Act
+        movie=new Movie(id,title,null,null,0,null,null,null);
+        //Assert
+        assertNull(movie);
     }
 }
