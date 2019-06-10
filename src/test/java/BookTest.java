@@ -57,4 +57,21 @@ public class BookTest {
         assertEquals(book.getAuthors().size(), 3);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowAnExceptionWhileAddingMoreThanFiveAuthors(){
+        //Arrange
+        String author2 = "Dani Alves";
+        String author3 = "Christiano Ronaldo";
+        String author4 = "De Jong";
+        String author5 = "Mesut Ozil";
+        String author6 = "Galileo Galilei";
+        //Act
+        authors.add(author2);
+        authors.add(author3);
+        authors.add(author4);
+        authors.add(author5);
+        authors.add(author6);
+        book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+    }
+
 }
