@@ -22,7 +22,7 @@ public class BookTest {
     }
 
     @Test
-    public void constructorShouldNotNull() throws IDException {
+    public void constructorShouldNotNull() {
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
         assertThat(book.getAuthors(), equalTo(authors));
 //        assertEquals(book.getTitle(), "How to code in Java");
@@ -36,7 +36,7 @@ public class BookTest {
     }
 
     @Test(expected = IDException.class)
-    public void idShouldBeBiggerThanZero() throws IDException {
+    public void idShouldBeBiggerThanZero() {
         book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
     }
 
@@ -46,7 +46,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldAddAnAuthorToTheBook() throws IDException {
+    public void shouldAddAnAuthorToTheBook() {
         //Arrange
         String author2 = "Dani Alves";
         String author3 = "Christiano Ronaldo";
