@@ -22,12 +22,16 @@ public class BookTest {
     }
 
     @Test
-    public void constructorShouldNotNull() {
+    public void bookShouldBeCreated() {
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
         assertThat(book.getAuthors(), equalTo(authors));
-//        assertEquals(book.getTitle(), "How to code in Java");
-//        assertEquals(book.getISBN(), "ISBN123456789");
-//        assertEquals(book.ge);
+        assertEquals("How to code in Java", book.getTitle());
+        assertEquals("ISBN123456789", book.getISBN());
+        assertEquals("Computer", book.getGenre());
+        assertEquals("pdf", book.getFormat());
+        assertEquals(2009, book.getYear());
+        assertEquals(authors, book.getAuthors());
+        assertEquals("Gramedia Publisher", book.getPublisher());
     }
 
     @Test(expected = NullPointerException.class)
@@ -35,14 +39,9 @@ public class BookTest {
         book = new Book(1, null, "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
     }
 
-    @Test(expected = IDException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void idShouldBeBiggerThanZero() {
         book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void shouldThrownAnExceptionWhileAddingBookWithSomeNullParams() throws IDException{
-        book = new Book(1, "", "", "", 2009, authors, "", "");
     }
 
     @Test
@@ -56,7 +55,6 @@ public class BookTest {
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
         //Assert
         assertEquals(book.getAuthors().size(), 3);
-
     }
 
 }
