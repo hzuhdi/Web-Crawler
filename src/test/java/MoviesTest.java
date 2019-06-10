@@ -53,10 +53,9 @@ public class MoviesTest {
     public void IdLessThanOrEqualToZero_MovieObjectInitializationFail() {
         //Arrange
         String title = "Office Space";
-        int id = 10;
+        int id = 0;
         //Act
         movie=new Movie(id,title,null,null,0,null,null,null);
         //Assert
-        assertNotNull(movie);
     }
 }
