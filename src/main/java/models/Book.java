@@ -28,7 +28,7 @@ public class Book {
      */
     public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) throws IDException {
         if(id > 0){
-            if(title.isEmpty() || genre.isEmpty() || format.isEmpty() || year == 0 || authors.isEmpty() || publisher.isEmpty() || ISBN.isEmpty()){
+            if(title.isEmpty()){
                 throw new NullPointerException();
             } else{
                 this.id = id;
