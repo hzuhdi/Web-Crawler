@@ -1,7 +1,6 @@
 package models;
 
-import exception.IDException;
-
+import java.util.Calendar;
 import java.util.List;
 
 public class Book {
@@ -26,11 +25,16 @@ public class Book {
      * @param publisher
      * @param ISBN
      */
-    public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) throws IDException {
+    public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) {
         if(id > 0){
-            if(title.isEmpty() || genre.isEmpty() || format.isEmpty() || year == 0 || authors.isEmpty() || publisher.isEmpty() || ISBN.isEmpty()){
+            if(title.isEmpty()){
                 throw new NullPointerException();
-            } else{
+            } else if(authors.size()>5 || authors.size()==0){
+                throw new IllegalArgumentException();
+            } else if(year > Calendar.getInstance().get(Calendar.YEAR)){
+                throw new IllegalArgumentException();
+            }
+            else{
                 this.id = id;
                 this.title = title;
                 this.genre = genre;
@@ -41,7 +45,7 @@ public class Book {
                 this.ISBN = ISBN;
             }
         } else {
-            throw new IDException();
+            throw new IllegalArgumentException();
         }
 
     }
