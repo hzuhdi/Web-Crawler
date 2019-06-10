@@ -80,4 +80,14 @@ public class BookTest {
         assertNull(book);
     }
 
+    @Test
+    public void authorShouldNotBeNull(){
+        //Arrange
+        ArrayList<String> auth = new ArrayList<String>();
+        //Act
+        book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, auth, "Gramedia Publisher", "ISBN123456789");
+        //Assert
+        assertEquals(0, book.getAuthors().size());
+    }
+
 }
