@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.*;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class BookTest {
 
@@ -88,6 +89,16 @@ public class BookTest {
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, auth, "Gramedia Publisher", "ISBN123456789");
         //Assert
         assertEquals(0, book.getAuthors().size());
+    }
+
+    @Test
+    public void dateBookShouldBeLowerThanOrEqualToTodayYear(){
+        //Arrange
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        //Act
+        book = new Book(1, "How to code in Java", "Computer", "pdf", 2019, authors, "Gramedia Publisher", "ISBN123456789");
+        //Assert
+        assertThat(book.getYear(), lessThanOrEqualTo(year));
     }
 
 }
