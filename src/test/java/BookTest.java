@@ -80,7 +80,7 @@ public class BookTest {
         assertNull(book);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void authorShouldNotBeNull(){
         //Arrange
         ArrayList<String> auth = new ArrayList<String>();
