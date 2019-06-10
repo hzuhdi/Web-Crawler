@@ -21,7 +21,7 @@ public class MoviesTest {
         //Arrange
         String title = "Office Space";
         //Act
-        movie=new Movie(0,title,null,null,0,null,null,null);
+        movie=new Movie(0,title,null,null,0,null);
         //Assert
         assertNotNull(movie);
     }
@@ -31,7 +31,7 @@ public class MoviesTest {
         //Arrange
         String title = null;
         //Act
-        movie=new Movie(0,title,null,null,0,null,null,null);
+        movie=new Movie(0,title,null,null,0,null);
         //Assert
         assertNotNull(movie);
     }
@@ -43,7 +43,7 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 10;
         //Act
-        movie=new Movie(id,title,null,null,0,null,null,null);
+        movie=new Movie(id,title,null,null,0,null);
         //Assert
         assertNotNull(movie);
     }
@@ -54,17 +54,17 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 0;
         //Act
-        movie=new Movie(id,title,null,null,0,null,null,null);
+        movie=new Movie(id,title,null,null,0,null);
         //Assert
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void SixWriters_MovieObjectInitializationFail() {
         //Arrange
         String title = "Office Space";
         int id = 2;
         //Act
-        movie=new Movie(id,title,null,null,0,null,null,null);
+        movie=new Movie(id,title,null,null,0,null);
         //Assert
         assertNull("Test case failed as Movie object is created", movie);
     }

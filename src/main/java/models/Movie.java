@@ -13,7 +13,7 @@ public class Movie {
     private int year;
     private String director;
     private List<String> writers = new ArrayList<>();
-    private List<String> stars;
+    private List<String> stars = new ArrayList<>();
 
     /**
      * @param id
@@ -22,10 +22,8 @@ public class Movie {
      * @param format
      * @param year
      * @param director
-     * @param writers
-     * @param stars
      */
-    public Movie(int id, String title, String genre, String format, int year, String director, List<String> writers, List<String> stars) {
+    public Movie(int id, String title, String genre, String format, int year, String director) {
         if (title == null) {
             throw new IllegalArgumentException();
         }
@@ -33,7 +31,8 @@ public class Movie {
         if (id <= 0) {
             throw new IllegalArgumentException();
         }
-        if (this.writers.size() > 5) {
+
+        if (writers.size() > 5) {
             throw new IllegalArgumentException();
         }
 
