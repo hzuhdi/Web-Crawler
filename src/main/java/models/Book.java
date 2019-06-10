@@ -28,7 +28,10 @@ public class Book {
         if(id > 0){
             if(title.isEmpty()){
                 throw new NullPointerException();
-            } else{
+            } else if(authors.size()>5){
+                throw new IllegalArgumentException();
+            }
+            else{
                 this.id = id;
                 this.title = title;
                 this.genre = genre;
