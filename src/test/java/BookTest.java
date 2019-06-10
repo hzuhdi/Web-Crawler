@@ -72,6 +72,8 @@ public class BookTest {
         authors.add(author5);
         authors.add(author6);
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        //Assert
+        assertNull(book);
     }
 
 }
