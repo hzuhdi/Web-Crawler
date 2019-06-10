@@ -28,7 +28,7 @@ public class Book {
         if(id > 0){
             if(title.isEmpty()){
                 throw new NullPointerException();
-            } else if(authors.size()>5){
+            } else if(authors.size()>5 || authors.size()==0){
                 throw new IllegalArgumentException();
             }
             else{
