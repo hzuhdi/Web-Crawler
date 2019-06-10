@@ -27,4 +27,14 @@ public class MoviesTest {
         assertNotNull(movie);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void titleIsNull_MovieObjectInitializationFail() {
+        //Arrange
+        String title = null;
+        //Act
+        movie=new Movie(0,title,null,null,0,null,null,null);
+        //Assert
+        assertNotNull(movie);
+    }
+
 }
