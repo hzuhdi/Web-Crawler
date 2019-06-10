@@ -30,6 +30,11 @@ public class BookTest {
 //        assertEquals(book.ge);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void titleShouldNotBeNull(){
+        book = new Book(1, null, "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+    }
+
     @Test(expected = IDException.class)
     public void idShouldBeBiggerThanZero() throws IDException {
         book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
