@@ -15,7 +15,6 @@ public class Movie {
     private List<String> stars;
 
     /**
-     *
      * @param id
      * @param title
      * @param genre
@@ -26,9 +25,14 @@ public class Movie {
      * @param stars
      */
     public Movie(int id, String title, String genre, String format, int year, String director, List<String> writers, List<String> stars) {
-        if (title==null){
+        if (title == null) {
             throw new IllegalArgumentException();
         }
+
+        if (id <= 0) {
+            throw new IllegalArgumentException();
+        }
+
         this.id = id;
         this.title = title;
         this.genre = genre;
