@@ -1,4 +1,4 @@
-import exception.IDException;
+import exception.YearException;
 import models.Book;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class BookTest {
     }
 
     @Test
-    public void bookShouldBeCreated() {
+    public void bookShouldBeCreated() throws YearException {
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
         assertThat(book.getAuthors(), equalTo(authors));
         assertEquals("How to code in Java", book.getTitle());
@@ -37,12 +37,20 @@ public class BookTest {
 
     @Test(expected = NullPointerException.class)
     public void titleShouldNotBeNull(){
-        book = new Book(1, null, "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        try {
+            book = new Book(1, null, "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        } catch (YearException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void idShouldBeBiggerThanZero() {
-        book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        try {
+            book = new Book(0, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        } catch (YearException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -57,7 +65,11 @@ public class BookTest {
         authors.add(author3);
         authors.add(author4);
         authors.add(author5);
-        book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        try {
+            book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        } catch (YearException e) {
+            e.printStackTrace();
+        }
         //Assert
         assertEquals(book.getAuthors().size(), 5);
     }
@@ -76,7 +88,11 @@ public class BookTest {
         authors.add(author4);
         authors.add(author5);
         authors.add(author6);
-        book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        try {
+            book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
+        } catch (YearException e) {
+            e.printStackTrace();
+        }
         //Assert
         assertNull(book);
     }
@@ -86,13 +102,17 @@ public class BookTest {
         //Arrange
         ArrayList<String> auth = new ArrayList<String>();
         //Act
-        book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, auth, "Gramedia Publisher", "ISBN123456789");
+        try {
+            book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, auth, "Gramedia Publisher", "ISBN123456789");
+        } catch (YearException e) {
+            e.printStackTrace();
+        }
         //Assert
         assertEquals(0, book.getAuthors().size());
     }
 
     @Test
-    public void dateBookShouldBeLowerThanOrEqualToTodayYear(){
+    public void dateBookShouldBeLowerThanOrEqualToTodayYear() throws YearException {
         //Arrange
         int year = Calendar.getInstance().get(Calendar.YEAR);
         //Act
@@ -101,8 +121,8 @@ public class BookTest {
         assertThat(book.getYear(), lessThanOrEqualTo(year));
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void shouldThrowAnExceptionOfAYearBookBiggerThanTodayYear(){
+    @Test (expected = YearException.class)
+    public void shouldThrowAnExceptionOfAYearBookBiggerThanTodayYear() throws YearException {
         //Arrange
         int year = Calendar.getInstance().get(Calendar.YEAR);
         //Act
