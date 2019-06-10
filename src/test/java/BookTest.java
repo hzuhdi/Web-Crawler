@@ -45,16 +45,20 @@ public class BookTest {
     }
 
     @Test
-    public void shouldAddAnAuthorToTheBook() {
+    public void fiveAuthorsOfTheBookShouldBeAdded() {
         //Arrange
         String author2 = "Dani Alves";
         String author3 = "Christiano Ronaldo";
+        String author4 = "Lionel Messi";
+        String author5 = "Muhammad Salah";
         //Act
         authors.add(author2);
         authors.add(author3);
+        authors.add(author4);
+        authors.add(author5);
         book = new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789");
         //Assert
-        assertEquals(book.getAuthors().size(), 3);
+        assertEquals(book.getAuthors().size(), 5);
     }
 
     @Test(expected = IllegalArgumentException.class)
