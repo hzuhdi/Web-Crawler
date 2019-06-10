@@ -101,4 +101,14 @@ public class BookTest {
         assertThat(book.getYear(), lessThanOrEqualTo(year));
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowAnExceptionOfAYearBookBiggerThanTodayYear(){
+        //Arrange
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        //Act
+        book = new Book(1, "How to code in Java", "Computer", "pdf", 2020, authors, "Gramedia Publisher", "ISBN123456789");
+        //Assert
+        assertThat(book.getYear(), lessThanOrEqualTo(year));
+    }
+
 }
