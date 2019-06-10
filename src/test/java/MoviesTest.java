@@ -66,6 +66,6 @@ public class MoviesTest {
         //Act
         movie=new Movie(id,title,null,null,0,null,null,null);
         //Assert
-        assertNull(movie);
+        assertNull("Test case failed as Movie object is created", movie);
     }
 }

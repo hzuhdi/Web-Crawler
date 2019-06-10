@@ -1,6 +1,7 @@
 package models;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Movie {
@@ -11,7 +12,7 @@ public class Movie {
     private String format;
     private int year;
     private String director;
-    private List<String> writers;
+    private List<String> writers = new ArrayList<>();
     private List<String> stars;
 
     /**
@@ -30,6 +31,9 @@ public class Movie {
         }
 
         if (id <= 0) {
+            throw new IllegalArgumentException();
+        }
+        if (this.writers.size() > 5) {
             throw new IllegalArgumentException();
         }
 
