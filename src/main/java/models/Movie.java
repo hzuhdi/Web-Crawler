@@ -26,6 +26,9 @@ public class Movie {
      * @param stars
      */
     public Movie(int id, String title, String genre, String format, int year, String director, List<String> writers, List<String> stars) {
+        if (title==null){
+            throw new IllegalArgumentException();
+        }
         this.id = id;
         this.title = title;
         this.genre = genre;
