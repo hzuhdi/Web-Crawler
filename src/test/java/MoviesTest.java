@@ -48,4 +48,15 @@ public class MoviesTest {
         //Assert
         assertNotNull(movie);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void IdLessThanOrEqualToZero_MovieObjectInitializationFail() {
+        //Arrange
+        String title = "Office Space";
+        int id = 10;
+        //Act
+        movie=new Movie(id,title,null,null,0,null,null,null);
+        //Assert
+        assertNotNull(movie);
+    }
 }
