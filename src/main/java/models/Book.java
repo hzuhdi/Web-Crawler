@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class Book {
@@ -29,6 +30,8 @@ public class Book {
             if(title.isEmpty()){
                 throw new NullPointerException();
             } else if(authors.size()>5 || authors.size()==0){
+                throw new IllegalArgumentException();
+            } else if(year > Calendar.getInstance().get(Calendar.YEAR)){
                 throw new IllegalArgumentException();
             }
             else{
