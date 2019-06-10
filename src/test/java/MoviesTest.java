@@ -37,4 +37,15 @@ public class MoviesTest {
         assertNotNull(movie);
     }
 
+    // Id should be bigger than zero
+    @Test
+    public void IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully() {
+        //Arrange
+        String title = "Office Space";
+        int id = 10;
+        //Act
+        movie=new Movie(id,title,null,null,0,null,null,null);
+        //Assert
+        assertNotNull(movie);
+    }
 }
