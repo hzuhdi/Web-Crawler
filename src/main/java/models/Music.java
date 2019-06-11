@@ -23,6 +23,9 @@ public class Music {
      * @param artist
      */
     public Music(int id, String genre, String format, int year, List<String> artist , String title) {
+        if (title == null) {
+            throw new IllegalArgumentException("Title should not be null");
+        }
         this.id = id;
         this.genre = genre;
         this.format = format;
