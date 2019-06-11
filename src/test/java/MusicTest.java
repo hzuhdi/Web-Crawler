@@ -32,4 +32,8 @@ public class MusicTest {
         music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1"), "title");
         Assert.assertTrue(music.getId() > 0);
     }
+    @Test(expected = YearException.class)
+    public void musicYearGreaterThanCurrentYearShouldFail() throws YearException {
+        music = new Music(1, "genre1", "format", 2020, Arrays.asList("artist1"), "title");
+    }
 }
