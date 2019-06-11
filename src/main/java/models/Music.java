@@ -1,6 +1,7 @@
 package models;
 import java.time.LocalDate;
 import java.util.List;
+import exception.YearException;
 
 public class Music {
 
