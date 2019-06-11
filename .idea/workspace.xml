@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/MusicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MusicTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -171,7 +169,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-6" />
     <option name="y" value="112" />
     <option name="width" value="1280" />
@@ -347,7 +345,7 @@
     <option name="totallyTimeSpent" value="7209000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="112" width="1280" height="721" extended-state="0" />
+    <frame x="-6" y="112" width="1280" height="721" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
