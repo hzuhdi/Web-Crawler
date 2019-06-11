@@ -23,7 +23,7 @@ public class Music {
      * @param year
      * @param artist
      */
-    public Music(int id, String genre, String format, int year, List<String> artist , String title) {
+    public Music(int id, String genre, String format, int year, List<String> artist , String title) throws YearException{
         if (title == null) {
             throw new IllegalArgumentException("Title should not be null");
         }
