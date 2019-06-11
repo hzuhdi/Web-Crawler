@@ -1,5 +1,7 @@
 package models;
 
+import exception.YearException;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -25,14 +27,14 @@ public class Book {
      * @param publisher
      * @param ISBN
      */
-    public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) {
+    public Book(int id, String title, String genre, String format, int year, List<String> authors, String publisher, String ISBN) throws YearException {
         if(id > 0){
             if(title.isEmpty()){
                 throw new NullPointerException();
             } else if(authors.size()>5 || authors.size()==0){
                 throw new IllegalArgumentException();
             } else if(year > Calendar.getInstance().get(Calendar.YEAR)){
-                throw new IllegalArgumentException();
+                throw new YearException();
             }
             else{
                 this.id = id;
