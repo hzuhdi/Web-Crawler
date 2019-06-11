@@ -1,4 +1,5 @@
 package models;
+import java.util.List;
 
 public class Music {
 
@@ -6,7 +7,8 @@ public class Music {
     private String genre;
     private String format;
     private  int year;
-    private String artist;
+    private List<String> artist;
+    private String title;
 
     public Music (){
 
@@ -20,13 +22,16 @@ public class Music {
      * @param year
      * @param artist
      */
-    public Music(int id, String genre, String format, int year, String artist) {
+    public Music(int id, String genre, String format, int year, List<String> artist , String title) {
         this.id = id;
         this.genre = genre;
         this.format = format;
         this.year = year;
         this.artist = artist;
+        this.title=title;
     }
+
+
 
     public int getId() {
         return id;
@@ -49,8 +54,11 @@ public class Music {
         return year;
     }
 
-    public String getArtist() {
+    public List<String> getArtist() {
         return artist;
+    }
+    public String getTitle(){
+        return title;
     }
 
     public void setGenre(String genre) {
@@ -64,6 +72,9 @@ public class Music {
     }
     public void setArtist(String artist) {
         this.year= year ;
+    }
+    public  void setTitle(String title){
+        this.title= title;
     }
 
 }
