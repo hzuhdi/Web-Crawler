@@ -1,4 +1,5 @@
 package models;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Music {
@@ -31,6 +32,9 @@ public class Music {
         }
         else if( id <=0) {
             throw new IllegalArgumentException("id should be greater than 0");
+        }
+        else if ( year > LocalDate.now().getYear()) {
+            throw new YearException("year should be lower than or equal current year");
         }
         this.id = id;
         this.genre = genre;
