@@ -9,7 +9,7 @@ public class Music {
     private String genre;
     private String format;
     private  int year;
-    private List<String> artist;
+    private String artist;
     private String title;
 
     public Music (){
@@ -24,7 +24,7 @@ public class Music {
      * @param year
      * @param artist
      */
-    public Music(int id, String genre, String format, int year, List<String> artist , String title) throws YearException{
+    public Music(int id, String genre, String format, int year, String artist , String title) throws YearException{
         if (title == null) {
             throw new IllegalArgumentException("Title should not be null");
         }
@@ -68,7 +68,7 @@ public class Music {
         return year;
     }
 
-    public List<String> getArtist() {
+    public String getArtist() {
         return artist;
     }
     public String getTitle(){
