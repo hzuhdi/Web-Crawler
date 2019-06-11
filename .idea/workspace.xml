@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/MusicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MusicTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Music.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Music.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+            <state relative-caret-position="149">
+              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
               <folding>
                 <element signature="e#1046#1047#0" expanded="true" />
                 <element signature="e#1071#1072#0" expanded="true" />
@@ -81,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MusicTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MusicTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/MusicTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
-              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,8 +177,8 @@
         <option value="$PROJECT_DIR$/src/main/java/JSONConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/exception/YearException.java" />
         <option value="$PROJECT_DIR$/src/test/java/BookTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/models/Music.java" />
         <option value="$PROJECT_DIR$/src/test/java/MusicTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Music.java" />
       </list>
     </option>
   </component>
@@ -361,12 +359,12 @@
       <updated>1558281218886</updated>
       <workItem from="1558281221310" duration="837000" />
       <workItem from="1558282985942" duration="306000" />
-      <workItem from="1560236650403" duration="5940000" />
+      <workItem from="1560236650403" duration="6258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7492000" />
+    <option name="totallyTimeSpent" value="7810000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="23" width="1280" height="721" extended-state="6" />
@@ -730,10 +728,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MusicTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="38" column="29" lean-forward="true" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+        <state relative-caret-position="149">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
           <folding>
             <element signature="e#1046#1047#0" expanded="true" />
             <element signature="e#1071#1072#0" expanded="true" />
@@ -759,16 +767,6 @@
             <element signature="e#1734#1735#0" expanded="true" />
             <element signature="e#1775#1776#0" expanded="true" />
             <element signature="e#1808#1809#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MusicTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
