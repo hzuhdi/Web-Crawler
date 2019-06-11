@@ -12,4 +12,9 @@ public class MusicTest {
     public void titleShouldNotBeNull() throws YearException {
         music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1"), null);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void fourArtistsShouldFail() throws YearException {
+        music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1", "artist2", "artist3", "artist4"), "title2");
+    }
 }
