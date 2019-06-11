@@ -27,4 +27,9 @@ public class MusicTest {
     public void negativeIdShouldFail() throws YearException {
         music = new Music(-1, "genre1", "format", 2011, Arrays.asList("artist1"), "title");
     }
+    @Test
+    public void positiveIdShouldWork() throws YearException {
+        music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1"), "title");
+        Assert.assertTrue(music.getId() > 0);
+    }
 }
