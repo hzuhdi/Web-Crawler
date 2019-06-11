@@ -23,4 +23,8 @@ public class MusicTest {
         music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1", "artist2", "artist3"), "title2");
         Assert.assertEquals(music.getArtist().size(), 3);
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void negativeIdShouldFail() throws YearException {
+        music = new Music(-1, "genre1", "format", 2011, Arrays.asList("artist1"), "title");
+    }
 }
