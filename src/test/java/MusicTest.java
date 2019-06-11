@@ -1,4 +1,5 @@
 import models.Music;
+import org.junit.Assert;
 import org.junit.Test;
 import exception.YearException;
 import java.util.Arrays;
@@ -16,5 +17,10 @@ public class MusicTest {
     @Test(expected = IllegalArgumentException.class)
     public void fourArtistsShouldFail() throws YearException {
         music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1", "artist2", "artist3", "artist4"), "title2");
+    }
+    @Test
+    public void threeArtistsShouldWork() throws YearException {
+        music = new Music(1, "genre1", "format", 2011, Arrays.asList("artist1", "artist2", "artist3"), "title2");
+        Assert.assertEquals(music.getArtist().size(), 3);
     }
 }
