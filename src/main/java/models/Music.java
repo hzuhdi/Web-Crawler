@@ -28,9 +28,9 @@ public class Music {
         if (title == null) {
             throw new IllegalArgumentException("Title should not be null");
         }
-        else if (artist != null && artist.size() > 3) {
+        /*else if (artist != null && artist.size() > 3) {
             throw new IllegalArgumentException("Artists should not be more than 3");
-        }
+        }*/
         else if( id <=0) {
             throw new IllegalArgumentException("id should be greater than 0");
         }
