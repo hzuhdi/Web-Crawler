@@ -4,6 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.*;
+
+
 import static org.mockito.Mockito.*;
 
 public class ScraperTest {
@@ -16,18 +21,16 @@ public class ScraperTest {
     }
 
     @Test
-    public void scraperTestParseUrl(){
+    public void shouldGiveTheExpectedElements(){
         //Arrange
         Document document = mock(Document.class);
-        Elements element = mock(Elements.class);
+        Elements elements = mock(Elements.class);
         Scraper scraper = new Scraper();
         //Act
         //The document will take only a search on the class div of media-details
-        scraper.setDocument(document);
-        when(document.getElementsByClass("media-details")).thenReturn(element);
-        scraper.parseAll(url);
+        when(document.getElementsByClass("media-details")).thenReturn(elements);
+        scraper.setElements(document.getElementsByClass("media-details"));
         //Assert
-        //Since it's a void we will only verify the calls of the method
-        verify(document, times(0)).getElementsByClass("media-details");
+        assertEquals(elements, scraper.getElements());
     }
 }
