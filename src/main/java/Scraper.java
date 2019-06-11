@@ -17,13 +17,35 @@ public class Scraper {
 
     }
 
-    public boolean parseAll(String url){
-        return false;
+    public void parseAll(String url){
+
     }
 
     public boolean parseSpecific(String url, String keyword){
         return false;
     }
 
+    public Document getDocument() {
+        return document;
+    }
 
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
+    public Element getElement() {
+        return element;
+    }
+
+    public void setElement(Element element) {
+        this.element = element;
+    }
+
+    public Elements getElements() {
+        return elements;
+    }
+
+    public void setElements(Elements elements) {
+        this.elements = elements;
+    }
 }
