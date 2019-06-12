@@ -23,7 +23,7 @@ public class Movie {
      * @param year
      * @param director
      */
-    public Movie(int id, String title, String genre, String format, int year, String director) {
+    public Movie(int id, String title, String genre, String format, int year, String director, List<String> writers, List<String> stars) {
         if (title == null) {
             throw new IllegalArgumentException();
         }
@@ -44,5 +44,41 @@ public class Movie {
         this.director = director;
         this.writers = writers;
         this.stars = stars;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public List<String> getWriters() {
+        return writers;
+    }
+
+    public List<String> getStars() {
+        return stars;
     }
 }
