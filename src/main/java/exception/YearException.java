@@ -1,5 +1,6 @@
 package exception;
 
+
 public class YearException extends Exception {
 
     public YearException() {
@@ -21,6 +22,7 @@ public class YearException extends Exception {
     protected YearException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
+
 
 }
 
