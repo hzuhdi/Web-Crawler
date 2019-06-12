@@ -1,6 +1,7 @@
 package models;
 
 
+import exception.AllowedWritersNumberExceededException;
 import exception.AttributeNotPresentedException;
 
 import javax.naming.directory.AttributeInUseException;
@@ -55,7 +56,7 @@ public class Movie {
         }
 
         if (writers.size() > 5) {
-            throw new IllegalArgumentException();
+            throw new AllowedWritersNumberExceededException("More than 5 writers not allowed");
         }
 
         this.id = id;
