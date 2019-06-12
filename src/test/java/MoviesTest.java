@@ -1,4 +1,5 @@
 
+import exception.AllowedWritersNumberExceededException;
 import exception.AttributeNotPresentedException;
 import models.Movie;
 import org.junit.Before;
@@ -85,15 +86,21 @@ public class MoviesTest {
         //Assert
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = AllowedWritersNumberExceededException.class)
     public void SixWriters_MovieObjectInitializationFail() {
         //Arrange
+        int id = 1;
         String title = "Office Space";
-        int id = 2;
-        //Act
-        movie = new Movie(id, title, null, null, 0, null,null,null);
-        //Assert
-        assertNull("Test case failed as Movie object is created", movie);
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens","Noah","Tamer","Yousuf"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
+
+        // Act
+        movie = new Movie(id,title, genre, format, year, director, writers, stars);
     }
 
     @Test
@@ -149,5 +156,6 @@ public class MoviesTest {
         assertThat(movie.getWriters().size(), equalTo(5));
         assertThat(movie.getStars().size(), equalTo(4));
     }
+
 
 }
