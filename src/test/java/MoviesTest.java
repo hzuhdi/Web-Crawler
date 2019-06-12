@@ -4,8 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class MoviesTest {
 
@@ -17,23 +21,31 @@ public class MoviesTest {
     }
 
     @Test
-    public void titleShouldNotBeNull_MovieObjectInitializedSuccessfully() {
-        //Arrange
+    public void initializeMovieWithAllAttributesProvided() {
+        // Arrange
+        int id = 1;
         String title = "Office Space";
-        //Act
-        movie=new Movie(0,title,null,null,0,null);
-        //Assert
-        assertNotNull(movie);
-    }
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
-    @Test(expected = IllegalArgumentException.class)
-    public void titleIsNull_MovieObjectInitializationFail() {
-        //Arrange
-        String title = null;
-        //Act
-        movie=new Movie(0,title,null,null,0,null);
-        //Assert
-        assertNotNull(movie);
+        // Act
+        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+
+        // Assert
+        assertThat(movie.getId(), equalTo(id));
+        assertThat(movie.getTitle(), equalTo(title));
+        assertThat(movie.getGenre(), equalTo(genre));
+        assertThat(movie.getFormat(), equalTo(format));
+        assertThat(movie.getYear(), equalTo(year));
+        assertThat(movie.getDirector(), equalTo(director));
+        assertThat(movie.getWriters().get(0), equalTo(writers.get(0)));
+        assertThat(movie.getStars().get(1), equalTo(stars.get(1)));
+
     }
 
     // Id should be bigger than zero
@@ -43,7 +55,7 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 10;
         //Act
-        movie=new Movie(id,title,null,null,0,null);
+        movie = new Movie(id, title, null, null, 0, null);
         //Assert
         assertNotNull(movie);
     }
@@ -54,7 +66,7 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 0;
         //Act
-        movie=new Movie(id,title,null,null,0,null);
+        movie = new Movie(id, title, null, null, 0, null);
         //Assert
     }
 
@@ -64,8 +76,9 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 2;
         //Act
-        movie=new Movie(id,title,null,null,0,null);
+        movie = new Movie(id, title, null, null, 0, null);
         //Assert
         assertNull("Test case failed as Movie object is created", movie);
     }
+
 }
