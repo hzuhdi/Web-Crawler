@@ -67,11 +67,20 @@ public class MoviesTest {
     // Id should be bigger than zero
     @Test
     public void IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully() {
-        //Arrange
+        // Arrange
+        int id = 1;
         String title = "Office Space";
-        int id = 10;
-        //Act
-        movie = new Movie(id, title, null, null, 0, null,null,null);
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
+
+        // Act
+        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+
         //Assert
         assertNotNull(movie);
     }
