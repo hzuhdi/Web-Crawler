@@ -45,7 +45,6 @@ public class MoviesTest {
         assertThat(movie.getDirector(), equalTo(director));
         assertThat(movie.getWriters().get(0), equalTo(writers.get(0)));
         assertThat(movie.getStars().get(1), equalTo(stars.get(1)));
-
     }
 
     // Id should be bigger than zero
@@ -55,7 +54,7 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 10;
         //Act
-        movie = new Movie(id, title, null, null, 0, null);
+        movie = new Movie(id, title, null, null, 0, null,null,null);
         //Assert
         assertNotNull(movie);
     }
@@ -66,7 +65,7 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 0;
         //Act
-        movie = new Movie(id, title, null, null, 0, null);
+        movie = new Movie(id, title, null, null, 0, null,null,null);
         //Assert
     }
 
@@ -76,7 +75,7 @@ public class MoviesTest {
         String title = "Office Space";
         int id = 2;
         //Act
-        movie = new Movie(id, title, null, null, 0, null);
+        movie = new Movie(id, title, null, null, 0, null,null,null);
         //Assert
         assertNull("Test case failed as Movie object is created", movie);
     }
