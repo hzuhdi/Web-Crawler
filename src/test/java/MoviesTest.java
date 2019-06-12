@@ -123,4 +123,31 @@ public class MoviesTest {
         assertThat(movie.getStars().get(1), equalTo(stars.get(1)));
     }
 
+    @Test
+    public void fourStars_MovieObjectInitializationPassed() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens","Noah","Tamer"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
+
+        // Act
+        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+
+        // Assert
+        assertThat(movie.getId(), equalTo(id));
+        assertThat(movie.getTitle(), equalTo(title));
+        assertThat(movie.getGenre(), equalTo(genre));
+        assertThat(movie.getFormat(), equalTo(format));
+        assertThat(movie.getYear(), equalTo(year));
+        assertThat(movie.getDirector(), equalTo(director));
+        assertThat(movie.getWriters().size(), equalTo(5));
+        assertThat(movie.getStars().size(), equalTo(4));
+    }
+
 }
