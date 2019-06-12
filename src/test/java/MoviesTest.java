@@ -85,14 +85,21 @@ public class MoviesTest {
         assertNotNull(movie);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = AttributeNotPresentedException.class)
     public void IdLessThanOrEqualToZero_MovieObjectInitializationFail() {
-        //Arrange
+        // Arrange
+        int id = -2;
         String title = "Office Space";
-        int id = 0;
-        //Act
-        movie = new Movie(id, title, null, null, 0, null,null,null);
-        //Assert
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
+
+        // Act
+        movie = new Movie(id,title, genre, format, year, director, writers, stars);
     }
 
     @Test(expected = AllowedWritersNumberExceededException.class)
