@@ -1,12 +1,11 @@
 
+import exception.AttributeNotPresentedException;
 import models.Movie;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -45,6 +44,23 @@ public class MoviesTest {
         assertThat(movie.getDirector(), equalTo(director));
         assertThat(movie.getWriters().get(0), equalTo(writers.get(0)));
         assertThat(movie.getStars().get(1), equalTo(stars.get(1)));
+    }
+
+    @Test(expected = AttributeNotPresentedException.class)
+    public void initializeMovieWithAllAttributesMissing() {
+        // Arrange
+        int id = 0;
+        String title = null;
+        String category = "Movies";
+        String genre = null;
+        String format = null;
+        int year = 0;
+        String director = null;
+        List<String> writers = null;
+        List<String> stars = null;
+
+        // Act
+        movie = new Movie(id,title, genre, format, year, director, writers, stars);
     }
 
     // Id should be bigger than zero
