@@ -1,6 +1,11 @@
+import models.Book;
+import models.Movie;
+import models.Music;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 public class Scraper {
 
@@ -10,11 +15,14 @@ public class Scraper {
     private Elements elements;
     private String search;
 
+    private ArrayList<Movie> movies;
+    private ArrayList<Book> books;
+    private ArrayList<Music> musics;
+
     public Scraper() {
     }
 
     public void addToList(){
-
     }
 
     public void parseAll(String url){
@@ -47,5 +55,17 @@ public class Scraper {
 
     public void setElements(Elements elements) {
         this.elements = elements;
+    }
+
+    public ArrayList<Music> getMusics(){
+        return this.musics;
+    }
+
+    public ArrayList<Book> getBooks(){
+        return this.books;
+    }
+
+    public ArrayList<Movie> getMovies(){
+        return this.movies;
     }
 }

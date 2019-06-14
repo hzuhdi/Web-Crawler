@@ -51,6 +51,7 @@ public class ScraperTest {
         //Act
         //Document.getElementsByClass will be called within the parseAll method
         when(document.getElementsByClass("media-details")).thenReturn(elements);
+        scraper.setDocument(document);
         scraper.parseAll(url);
         movies = scraper.getMovies();
         books = scraper.getBooks();
