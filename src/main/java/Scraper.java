@@ -1,3 +1,4 @@
+import exception.YearException;
 import models.Book;
 import models.Movie;
 import models.Music;
@@ -6,6 +7,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+
+/**
+ * This class intends to scrap the html document to find specific information regarding user want to take a look for
+ */
 
 public class Scraper {
 
@@ -22,7 +27,37 @@ public class Scraper {
     public Scraper() {
     }
 
-    public void addToList(){
+    /**
+     *
+     * @param id
+     * @param title parse the title of html element object
+     * @param category parse the category of html element object
+     * @param elementObject will be reference to the actual table in html
+     */
+    public void addToList(int id, String title, String category, Element elementObject) throws YearException {
+        //All three objects have these three information
+        String genre = getDetailsOfElementFromEachTag(elementObject, "genre");
+        String format = getDetailsOfElementFromEachTag(elementObject, "format");
+        int year = Integer.parseInt(getDetailsOfElementFromEachTag(elementObject, "year"));
+
+        if(category.equalsIgnoreCase("Book")){
+            ArrayList<String> authors = new ArrayList<>();
+            String publisher = getDetailsOfElementFromEachTag(elementObject, "publisher");
+            String isbn = getDetailsOfElementFromEachTag(elementObject, "ISBN");
+            Book book = new Book(id, title, genre, format, year, authors, publisher, isbn);
+            books.add(book);
+        } else if(category.equalsIgnoreCase("Music")){
+
+        } else if(category.equalsIgnoreCase("Movie")){
+
+        }
+    }
+
+    public String getDetailsOfElementFromEachTag(Element myElement, String details){
+        //It has CSS Query feature where we can easily select the tag we want to highlight
+        //Case sensitive
+        String cont = myElement.select("tr:contains(" + details+")").get(0).toString();
+        return cont;
     }
 
     public void parseAll(String url){
