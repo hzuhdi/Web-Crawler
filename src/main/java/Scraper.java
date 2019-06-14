@@ -20,37 +20,52 @@ public class Scraper {
     private Elements elements;
     private String search;
 
-    private ArrayList<Movie> movies;
-    private ArrayList<Book> books;
-    private ArrayList<Music> musics;
+    ArrayList<Movie> movies = new ArrayList<>();
+    ArrayList<Book> books = new ArrayList<>();
+    ArrayList<Music> musics = new ArrayList<>();
+    ArrayList<String> halo = new ArrayList<>();
 
     public Scraper() {
     }
 
     /**
      *
-     * @param id
+     * @param id will be get through a url
      * @param title parse the title of html element object
      * @param category parse the category of html element object
      * @param elementObject will be reference to the actual table in html
      */
     public void addToList(int id, String title, String category, Element elementObject) throws YearException {
         //All three objects have these three information
-        String genre = getDetailsOfElementFromEachTag(elementObject, "genre");
-        String format = getDetailsOfElementFromEachTag(elementObject, "format");
-        int year = Integer.parseInt(getDetailsOfElementFromEachTag(elementObject, "year"));
+        String genre = getDetailsOfElementFromEachTag(elementObject, "Genre");
+        String format = getDetailsOfElementFromEachTag(elementObject, "Format");
+        String year = getDetailsOfElementFromEachTag(elementObject, "Year");
+        int yearBook = Integer.parseInt(year);
 
         if(category.equalsIgnoreCase("Book")){
             ArrayList<String> authors = new ArrayList<>();
-            String publisher = getDetailsOfElementFromEachTag(elementObject, "publisher");
+            authors = getDetailsWithinAList(elementObject, "Authors");
+            String publisher = getDetailsOfElementFromEachTag(elementObject, "Publisher");
             String isbn = getDetailsOfElementFromEachTag(elementObject, "ISBN");
-            Book book = new Book(id, title, genre, format, year, authors, publisher, isbn);
+            Book book = new Book(id, title, genre, format, yearBook, authors, publisher, isbn);
+            System.out.println(book.getId());
+            System.out.println(book.getTitle());
+            System.out.println(book.getAuthors().size());
+            System.out.println(book.getYear());
             books.add(book);
+            System.out.println(books.size());
         } else if(category.equalsIgnoreCase("Music")){
 
         } else if(category.equalsIgnoreCase("Movie")){
 
         }
+    }
+
+    public ArrayList<String> getDetailsWithinAList(Element myElement, String details){
+        //Case Sensitive
+        ArrayList<String> detailList = new ArrayList<>();
+        detailList.add(myElement.select("tr:contains("+details+")").get(0).toString());
+        return detailList;
     }
 
     public String getDetailsOfElementFromEachTag(Element myElement, String details){
@@ -102,5 +117,17 @@ public class Scraper {
 
     public ArrayList<Movie> getMovies(){
         return this.movies;
+    }
+
+    public void setMovies(ArrayList<Movie> movies) {
+        this.movies = movies;
+    }
+
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
+
+    public void setMusics(ArrayList<Music> musics) {
+        this.musics = musics;
     }
 }

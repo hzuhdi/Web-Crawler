@@ -1,3 +1,4 @@
+import exception.YearException;
 import models.Book;
 import models.Movie;
 import models.Music;
@@ -21,10 +22,13 @@ import static org.mockito.Mockito.*;
 public class ScraperTest {
 
     private String url;
+    private ArrayList<String> authors = new ArrayList<>();
 
     @Before
     public void setUp(){
         url = "http://example.com";
+        String author1 = "James Bensen";
+        authors.add(author1);
     }
 
     @Test
@@ -66,30 +70,39 @@ public class ScraperTest {
     }
 
     @Test
-    public void shouldAddAListToBooks(){
+    public void shouldAddAListToBooks() throws YearException {
         //Arrange
-        Elements elements = new Elements();
-        Document document = mock(Document.class);
-        Scraper scraper = new Scraper();
+        Scraper scraper = mock(Scraper.class);
         Element element = mock(Element.class);
-
+        //  Attributes for making the book
         int id = 1;
         String title = "Alice in wonderland";
         String category = "Book";
         Element contentElement = mock(Element.class);
+        String attributeFormat = "Ebook";
+        String attributeGenre = "Tech";
+        int year = 2013;
+        String yearString = Integer.toString(year);
+        ArrayList<String> authors = new ArrayList<>();
+        authors.add("Jimmy Bensen");
+        String attributeIsbn = "ISBN12345";
+        String attributePublisher = "Gramedia Publisher";
 
         //Act
-        scraper.setDocument(document);
-        when(document.getElementsByClass("media-details")).thenReturn(elements);
-        when(element.select(anyString()).get(0)).thenReturn(contentElement);
-
         //During the scraping, there are some information will be drilled
         //1. ID 2. Titlte 3. Category 4. Content (Details of the object)
         //It can be viewed from our web target
-        scraper.addToList(id, title, category, contentElement);
-        //Once it's done it will add to each list of object
+        when(scraper.getDetailsOfElementFromEachTag(element, "Year")).thenReturn(yearString);
+        when(scraper.getDetailsOfElementFromEachTag(element, "Format")).thenReturn(attributeFormat);
+        when(scraper.getDetailsOfElementFromEachTag(element, "Genre")).thenReturn(attributeGenre);
+        when(scraper.getDetailsOfElementFromEachTag(element, "Year")).thenReturn(yearString);
+        when(scraper.getDetailsOfElementFromEachTag(element, "ISBN")).thenReturn(attributeIsbn);
+        when(scraper.getDetailsOfElementFromEachTag(element, "Publisher")).thenReturn(attributePublisher);
+        when(scraper.getDetailsWithinAList(element, "Authors")).thenReturn(authors);
+        //doCallRealMethod().when(scraper).addToList(id, title, category, element);
+        scraper.addToList(id, title, category, element);
 
         //Assert
-        assertThat(scraper.getBooks(), hasSize(1));
+        verify(scraper, times(1)).addToList(id, title, category, element);
     }
 }
