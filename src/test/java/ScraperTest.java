@@ -2,6 +2,7 @@ import models.Book;
 import models.Movie;
 import models.Music;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.*;
 
 
@@ -61,5 +63,33 @@ public class ScraperTest {
         assertNotNull(books);
         assertNotNull(musics);
 
+    }
+
+    @Test
+    public void shouldAddAListToBooks(){
+        //Arrange
+        Elements elements = new Elements();
+        Document document = mock(Document.class);
+        Scraper scraper = new Scraper();
+        Element element = mock(Element.class);
+
+        int id = 1;
+        String title = "Alice in wonderland";
+        String category = "Book";
+        Element contentElement = mock(Element.class);
+
+        //Act
+        scraper.setDocument(document);
+        when(document.getElementsByClass("media-details")).thenReturn(elements);
+        when(element.select(anyString()).get(0)).thenReturn(contentElement);
+
+        //During the scraping, there are some information will be drilled
+        //1. ID 2. Titlte 3. Category 4. Content (Details of the object)
+        //It can be viewed from our web target
+        scraper.addToList(id, title, category, contentElement);
+        //Once it's done it will add to each list of object
+
+        //Assert
+        assertThat(scraper.getBooks(), hasSize(1));
     }
 }
