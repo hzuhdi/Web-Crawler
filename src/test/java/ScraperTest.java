@@ -33,6 +33,18 @@ public class ScraperTest {
     }
 
     @Test
+    public void parseAllShouldBeCalled() throws YearException {
+        //Arrange
+        Scraper scraper = mock(Scraper.class);
+
+        //doCallRealMethod().when(scraper).parseAll(book_url);
+        scraper.parseAll(book_url);
+
+        //Assert
+        verify(scraper, times(1)).parseAll(book_url);
+    }
+
+    @Test
     public void shouldGiveTheExpectedElements(){
         //Arrange
         Document document = mock(Document.class);
@@ -107,17 +119,4 @@ public class ScraperTest {
         verify(scraper, times(1)).addToList(id, title, category, element);
     }
 
-    @Test
-    public void parseAllShouldPerformGetElementsWithinDocument() throws YearException {
-        //Arrange
-        Scraper scraper = new Scraper();
-        Elements elements = mock(Elements.class);
-        Document document = mock(Document.class);
-        //Act
-        when(document.getElementsByClass("media-details")).thenReturn(elements);
-        scraper.parseAll(book_url);
-        //Assert
-        //Document will be passed in the parseAll method
-        //verify(scraper).parseAll(anyString());
-    }
 }

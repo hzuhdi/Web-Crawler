@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class Scraper {
 
-    private String USER_AGENT;
+    private String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
     private Document document;
     private Element element;
     private Elements elements;
@@ -29,6 +29,10 @@ public class Scraper {
     ArrayList<String> halo = new ArrayList<>();
 
     public Scraper() {
+    }
+
+    public void main(String args[]) throws YearException {
+        this.parseAll("http://localhost/sample_site_to_crawl/details.php?id=102");
     }
 
     /**
@@ -79,13 +83,14 @@ public class Scraper {
     }
 
     public void parseAll(String url) throws YearException {
-        Connection connection = Jsoup.connect(url);
-        if(connection.response().statusCode() == 200){
-            System.out.println("\n**Visiting** Received web page at " + url);
             try {
+                Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
                 Document htmlDocument = connection.get();
                 this.document = htmlDocument;
-                Elements media = htmlDocument.select("media-details");
+                if(connection.response().statusCode() == 200) {
+                    System.out.println("\n**Visiting** Received web page at " + url);
+                }
+                Elements media = document.getElementsByClass("media-details");
                 System.out.println("Found media: " + media.size());
                 int z = 1;
                 for(Element htmlElement : elements){
@@ -102,9 +107,6 @@ public class Scraper {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            System.out.println("Error at visiting: " + url);
-        }
 
     }
 
