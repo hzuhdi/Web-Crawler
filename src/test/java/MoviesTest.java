@@ -192,6 +192,7 @@ public class MoviesTest {
 
         // Act
         movie = new Movie(id, title, genre, format, year, director);
+        movie.setStars(new ArrayList<String>());
         movie.addStarToMovie("Ron Livingston");
         movie.addStarToMovie("Jennifer Aniston");
         movie.addStarToMovie("Ali");
