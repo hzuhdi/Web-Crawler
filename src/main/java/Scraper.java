@@ -53,9 +53,9 @@ public class Scraper {
             Book book = new Book(id, title, genre, format, yearInt, authors, publisher, isbn);
             books.add(book);
         } else if(category.equalsIgnoreCase("Music")){
-            String artist = getDetailsOfElementFromEachTag(elementObject, "Artist");
-            Music music = new Music(id, genre, format, yearInt, artist);
-            musics.add(music);
+            //String artist = getDetailsOfElementFromEachTag(elementObject, "Artist");
+            //Music music = new Music(id, genre, format, yearInt, artist);
+            //musics.add(music);
         } else if(category.equalsIgnoreCase("Movies")){
 
         }
