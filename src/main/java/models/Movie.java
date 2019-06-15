@@ -1,10 +1,7 @@
 package models;
 
 
-import exception.AllowedWritersNumberExceededException;
-import exception.AttributeNotPresentedException;
-import exception.StarsListNotInitializedException;
-import exception.WritersListNotInitializedException;
+import exception.*;
 
 import javax.naming.directory.AttributeInUseException;
 import java.util.ArrayList;
@@ -116,6 +113,10 @@ public class Movie {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        throw new TitleCannotBeChangedAfterInitializationException("Title cannot be changed after creation");
     }
 
     public String getCategory() {

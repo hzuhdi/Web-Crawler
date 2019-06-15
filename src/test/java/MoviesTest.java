@@ -1,8 +1,5 @@
 
-import exception.AllowedWritersNumberExceededException;
-import exception.AttributeNotPresentedException;
-import exception.StarsListNotInitializedException;
-import exception.WritersListNotInitializedException;
+import exception.*;
 import models.Movie;
 import org.junit.Before;
 import org.junit.Test;
@@ -361,7 +358,7 @@ public class MoviesTest {
 
     //-------------------------------------------------------------------------------------------------------------
 
-    @Test
+    @Test(expected = TitleCannotBeChangedAfterInitializationException.class)
     public void movieTitleCannotBeChangedAfterCreation() {
         //Arrange
         int id = 1;
