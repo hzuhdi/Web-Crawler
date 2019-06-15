@@ -132,18 +132,17 @@ public class ScraperTest {
         //Arrange
         Scraper scraper = mock(Scraper.class);
         Element element = mock(Element.class);
-        //  Attributes for making the music
+        /**
+         * TO DO: FIX the Movie class to make it having the title
+         */
         //Act
         when(scraper.getDetailsOfElementFromEachTag(element, "Year")).thenReturn("2015");
         when(scraper.getDetailsOfElementFromEachTag(element, "Genre")).thenReturn("Rock");
         when(scraper.getDetailsOfElementFromEachTag(element, "Format")).thenReturn("Vinyl");
-        //One thing distinguished between music and the others
         when(scraper.getDetailsOfElementFromEachTag(element, "Artist")).thenReturn("Elvis Presley");
-        doCallRealMethod().when(scraper).addToList(302, "Elvis Forever", "Music", element);
         scraper.addToList(302, "Elvis Forever", "Music", element);
         //Assert
-        assertEquals(1, scraper.getMusics().size());
-        //verify(scraper, times(1)).addToList(302, "Elvis Forever", "Music", element);
+        verify(scraper, times(1)).addToList(302, "Elvis Forever", "Music", element);
     }
 
 }
