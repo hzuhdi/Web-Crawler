@@ -1,6 +1,7 @@
 
 import exception.AllowedWritersNumberExceededException;
 import exception.AttributeNotPresentedException;
+import exception.StarsListNotInitializedException;
 import models.Movie;
 import org.junit.Before;
 import org.junit.Test;
@@ -177,6 +178,7 @@ public class MoviesTest {
         assertThat(movie.getStars().size(), equalTo(4));
     }
 
+    // --------------------------------- Star ---------------------------------------------------------
     @Test
     public void addStarToMovie_Passed() {
         //Arrange
@@ -242,6 +244,27 @@ public class MoviesTest {
         assertThat(movie.getStars().size(), equalTo(3));
         verify(stars, times(3)).add(anyString());
 
+    }
+
+    @Test(expected = StarsListNotInitializedException.class)
+    public void addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens", "Noah", "Tamer"));
+        List<String> stars = null;
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director);
+        movie.addStarToMovie("Ron Livingston");
+        movie.addStarToMovie("Jennifer Aniston");
+        movie.addStarToMovie("Ali");
     }
 
 
