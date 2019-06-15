@@ -31,10 +31,6 @@ public class Scraper {
     public Scraper() {
     }
 
-    public void main(String args[]) throws YearException {
-        this.parseAll("http://localhost/sample_site_to_crawl/details.php?id=102");
-    }
-
     /**
      *
      * @param id will be get through a url
@@ -55,12 +51,7 @@ public class Scraper {
             String publisher = getDetailsOfElementFromEachTag(elementObject, "Publisher");
             String isbn = getDetailsOfElementFromEachTag(elementObject, "ISBN");
             Book book = new Book(id, title, genre, format, yearBook, authors, publisher, isbn);
-            System.out.println(book.getId());
-            System.out.println(book.getTitle());
-            System.out.println(book.getAuthors().size());
-            System.out.println(book.getYear());
             books.add(book);
-            System.out.println(books.size());
         } else if(category.equalsIgnoreCase("Music")){
 
         } else if(category.equalsIgnoreCase("Movie")){
