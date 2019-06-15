@@ -150,4 +150,11 @@ public class Movie {
         }
         this.stars.add(star);
     }
+
+    public void addWriterToMovie(String writer) {
+        if (writer == null || writer.trim().isEmpty()) {
+            throw new IllegalArgumentException("Should not be null or empty");
+        }
+        this.writers.add(writer);
+    }
 }
