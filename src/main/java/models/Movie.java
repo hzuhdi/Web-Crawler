@@ -142,6 +142,10 @@ public class Movie {
         return writers;
     }
 
+    public void setWriters(List<String> writers) {
+        this.writers = writers;
+    }
+
     public List<String> getStars() {
         return stars;
     }
