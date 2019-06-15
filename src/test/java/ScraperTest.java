@@ -21,12 +21,13 @@ import static org.mockito.Mockito.*;
 
 public class ScraperTest {
 
-    private String url;
+    private String url, book_url;
     private ArrayList<String> authors = new ArrayList<>();
 
     @Before
     public void setUp(){
         url = "http://example.com";
+        book_url = "http://localhost/sample_site_to_crawl/details.php?id=102";
         String author1 = "James Bensen";
         authors.add(author1);
     }
@@ -104,5 +105,21 @@ public class ScraperTest {
 
         //Assert
         verify(scraper, times(1)).addToList(id, title, category, element);
+    }
+
+    @Test
+    public void parseAllShouldPerformGetElementsWithinDocument(){
+        //Arrange
+        Scraper scraper = new Scraper();
+        Elements elements = mock(Elements.class);
+        Document document = mock(Document.class);
+        //Act
+        when(document.getElementsByClass("media-details")).thenReturn(elements);
+        scraper.parseAll("http://localhost/sample_site_to_crawl/details.php?id=102");
+        //Assert
+        //Document will be passed in the parseAll method
+        verify(document, times(1)).getElementsByClass("media-details");
+        //verify(scraper).parseAll(anyString());
+
     }
 }
