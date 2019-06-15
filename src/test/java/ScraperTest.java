@@ -47,7 +47,7 @@ public class ScraperTest {
     }
 
     @Test
-    public void parseAllShouldReturnAListOfBooksMoviesAndMusics(){
+    public void parseAllShouldReturnAListOfBooksMoviesAndMusics() throws YearException {
         //Arrange
         Elements elements = new Elements();
         Document document = mock(Document.class);
@@ -108,18 +108,16 @@ public class ScraperTest {
     }
 
     @Test
-    public void parseAllShouldPerformGetElementsWithinDocument(){
+    public void parseAllShouldPerformGetElementsWithinDocument() throws YearException {
         //Arrange
         Scraper scraper = new Scraper();
         Elements elements = mock(Elements.class);
         Document document = mock(Document.class);
         //Act
         when(document.getElementsByClass("media-details")).thenReturn(elements);
-        scraper.parseAll("http://localhost/sample_site_to_crawl/details.php?id=102");
+        scraper.parseAll(book_url);
         //Assert
         //Document will be passed in the parseAll method
-        verify(document, times(1)).getElementsByClass("media-details");
         //verify(scraper).parseAll(anyString());
-
     }
 }

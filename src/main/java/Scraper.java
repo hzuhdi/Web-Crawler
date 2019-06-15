@@ -2,10 +2,13 @@ import exception.YearException;
 import models.Book;
 import models.Movie;
 import models.Music;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -75,8 +78,41 @@ public class Scraper {
         return cont;
     }
 
-    public void parseAll(String url){
+    public void parseAll(String url) throws YearException {
+        Connection connection = Jsoup.connect(url);
+        if(connection.response().statusCode() == 200){
+            System.out.println("\n**Visiting** Received web page at " + url);
+            try {
+                Document htmlDocument = connection.get();
+                this.document = htmlDocument;
+                Elements media = htmlDocument.select("media-details");
+                System.out.println("Found media: " + media.size());
+                int z = 1;
+                for(Element htmlElement : elements){
+                    //All of this can be found on the target website
+                    Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
+                    String category = categoryElement.select("td").get(0).text();
+                    String title = categoryElement.select("h1").get(0).text();
+                    int id = getIdFromUrl(url);
+                    addToList(id, title, category, htmlElement);
+                    /**
+                     * TO DO: Create a getter from url to get an id : https://stackoverflow.com/questions/45539506/how-to-extract-id-from-url-google-sheet
+                     */
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error at visiting: " + url);
+        }
 
+    }
+
+    public int getIdFromUrl(String url){
+        //Normal Url : http://localhost/sample_site_to_crawl/details.php?id=102
+        String [] parts = url.split("=");
+        int id = Integer.parseInt(parts[0]);
+        return id;
     }
 
     public boolean parseSpecific(String url, String keyword){
