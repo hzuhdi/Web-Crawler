@@ -12,6 +12,8 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 public class MoviesTest {
 
@@ -210,6 +212,37 @@ public class MoviesTest {
         // Act
         movie = new Movie(id, title, genre, format, year, director);
         movie.addStarToMovie(null);
+    }
+
+    @Test
+    public void addStarToMovie_MockitoUsedToVerifyPassed() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens", "Noah", "Tamer"));
+        List<String> stars = mock(List.class);
+
+        // expectations
+        when(stars.size())
+                .thenReturn(3);
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director,writers,stars);
+        movie.addStarToMovie("Ron Livingston");
+        movie.addStarToMovie("Jennifer Aniston");
+        movie.addStarToMovie("Ali");
+
+        // Assert
+        assertThat(movie.getStars().size(), equalTo(3));
+        // to check if saveMessage invoke or not, we use verify method in Mockito...
+        verify(stars, times(3)).add(anyString());
+
     }
 
 
