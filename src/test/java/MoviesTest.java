@@ -246,6 +246,7 @@ public class MoviesTest {
     }
 
 
+    // --------------------------------- Writer ---------------------------------------------------------
     @Test
     public void addWriterToMovie_Passed() {
         //Arrange
@@ -267,7 +268,21 @@ public class MoviesTest {
         assertThat(movie.getWriters().size(), equalTo(3));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void addWriterToMovie_NullValueProvided_ThrowIllegalArgumentException() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
 
+        // Act
+        movie = new Movie(id, title, genre, format, year, director);
+        movie.addWriterToMovie(null);
+    }
 
 
 
