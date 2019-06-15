@@ -112,8 +112,9 @@ public class Scraper {
 
     public int getIdFromUrl(String url){
         //Normal Url : http://localhost/sample_site_to_crawl/details.php?id=102
-        String [] parts = url.split("=");
-        int id = Integer.parseInt(parts[0]);
+        String [] parts = url.split("id=");
+        //System.out.println(parts[1]);
+        int id = Integer.parseInt(parts[1]);
         return id;
     }
 
