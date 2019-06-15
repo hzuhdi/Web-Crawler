@@ -175,6 +175,27 @@ public class MoviesTest {
         assertThat(movie.getStars().size(), equalTo(4));
     }
 
+    @Test
+    public void addStarToMovie_Passed() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director);
+        movie.addStarToMovie("Ron Livingston");
+        movie.addStarToMovie("Jennifer Aniston");
+        movie.addStarToMovie("Ali");
+
+        // Assert
+        assertThat(movie.getStars().size(), equalTo(3));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void addStarToMovie_NullValueProvided_ThrowIllegalArgumentException() {
         //Arrange
