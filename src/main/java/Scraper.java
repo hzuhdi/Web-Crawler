@@ -45,7 +45,7 @@ public class Scraper {
         String year = getDetailsOfElementFromEachTag(elementObject, "Year");
         int yearInt = Integer.parseInt(year);
 
-        if(category.equalsIgnoreCase("Book")){
+        if(category.equalsIgnoreCase("Books")){
             ArrayList<String> authors = new ArrayList<>();
             authors = getDetailsWithinAList(elementObject, "Authors");
             String publisher = getDetailsOfElementFromEachTag(elementObject, "Publisher");
@@ -56,7 +56,7 @@ public class Scraper {
             String artist = getDetailsOfElementFromEachTag(elementObject, "Artist");
             Music music = new Music(id, genre, format, yearInt, artist);
             musics.add(music);
-        } else if(category.equalsIgnoreCase("Movie")){
+        } else if(category.equalsIgnoreCase("Movies")){
 
         }
     }
