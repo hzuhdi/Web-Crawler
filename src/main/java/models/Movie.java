@@ -145,6 +145,10 @@ public class Movie {
         return stars;
     }
 
+    public void setStars(List<String> stars) {
+        this.stars = stars;
+    }
+
     public void addStarToMovie(String star) {
         if (star == null || star.trim().isEmpty()) {
             throw new IllegalArgumentException("Should not be null or empty");
