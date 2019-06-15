@@ -69,6 +69,46 @@ public class Movie {
         this.stars = stars;
     }
 
+
+    /**
+     *
+     * @param id
+     * @param title
+     * @param genre
+     * @param format
+     * @param year
+     * @param director
+     */
+    public Movie(int id, String title, String genre, String format, int year, String director) {
+        if (title == null) {
+            throw new AttributeNotPresentedException("title should not be null or empty");
+        }
+        if (id <= 0) {
+            throw new AttributeNotPresentedException("id should not be null or 0");
+        }
+        if (genre == null) {
+            throw new AttributeNotPresentedException("genre should not be null or empty");
+        }
+        if (format == null) {
+            throw new AttributeNotPresentedException("format should not be null or empty");
+        }
+        if (year <=0) {
+            throw new AttributeNotPresentedException("year should not be null or 0");
+        }
+        if (director == null) {
+            throw new AttributeNotPresentedException("director should not be null or empty");
+        }
+
+
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.format = format;
+        this.year = year;
+        this.director = director;
+    }
+
+
     public int getId() {
         return id;
     }
@@ -103,5 +143,9 @@ public class Movie {
 
     public List<String> getStars() {
         return stars;
+    }
+
+    public void addStarToMovie(String star){
+
     }
 }
