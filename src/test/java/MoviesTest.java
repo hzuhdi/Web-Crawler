@@ -359,5 +359,28 @@ public class MoviesTest {
         movie.addWriterToMovie("Writer 3");
     }
 
+    //-------------------------------------------------------------------------------------------------------------
+
+    @Test
+    public void movieTitleCannotBeChangedAfterCreation() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+
+        List<String> writers = new ArrayList<>(Arrays.asList("Writer 1", "Writer 2", "Writer 3"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Star 1", "Star 2", "Star 3"));
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
+        movie.setTitle("another title");
+
+        // Assert
+        assertThat(movie.getTitle(), equalTo(title));
+    }
 
 }
