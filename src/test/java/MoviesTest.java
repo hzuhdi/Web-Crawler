@@ -408,5 +408,28 @@ public class MoviesTest {
         assertThat(movie.getYear(), lessThanOrEqualTo(currentYear));
     }
 
+    @Test(expected = MovieYearShouldBeLessThanOrEqualCurrentYearException.class)
+    public void movieYearShouldNotBeGreaterThanCurrentYear() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2020;
+        String director = "Peter Jackson";
 
+        List<String> writers = new ArrayList<>(Arrays.asList("Writer 1", "Writer 2", "Writer 3"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Star 1", "Star 2", "Star 3"));
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
+
+        Date currentDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        int currentYear = Integer.valueOf(formatter.format(currentDate));
+
+        // Assert
+        assertThat(movie.getYear(), lessThanOrEqualTo(currentYear));
+    }
 }
