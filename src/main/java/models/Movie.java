@@ -4,6 +4,7 @@ package models;
 import exception.AllowedWritersNumberExceededException;
 import exception.AttributeNotPresentedException;
 import exception.StarsListNotInitializedException;
+import exception.WritersListNotInitializedException;
 
 import javax.naming.directory.AttributeInUseException;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class Movie {
     private String format;
     private int year;
     private String director;
-    private List<String> writers = new ArrayList<>();
+    private List<String> writers = null;
     private List<String> stars = null;
 
     /**
@@ -163,6 +164,9 @@ public class Movie {
     public void addWriterToMovie(String writer) {
         if (writer == null || writer.trim().isEmpty()) {
             throw new IllegalArgumentException("Should not be null or empty");
+        }
+        if (this.writers==null){
+            throw new WritersListNotInitializedException("Writer list should not be null");
         }
         this.writers.add(writer);
     }
