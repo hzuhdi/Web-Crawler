@@ -283,6 +283,7 @@ public class MoviesTest {
 
         // Act
         movie = new Movie(id, title, genre, format, year, director);
+        movie.setWriters(new ArrayList<String>());
         movie.addWriterToMovie("Writer 1");
         movie.addWriterToMovie("Writer 2");
         movie.addWriterToMovie("Writer 3");
