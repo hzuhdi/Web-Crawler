@@ -233,14 +233,13 @@ public class MoviesTest {
                 .thenReturn(3);
 
         // Act
-        movie = new Movie(id, title, genre, format, year, director,writers,stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
         movie.addStarToMovie("Ron Livingston");
         movie.addStarToMovie("Jennifer Aniston");
         movie.addStarToMovie("Ali");
 
         // Assert
         assertThat(movie.getStars().size(), equalTo(3));
-        // to check if saveMessage invoke or not, we use verify method in Mockito...
         verify(stars, times(3)).add(anyString());
 
     }
@@ -284,7 +283,35 @@ public class MoviesTest {
         movie.addWriterToMovie(null);
     }
 
+    @Test
+    public void addWriterToMovie_MockitoUsedToVerifyPassed() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
 
+        List<String> writers = mock(List.class);
+        List<String> stars = new ArrayList<>(Arrays.asList("Star 1", "Star 2", "Star 3"));
+
+        // expectations
+        when(writers.size())
+                .thenReturn(3);
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
+        movie.addWriterToMovie("Writer 1");
+        movie.addWriterToMovie("Writer 2");
+        movie.addWriterToMovie("Writer 3");
+
+        // Assert
+        assertThat(movie.getWriters().size(), equalTo(3));
+        verify(writers, times(3)).add(anyString());
+
+    }
 
 
 }
