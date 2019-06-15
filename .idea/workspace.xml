@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="1-MovieYearShouldBeLessThanOrEqualCurrentYearException class is added&#10;2-Movie class -REFACTOR">
+    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/WebCrawler.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/WebCrawler.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/WebCrawler.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/AllowedWritersNumberExceededException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/AttributeNotPresentedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/MovieYearShouldBeLessThanOrEqualCurrentYearException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/StarsListNotInitializedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/TitleCannotBeChangedAfterInitializationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/WritersListNotInitializedException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exception/YearException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exception/YearException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MoviesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MoviesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MusicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MusicTest.java" afterDir="false" />
     </list>
-=======
-    <list default="true" id="75caf652-1b8e-426c-9501-7f5536c5523f" name="Default Changelist" comment="" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -29,211 +43,158 @@
     </projectState>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/MoviesTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-              <folding>
-                <element signature="method#initializeMovieWithAllAttributesProvided#0;class#MoviesTest#0" />
-                <element signature="method#initializeMovieWithAllAttributesMissing#0;class#MoviesTest#0" />
-                <element signature="method#IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully#0;class#MoviesTest#0" />
-                <element signature="method#IdLessThanOrEqualToZero_MovieObjectInitializationFail#0;class#MoviesTest#0" />
-                <element signature="method#SixWriters_MovieObjectInitializationFail#0;class#MoviesTest#0" />
-                <element signature="method#fiveWriters_MovieObjectInitializationPassed#0;class#MoviesTest#0" />
-                <element signature="method#fourStars_MovieObjectInitializationPassed#0;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_NullValueProvided_ThrowIllegalArgumentException#0;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_NullValueProvided_ThrowIllegalArgumentException#1;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_MockitoUsedToVerifyPassed#0;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_MockitoUsedToVerifyPassed#1;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_Passed#1;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_NullValueProvided_ThrowIllegalArgumentException#1;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_MockitoUsedToVerifyPassed#1;class#MoviesTest#0" />
-                <element signature="method#addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException#1;class#MoviesTest#0" />
-                <element signature="method#addWriterToMovie_MockitoUsedToVerifyPassed#1;class#MoviesTest#0" />
-                <element signature="method#movieTitleCannotBeChangedAfterCreation#1;class#MoviesTest#0" />
-                <element signature="method#movieYearShouldBeEqualOrLowerThanCurrentYear#1;class#MoviesTest#0" />
-              </folding>
-=======
-      <file leaf-file-name="Movie.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Music.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-33">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1046#1047#0" expanded="true" />
-                <element signature="e#1071#1072#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1132#1133#0" expanded="true" />
-                <element signature="e#1169#1170#0" expanded="true" />
-                <element signature="e#1197#1198#0" expanded="true" />
-                <element signature="e#1230#1231#0" expanded="true" />
-                <element signature="e#1259#1260#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-                <element signature="e#1314#1315#0" expanded="true" />
-                <element signature="e#1353#1354#0" expanded="true" />
-                <element signature="e#1382#1383#0" expanded="true" />
-                <element signature="e#1412#1413#0" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-                <element signature="e#1482#1483#0" expanded="true" />
-                <element signature="e#1515#1516#0" expanded="true" />
-                <element signature="e#1558#1559#0" expanded="true" />
-                <element signature="e#1593#1594#0" expanded="true" />
-                <element signature="e#1629#1630#0" expanded="true" />
-                <element signature="e#1659#1660#0" expanded="true" />
-                <element signature="e#1702#1703#0" expanded="true" />
-                <element signature="e#1734#1735#0" expanded="true" />
-                <element signature="e#1775#1776#0" expanded="true" />
-                <element signature="e#1808#1809#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Crawler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Crawler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-199">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scraper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MusicTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/MusicTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="31" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="102" column="38" lean-forward="true" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#Movie#0;class#Movie#0" />
-                <element signature="docComment;method#Movie#1;class#Movie#0" />
-                <element signature="e#3467#3468#0" expanded="true" />
-                <element signature="e#3492#3493#0" expanded="true" />
-                <element signature="e#3524#3525#0" expanded="true" />
-                <element signature="e#3552#3553#0" expanded="true" />
-                <element signature="e#3587#3588#0" expanded="true" />
-                <element signature="e#3618#3619#0" expanded="true" />
-                <element signature="e#3650#3651#0" expanded="true" />
-                <element signature="e#3678#3679#0" expanded="true" />
-                <element signature="e#3711#3712#0" expanded="true" />
-                <element signature="e#3740#3741#0" expanded="true" />
-                <element signature="e#3768#3769#0" expanded="true" />
-                <element signature="e#3795#3796#0" expanded="true" />
-                <element signature="e#3830#3831#0" expanded="true" />
-                <element signature="e#3861#3862#0" expanded="true" />
-                <element signature="e#3901#3902#0" expanded="true" />
-                <element signature="e#3931#3932#0" expanded="true" />
-                <element signature="e#4038#4039#0" expanded="true" />
-                <element signature="e#4076#4077#0" expanded="true" />
-                <element signature="e#3969#3970#0" expanded="true" />
-                <element signature="e#3997#3998#0" expanded="true" />
-                <element signature="e#4060#4061#0" expanded="true" />
-                <element signature="e#4094#4095#0" expanded="true" />
-              </folding>
-=======
-      <file leaf-file-name="MoviesTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/MoviesTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exception/IDException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Book.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-=======
-      <file leaf-file-name="YearException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exception/YearException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#101#102#0" expanded="true" />
-                <element signature="e#125#126#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Book.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-242">
-              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="22" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="408">
-              <caret line="33" column="40" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="40" />
-=======
-            <state relative-caret-position="-28">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/ScraperTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="447">
+                  <caret line="147" column="1" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="1" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="615">
+                  <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#4206#4207#0" expanded="true" />
+                    <element signature="e#4234#4235#0" expanded="true" />
+                    <element signature="e#4271#4272#0" expanded="true" />
+                    <element signature="e#4302#4303#0" expanded="true" />
+                    <element signature="e#4352#4353#0" expanded="true" />
+                    <element signature="e#4392#4393#0" expanded="true" />
+                    <element signature="e#4427#4428#0" expanded="true" />
+                    <element signature="e#4457#4458#0" expanded="true" />
+                    <element signature="e#4504#4505#0" expanded="true" />
+                    <element signature="e#4542#4543#0" expanded="true" />
+                    <element signature="e#4579#4580#0" expanded="true" />
+                    <element signature="e#4610#4611#0" expanded="true" />
+                    <element signature="e#4660#4661#0" expanded="true" />
+                    <element signature="e#4700#4701#0" expanded="true" />
+                    <element signature="e#4742#4743#0" expanded="true" />
+                    <element signature="e#4776#4777#0" expanded="true" />
+                    <element signature="e#4816#4817#0" expanded="true" />
+                    <element signature="e#4849#4850#0" expanded="true" />
+                    <element signature="e#4891#4892#0" expanded="true" />
+                    <element signature="e#4925#4926#0" expanded="true" />
+                    <element signature="e#4979#4980#0" expanded="true" />
+                    <element signature="e#5015#5016#0" expanded="true" />
+                    <element signature="e#5066#5067#0" expanded="true" />
+                    <element signature="e#5100#5101#0" expanded="true" />
+                    <element signature="e#5154#5155#0" expanded="true" />
+                    <element signature="e#5190#5191#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/exception/WritersListNotInitializedException.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/exception/TitleCannotBeChangedAfterInitializationException.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/exception/StarsListNotInitializedException.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/exception/MovieYearShouldBeLessThanOrEqualCurrentYearException.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Crawler.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#290#291#0" expanded="true" />
+                    <element signature="e#314#315#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-990">
+                  <caret line="26" column="59" selection-start-line="26" selection-end-line="27" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="929">
+                  <caret line="94" column="62" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="62" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -244,86 +205,49 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>curren</find>
+      <find>document</find>
+      <find>setD</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-<<<<<<< HEAD
-        <entry key="$PROJECT_DIR$" value="development" />
-=======
-        <entry key="$PROJECT_DIR$" value="6240945781000" />
-        <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1270615741" />
-        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="261915471" />
-        <entry key="$PROJECT_DIR$/settings.gradle" value="105111714" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-      </map>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/models/Movies.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/Spider.java" />
         <option value="$PROJECT_DIR$/src/main/java/ParserHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/JSONConverter.java" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/main/java/exception/AttributeNotPresentedException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exception/AllowedWritersNumberExceededException.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/exception/StarsListNotInitializedException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exception/WritersListNotInitializedException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exception/TitleCannotBeChangedAfterInitializationException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exception/MovieYearShouldBeLessThanOrEqualCurrentYearException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/models/Movie.java" />
-        <option value="$PROJECT_DIR$/src/test/java/MoviesTest.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="126" />
-    <option name="width" value="1440" />
-    <option name="height" value="765" />
-=======
-        <option value="$PROJECT_DIR$/src/main/java/exception/YearException.java" />
-        <option value="$PROJECT_DIR$/src/test/java/BookTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/MusicTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Music.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Movie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Content.java" />
+        <option value="$PROJECT_DIR$/src/main/java/WCA_Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/WCA_Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Crawler.java" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/exception/IDException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exception/YearException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Book.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/test/java/BookTest.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/test/java/ScraperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Scraper.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-6" />
-    <option name="y" value="112" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="160" />
+    <option name="y" value="78" />
     <option name="width" value="1280" />
     <option name="height" value="721" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-<<<<<<< HEAD
-=======
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,22 +277,16 @@
               <item name="WebCrawler" type="b2602c69:ProjectViewProjectNode" />
               <item name="tci-group4" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-=======
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="exception" type="462c0819:PsiDirectoryNode" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
             </path>
             <path>
               <item name="WebCrawler" type="b2602c69:ProjectViewProjectNode" />
               <item name="tci-group4" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -383,24 +301,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
       <pane id="PackagesPane" />
-=======
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560613560003" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -414,83 +332,66 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MoviesTest">
+  <component name="RunManager" selected="JUnit.ScraperTest.shouldAddAMovieToTheList">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoviesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WebCrawler.test" />
+    <configuration name="ScraperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group.WebCrawler.test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoviesTest" />
+      <option name="MAIN_CLASS_NAME" value="ScraperTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoviesTest.addWriterToMovie_Passed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WebCrawler.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoviesTest" />
-      <option name="METHOD_NAME" value="addWriterToMovie_Passed" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoviesTest.movieTitleCannotBeChangedAfterCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WebCrawler.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoviesTest" />
-      <option name="METHOD_NAME" value="movieTitleCannotBeChangedAfterCreation" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WebCrawler.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoviesTest" />
-      <option name="METHOD_NAME" value="movieYearShouldBeEqualOrLowerThanCurrentYear" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoviesTest.movieYearShouldNotBeGreaterThanCurrentYear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WebCrawler.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoviesTest" />
-      <option name="METHOD_NAME" value="movieYearShouldNotBeGreaterThanCurrentYear" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MusicTest.threeArtistsShouldWork" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScraperTest.getTheListStringFromElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Group.WebCrawler.test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MusicTest" />
-      <option name="METHOD_NAME" value="threeArtistsShouldWork" />
+      <option name="MAIN_CLASS_NAME" value="ScraperTest" />
+      <option name="METHOD_NAME" value="getTheListStringFromElement" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScraperTest.justDoTestAnArrayList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group.WebCrawler.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScraperTest" />
+      <option name="METHOD_NAME" value="justDoTestAnArrayList" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScraperTest.shouldAddAListToTheMusics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group.WebCrawler.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScraperTest" />
+      <option name="METHOD_NAME" value="shouldAddAListToTheMusics" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScraperTest.shouldAddAMovieToTheList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Group.WebCrawler.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScraperTest" />
+      <option name="METHOD_NAME" value="shouldAddAMovieToTheList" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -500,7 +401,6 @@
       </method>
     </configuration>
     <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <properties />
       <listeners />
@@ -510,15 +410,11 @@
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< HEAD
-        <item itemvalue="JUnit.MoviesTest" />
-        <item itemvalue="JUnit.MoviesTest.movieYearShouldNotBeGreaterThanCurrentYear" />
-        <item itemvalue="JUnit.MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" />
-        <item itemvalue="JUnit.MoviesTest.movieTitleCannotBeChangedAfterCreation" />
-        <item itemvalue="JUnit.MoviesTest.addWriterToMovie_Passed" />
-=======
-        <item itemvalue="JUnit.MusicTest.threeArtistsShouldWork" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
+        <item itemvalue="JUnit.ScraperTest.shouldAddAMovieToTheList" />
+        <item itemvalue="JUnit.ScraperTest.shouldAddAListToTheMusics" />
+        <item itemvalue="JUnit.ScraperTest.justDoTestAnArrayList" />
+        <item itemvalue="JUnit.ScraperTest" />
+        <item itemvalue="JUnit.ScraperTest.getTheListStringFromElement" />
       </list>
     </recent_temporary>
   </component>
@@ -534,442 +430,84 @@
       <updated>1558281218886</updated>
       <workItem from="1558281221310" duration="837000" />
       <workItem from="1558282985942" duration="306000" />
-<<<<<<< HEAD
-      <workItem from="1558380117452" duration="119000" />
-      <workItem from="1558571166325" duration="629000" />
-      <workItem from="1560013992670" duration="598000" />
-      <workItem from="1560196700742" duration="7601000" />
-      <workItem from="1560366709489" duration="5987000" />
-      <workItem from="1560603851553" duration="8760000" />
+      <workItem from="1558746113905" duration="2361000" />
+      <workItem from="1558888262028" duration="3981000" />
+      <workItem from="1559009772577" duration="1553000" />
+      <workItem from="1559029937991" duration="3848000" />
+      <workItem from="1559130273974" duration="608000" />
+      <workItem from="1559476468064" duration="1156000" />
+      <workItem from="1559552145039" duration="326000" />
+      <workItem from="1559573866747" duration="141000" />
+      <workItem from="1560156734151" duration="7023000" />
+      <workItem from="1560233065013" duration="11586000" />
+      <workItem from="1560454732251" duration="6310000" />
+      <workItem from="1560500336479" duration="630000" />
+      <workItem from="1560508632457" duration="1068000" />
+      <workItem from="1560538975562" duration="7264000" />
+      <workItem from="1560576143792" duration="16591000" />
     </task>
-    <task id="LOCAL-00001" summary="titleShouldNotBeNull() is added - RED">
-      <created>1560199970477</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1560199970477</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Movie class added">
-      <created>1560200813270</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1560200813270</updated>
-    </task>
-    <task id="LOCAL-00003" summary="titleShouldNotBeNull() is - GREEN">
-      <created>1560201215992</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1560201215992</updated>
-    </task>
-    <task id="LOCAL-00004" summary="titleIsNull is added - RED">
-      <created>1560201378348</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1560201378348</updated>
-    </task>
-    <task id="LOCAL-00005" summary="titleIsNull() throws Illegal argument exception- REFACTOR">
-      <created>1560201550703</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1560201550703</updated>
-    </task>
-    <task id="LOCAL-00006" summary="IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully is added - GREEN">
-      <created>1560202067407</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1560202067407</updated>
-    </task>
-    <task id="LOCAL-00007" summary="id bigger than zero check - REFACTOR">
-      <created>1560202185652</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1560202185652</updated>
-    </task>
-    <task id="LOCAL-00008" summary="IdLessThanOrEqualToZero_MovieObjectInitializationFail is added - RED">
-      <created>1560202306100</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1560202306100</updated>
-    </task>
-    <task id="LOCAL-00009" summary="id less than or equal to zero, initialization will fail - REFACTOR">
-      <created>1560202455186</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1560202455186</updated>
-    </task>
-    <task id="LOCAL-00010" summary="SixWriters_MovieObjectInitializationFail() is added - RED">
-      <created>1560202912130</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1560202912130</updated>
-    </task>
-    <task id="LOCAL-00011" summary="SixWriters_MovieObjectInitializationFail() is added - REFACTOR">
-      <created>1560203403635</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1560203403635</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Remove writers and starts lists from constructor arguments - REFACTOR">
-      <created>1560203639218</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1560203639219</updated>
-    </task>
-    <task id="LOCAL-00013" summary="-titleIsNull and titleIsNotNull methods deleted&#10;-initializeMovieWithAllAttributesProvided is added -RED&#10;-AttributeNotPresentedException is added">
-      <created>1560370649455</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1560370649455</updated>
-    </task>
-    <task id="LOCAL-00014" summary="- Adding Writers list and Stars list to Constructor arguments.&#10;- Adding getters for all Movie attributes. -REFACTOR">
-      <created>1560370947387</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1560370947387</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Refactor test cases constructor invocation - REFACTOR">
-      <created>1560371056010</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1560371056010</updated>
-    </task>
-    <task id="LOCAL-00016" summary="-Refactor test cases constructor invocation &#10;-initializeMovieWithAllAttributesProvided() - GREEN">
-      <created>1560371243978</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1560371243978</updated>
-    </task>
-    <task id="LOCAL-00017" summary="initializeMovieWithAllAttributesMissing() is added -RED">
-      <created>1560371546687</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1560371546687</updated>
-    </task>
-    <task id="LOCAL-00018" summary="1 Movie class updated -REFACTOR &#10;2 initializeMovieWithAllAttributesMissing() -GREEN">
-      <created>1560371925780</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1560371925780</updated>
-    </task>
-    <task id="LOCAL-00019" summary="fiveWriters_MovieObjectInitializationPassed() is added -GREEN">
-      <created>1560372462121</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1560372462121</updated>
-    </task>
-    <task id="LOCAL-00020" summary="fourStars_MovieObjectInitializationPassed() is added -GREEN">
-      <created>1560372597550</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1560372597550</updated>
-    </task>
-    <task id="LOCAL-00021" summary="1 SixWriters_MovieObjectInitializationFail() updated- RED&#10;2 AllowedWritersNoExceededException class is added">
-      <created>1560373306502</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1560373306502</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Movie class updated -REFACTOR&#10;sixWriters_MovieObjectInitilazationFail() -GREEN">
-      <created>1560373512915</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1560373512915</updated>
-    </task>
-    <task id="LOCAL-00023" summary="IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully() updated -GREEN">
-      <created>1560373748573</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1560373748573</updated>
-    </task>
-    <task id="LOCAL-00024" summary="IdLessThanOrEqualToZero_MovieObjectInitializationFail() updated -GREEN">
-      <created>1560373855108</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1560373855108</updated>
-    </task>
-    <task id="LOCAL-00025" summary="addStarToMovie_NullValueProvided_ThrowIllegalArgumentException() is added -RED">
-      <created>1560606441557</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1560606441557</updated>
-    </task>
-    <task id="LOCAL-00026" summary="1-another Movie constructor added -REFACTOR&#10;2-addStarToMovie added -REFACTOR">
-      <created>1560606733569</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1560606733569</updated>
-    </task>
-    <task id="LOCAL-00027" summary="addStarToMovie_NullValueProvided_ThrowIllegalArgumentException() -GREEN">
-      <created>1560606933395</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1560606933395</updated>
-=======
-      <workItem from="1560236650403" duration="8207000" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-    </task>
-    <task id="LOCAL-00028" summary="addStarToMovie_Passed() is added -GREEN">
-      <created>1560607256933</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1560607256933</updated>
-    </task>
-    <task id="LOCAL-00029" summary="addStarToMovie_MockitoUsedToVerifyPassed() is added -GREEN">
-      <created>1560608071783</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1560608071783</updated>
-    </task>
-    <task id="LOCAL-00030" summary="addWriterToMovie_Passed() is added _RED">
-      <created>1560608253832</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1560608253832</updated>
-    </task>
-    <task id="LOCAL-00031" summary="1-addWriterToMovie() is added to Movie class -REFACTOR&#10;2-addWriterToMovie_Passed() -GREEN">
-      <created>1560608381807</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1560608381807</updated>
-    </task>
-    <task id="LOCAL-00032" summary="addWriterToMovie_NullValueProvided_ThrowIllegalArgumentException() is added -GREEN">
-      <created>1560608470705</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1560608470705</updated>
-    </task>
-    <task id="LOCAL-00033" summary="addWriterToMovie_MockitoUsedToVerifyPassed() is added -GREEN">
-      <created>1560608674174</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1560608674174</updated>
-    </task>
-    <task id="LOCAL-00034" summary="addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() is added -RED">
-      <created>1560609189343</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1560609189343</updated>
-    </task>
-    <task id="LOCAL-00035" summary="1-stars list in movie is initialized to null -REFACTOR&#10;2-addStarToMovie() -REFACTOR&#10;3-addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() -GREEN">
-      <created>1560609664149</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1560609664149</updated>
-    </task>
-    <task id="LOCAL-00036" summary="1-stars list in movie is initialized to null -REFACTOR&#10;2-addStarToMovie() -REFACTOR&#10;3-addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() -GREEN&#10;4-add exception classes AllowedWritersNumberExceededException, StarsListNotInitializedException -REFACTOR">
-      <created>1560609742378</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1560609742378</updated>
-    </task>
-    <task id="LOCAL-00037" summary="1- addStarToMovie_Passed() -RED">
-      <created>1560609849179</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1560609849179</updated>
-    </task>
-    <task id="LOCAL-00038" summary="1- addStarToMovie_Passed() -GREEN&#10;2- setStars is added to Movie class -REFACTOR">
-      <created>1560609927189</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1560609927189</updated>
-    </task>
-    <task id="LOCAL-00039" summary="1-addWriterToMovie_WritersListNotInitialized_ThrowWritersListNotInitializedException() is added -RED&#10;2-WritersListNotInitializedexception class is added">
-      <created>1560610219758</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1560610219758</updated>
-    </task>
-    <task id="LOCAL-00040" summary="1-writers list in movie is initialized to null -REFACTOR&#10;2-addWriterToMovie() -REFACTOR&#10;3-addWriterToMovie_WritersListNotInitialized_ThrowWritersListNotInitializedException() -GREEN">
-      <created>1560610378502</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1560610378502</updated>
-    </task>
-    <task id="LOCAL-00041" summary="addWriterToMovie_Passed() -RED">
-      <created>1560610460764</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1560610460764</updated>
-    </task>
-    <task id="LOCAL-00042" summary="setWriters() is added to Movie class -REFACTOR">
-      <created>1560610543517</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1560610543517</updated>
-    </task>
-    <task id="LOCAL-00043" summary="movieTitleCannotBeChangedAfterCreation() is added -RED">
-      <created>1560610904696</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1560610904696</updated>
-    </task>
-    <task id="LOCAL-00044" summary="1-movieTitleCannotBeChangedAfterCreation() -GREEN&#10;2-setTitle() is added to Movie class -REFACTOR&#10;3-TitleCannotBeChangedAfterInitilazationException class added">
-      <created>1560611247798</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1560611247798</updated>
-    </task>
-    <task id="LOCAL-00045" summary="movieYearShouldBeEqualOrLowerThanCurrentYear() is added -GREEN">
-      <created>1560611772783</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1560611772784</updated>
-    </task>
-    <task id="LOCAL-00046" summary="1-MovieYearShouldBeLessThanOrEqualCurrentYearException class is added&#10;2-Movie class -REFACTOR">
-      <created>1560612237699</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1560612237699</updated>
-    </task>
-    <task id="LOCAL-00047" summary="1-MovieYearShouldBeLessThanOrEqualCurrentYearException class is added&#10;2-Movie class -REFACTOR">
-      <created>1560612292438</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1560612292438</updated>
-    </task>
-    <task id="LOCAL-00048" summary="movieYearShouldNotBeGreaterThanCurrentYear() is added -GREEN">
-      <created>1560612397683</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1560612397683</updated>
-    </task>
-    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MoviesTest_movieTitleCannotBeChangedAfterCreation - 2019.06.15 at 17h 02m 16s.xml">
-      <configuration name="MoviesTest.movieTitleCannotBeChangedAfterCreation" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 16h 58m 00s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieTitleCannotBeChangedAfterCreation - 2019.06.15 at 17h 05m 38s.xml">
-      <configuration name="MoviesTest.movieTitleCannotBeChangedAfterCreation" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 16h 59m 10s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest - 2019.06.15 at 17h 07m 36s.xml">
-      <configuration name="MoviesTest" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 17h 05m 19s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieYearShouldBeEqualOrLowerThanCurrentYear - 2019.06.15 at 17h 14m 52s.xml">
-      <configuration name="MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 17h 06m 18s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieYearShouldBeEqualOrLowerThanCurrentYear - 2019.06.15 at 17h 15m 13s.xml">
-      <configuration name="MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 17h 07m 48s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieYearShouldBeEqualOrLowerThanCurrentYear - 2019.06.15 at 17h 21m 27s.xml">
-      <configuration name="MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 17h 15m 39s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieYearShouldBeEqualOrLowerThanCurrentYear - 2019.06.15 at 17h 21m 39s.xml">
-      <configuration name="MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAListToTheMusics - 2019.06.15 at 17h 16m 28s.xml">
+      <configuration name="ScraperTest.shouldAddAListToTheMusics" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieYearShouldBeEqualOrLowerThanCurrentYear - 2019.06.15 at 17h 25m 07s.xml">
-      <configuration name="MoviesTest.movieYearShouldBeEqualOrLowerThanCurrentYear" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAMovieToTheList - 2019.06.15 at 17h 34m 11s.xml">
+      <configuration name="ScraperTest.shouldAddAMovieToTheList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest_movieYearShouldNotBeGreaterThanCurrentYear - 2019.06.15 at 17h 26m 13s.xml">
-      <configuration name="MoviesTest.movieYearShouldNotBeGreaterThanCurrentYear" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAMovieToTheList - 2019.06.15 at 17h 35m 45s.xml">
+      <configuration name="ScraperTest.shouldAddAMovieToTheList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoviesTest - 2019.06.15 at 17h 26m 46s.xml">
-      <configuration name="MoviesTest" configurationId="JUnit" />
+    <history-entry file="ScraperTest_shouldAddAMovieToTheList - 2019.06.15 at 17h 36m 32s.xml">
+      <configuration name="ScraperTest.shouldAddAMovieToTheList" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="25246000" />
+    <option name="totallyTimeSpent" value="65998000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22186235" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33476394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
-=======
-    <option name="totallyTimeSpent" value="9759000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="23" width="1280" height="721" extended-state="6" />
-    <layout>
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.61378205" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.75133216" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3253205" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27625203" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.651865" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26024097" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.2939759" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.30017763" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.24457832" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.74955595" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.7506024" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32650602" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -998,14 +536,6 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
             </State>
           </value>
         </entry>
@@ -1026,534 +556,281 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully() updated -GREEN" />
-    <MESSAGE value="IdLessThanOrEqualToZero_MovieObjectInitializationFail() updated -GREEN" />
-    <MESSAGE value="addStarToMovie_NullValueProvided_ThrowIllegalArgumentException() is added -RED" />
-    <MESSAGE value="1-another Movie constructor added -REFACTOR&#10;2-addStarToMovie added -REFACTOR" />
-    <MESSAGE value="addStarToMovie_NullValueProvided_ThrowIllegalArgumentException() -GREEN" />
-    <MESSAGE value="addStarToMovie_Passed() is added -GREEN" />
-    <MESSAGE value="addStarToMovie_MockitoUsedToVerifyPassed() is added -GREEN" />
-    <MESSAGE value="addWriterToMovie_Passed() is added _RED" />
-    <MESSAGE value="1-addWriterToMovie() is added to Movie class -REFACTOR&#10;2-addWriterToMovie_Passed() -GREEN" />
-    <MESSAGE value="addWriterToMovie_NullValueProvided_ThrowIllegalArgumentException() is added -GREEN" />
-    <MESSAGE value="addWriterToMovie_MockitoUsedToVerifyPassed() is added -GREEN" />
-    <MESSAGE value="addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() is added -RED" />
-    <MESSAGE value="1-stars list in movie is initialized to null -REFACTOR&#10;2-addStarToMovie() -REFACTOR&#10;3-addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() -GREEN&#10;4-add exception classes AllowedWritersNumberExceededException, StarsListNotInitializedException -REFACTOR" />
-    <MESSAGE value="1- addStarToMovie_Passed() -RED" />
-    <MESSAGE value="1- addStarToMovie_Passed() -GREEN&#10;2- setStars is added to Movie class -REFACTOR" />
-    <MESSAGE value="1-addWriterToMovie_WritersListNotInitialized_ThrowWritersListNotInitializedException() is added -RED&#10;2-WritersListNotInitializedexception class is added" />
-    <MESSAGE value="1-writers list in movie is initialized to null -REFACTOR&#10;2-addWriterToMovie() -REFACTOR&#10;3-addWriterToMovie_WritersListNotInitialized_ThrowWritersListNotInitializedException() -GREEN" />
-    <MESSAGE value="addWriterToMovie_Passed() -RED" />
-    <MESSAGE value="setWriters() is added to Movie class -REFACTOR" />
-    <MESSAGE value="movieTitleCannotBeChangedAfterCreation() is added -RED" />
-    <MESSAGE value="1-movieTitleCannotBeChangedAfterCreation() -GREEN&#10;2-setTitle() is added to Movie class -REFACTOR&#10;3-TitleCannotBeChangedAfterInitilazationException class added" />
-    <MESSAGE value="movieYearShouldBeEqualOrLowerThanCurrentYear() is added -GREEN" />
-    <MESSAGE value="1-stars list in movie is initialized to null -REFACTOR&#10;2-addStarToMovie() -REFACTOR&#10;3-addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException() -GREEN" />
-    <MESSAGE value="1-MovieYearShouldBeLessThanOrEqualCurrentYearException class is added&#10;2-Movie class -REFACTOR" />
-    <MESSAGE value="movieYearShouldNotBeGreaterThanCurrentYear() is added -GREEN" />
-    <option name="LAST_COMMIT_MESSAGE" value="movieYearShouldNotBeGreaterThanCurrentYear() is added -GREEN" />
-  </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="270">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/Spider.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ParserHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/JSONConverter.java" />
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-=======
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/IDException" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Content.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-all/1.3/47e033b7ab18c5dbd5fe29fc1bd5a40afe028818/hamcrest-all-1.3-sources.jar!/org/hamcrest/Matchers.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="170">
-          <caret line="1199" column="76" selection-start-line="1199" selection-start-column="76" selection-end-line="1199" selection-end-column="76" />
-=======
-        <state relative-caret-position="570">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="225">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-            <element signature="e#1230#1231#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1629#1630#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
           </folding>
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/IDException.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/YearException.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="495">
-          <caret line="130" column="58" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
+        <state relative-caret-position="225">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#95#96#0" expanded="true" />
+            <element signature="e#118#119#0" expanded="true" />
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#192#193#0" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/WCA_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MusicTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Crawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WCA_Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/AttributeNotPresentedException.java">
-=======
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="180">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/WCA_Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Crawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="615">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-990">
+          <caret line="26" column="59" selection-start-line="26" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-            <element signature="e#1230#1231#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1629#1630#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Spider.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ParserHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="e#153#154#0" expanded="true" />
-            <element signature="e#182#183#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/AllowedWritersNumberExceededException.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ScraperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#162#163#0" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="447">
+          <caret line="147" column="1" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-<<<<<<< HEAD
-=======
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-            <element signature="e#1230#1231#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1629#1630#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" column="40" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/Spider.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ParserHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/JSONConverter.java" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/StarsListNotInitializedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
+        <state relative-caret-position="221">
+          <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
           <folding>
-            <element signature="e#183#184#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4206#4207#0" expanded="true" />
+            <element signature="e#4234#4235#0" expanded="true" />
+            <element signature="e#4271#4272#0" expanded="true" />
+            <element signature="e#4302#4303#0" expanded="true" />
+            <element signature="e#4352#4353#0" expanded="true" />
+            <element signature="e#4392#4393#0" expanded="true" />
+            <element signature="e#4427#4428#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#4504#4505#0" expanded="true" />
+            <element signature="e#4542#4543#0" expanded="true" />
+            <element signature="e#4579#4580#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#4660#4661#0" expanded="true" />
+            <element signature="e#4700#4701#0" expanded="true" />
+            <element signature="e#4742#4743#0" expanded="true" />
+            <element signature="e#4776#4777#0" expanded="true" />
+            <element signature="e#4816#4817#0" expanded="true" />
+            <element signature="e#4849#4850#0" expanded="true" />
+            <element signature="e#4891#4892#0" expanded="true" />
+            <element signature="e#4925#4926#0" expanded="true" />
+            <element signature="e#4979#4980#0" expanded="true" />
+            <element signature="e#5015#5016#0" expanded="true" />
+            <element signature="e#5066#5067#0" expanded="true" />
+            <element signature="e#5100#5101#0" expanded="true" />
+            <element signature="e#5154#5155#0" expanded="true" />
+            <element signature="e#5190#5191#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exception/WritersListNotInitializedException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-          <folding>
-            <element signature="e#187#188#0" expanded="true" />
-=======
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/IDException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/TitleCannotBeChangedAfterInitializationException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Movie.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exception/StarsListNotInitializedException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/YearException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#101#102#0" expanded="true" />
-            <element signature="e#125#126#0" expanded="true" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/exception/TitleCannotBeChangedAfterInitializationException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="77" selection-start-line="3" selection-start-column="77" selection-end-line="3" selection-end-column="77" />
-          <folding>
-            <element signature="e#215#216#0" expanded="true" />
-          </folding>
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exception/MovieYearShouldBeLessThanOrEqualCurrentYearException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="81" selection-start-line="3" selection-start-column="81" selection-end-line="3" selection-end-column="81" />
-          <folding>
-            <element signature="e#222#223#0" expanded="true" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/test/java/MoviesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BookTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Crawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="257">
-          <caret line="102" column="38" lean-forward="true" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#Movie#0;class#Movie#0" />
-            <element signature="docComment;method#Movie#1;class#Movie#0" />
-            <element signature="e#3467#3468#0" expanded="true" />
-            <element signature="e#3492#3493#0" expanded="true" />
-            <element signature="e#3524#3525#0" expanded="true" />
-            <element signature="e#3552#3553#0" expanded="true" />
-            <element signature="e#3587#3588#0" expanded="true" />
-            <element signature="e#3618#3619#0" expanded="true" />
-            <element signature="e#3650#3651#0" expanded="true" />
-            <element signature="e#3678#3679#0" expanded="true" />
-            <element signature="e#3711#3712#0" expanded="true" />
-            <element signature="e#3740#3741#0" expanded="true" />
-            <element signature="e#3768#3769#0" expanded="true" />
-            <element signature="e#3795#3796#0" expanded="true" />
-            <element signature="e#3830#3831#0" expanded="true" />
-            <element signature="e#3861#3862#0" expanded="true" />
-            <element signature="e#3901#3902#0" expanded="true" />
-            <element signature="e#3931#3932#0" expanded="true" />
-            <element signature="e#4038#4039#0" expanded="true" />
-            <element signature="e#4076#4077#0" expanded="true" />
-            <element signature="e#3969#3970#0" expanded="true" />
-            <element signature="e#3997#3998#0" expanded="true" />
-            <element signature="e#4060#4061#0" expanded="true" />
-            <element signature="e#4094#4095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MoviesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="method#initializeMovieWithAllAttributesProvided#0;class#MoviesTest#0" />
-            <element signature="method#initializeMovieWithAllAttributesMissing#0;class#MoviesTest#0" />
-            <element signature="method#IdShouldBeBiggerThanZero_MovieObjectInitializedSuccessfully#0;class#MoviesTest#0" />
-            <element signature="method#IdLessThanOrEqualToZero_MovieObjectInitializationFail#0;class#MoviesTest#0" />
-            <element signature="method#SixWriters_MovieObjectInitializationFail#0;class#MoviesTest#0" />
-            <element signature="method#fiveWriters_MovieObjectInitializationPassed#0;class#MoviesTest#0" />
-            <element signature="method#fourStars_MovieObjectInitializationPassed#0;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_NullValueProvided_ThrowIllegalArgumentException#0;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_NullValueProvided_ThrowIllegalArgumentException#1;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_MockitoUsedToVerifyPassed#0;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_MockitoUsedToVerifyPassed#1;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_Passed#1;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_NullValueProvided_ThrowIllegalArgumentException#1;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_MockitoUsedToVerifyPassed#1;class#MoviesTest#0" />
-            <element signature="method#addStarToMovie_StarsListNotInitialized_ThrowStarsListNotInitializedException#1;class#MoviesTest#0" />
-            <element signature="method#addWriterToMovie_MockitoUsedToVerifyPassed#1;class#MoviesTest#0" />
-            <element signature="method#movieTitleCannotBeChangedAfterCreation#1;class#MoviesTest#0" />
-            <element signature="method#movieYearShouldBeEqualOrLowerThanCurrentYear#1;class#MoviesTest#0" />
-=======
-        <state relative-caret-position="-199">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MusicTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Music.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-            <element signature="e#1230#1231#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1629#1630#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
->>>>>>> bf6a488a10d51194cd44a119c62f28c81e08f5be
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Group.WebCrawler</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: junit:junit:4.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
