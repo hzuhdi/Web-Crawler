@@ -41,7 +41,7 @@ public class Movie {
         if (format == null) {
             throw new AttributeNotPresentedException("format should not be null or empty");
         }
-        if (year <=0) {
+        if (year <= 0) {
             throw new AttributeNotPresentedException("year should not be null or 0");
         }
         if (director == null) {
@@ -71,7 +71,6 @@ public class Movie {
 
 
     /**
-     *
      * @param id
      * @param title
      * @param genre
@@ -92,7 +91,7 @@ public class Movie {
         if (format == null) {
             throw new AttributeNotPresentedException("format should not be null or empty");
         }
-        if (year <=0) {
+        if (year <= 0) {
             throw new AttributeNotPresentedException("year should not be null or 0");
         }
         if (director == null) {
@@ -145,7 +144,10 @@ public class Movie {
         return stars;
     }
 
-    public void addStarToMovie(String star){
-
+    public void addStarToMovie(String star) {
+        if (star == null || star.trim().isEmpty()) {
+            throw new IllegalArgumentException("Should not be null or empty");
+        }
+        this.stars.add(star);
     }
 }
