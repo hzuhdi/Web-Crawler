@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.junit.Assert.*;
 
 
@@ -117,6 +118,13 @@ public class ScraperTest {
 
         //Assert
         verify(scraper, times(1)).addToList(id, title, category, element);
+    }
+
+    @Test
+    public void idShouldbeReturnedFromURL(){
+        Scraper scraper = new Scraper();
+        int id = scraper.getIdFromUrl(book_url);
+        assertEquals(102, id);
     }
 
 }
