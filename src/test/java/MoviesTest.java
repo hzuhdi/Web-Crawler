@@ -4,8 +4,10 @@ import models.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -379,5 +381,32 @@ public class MoviesTest {
         // Assert
         assertThat(movie.getTitle(), equalTo(title));
     }
+
+
+    @Test
+    public void movieYearShouldBeEqualOrLowerThanCurrentYear() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2009;
+        String director = "Peter Jackson";
+
+        List<String> writers = new ArrayList<>(Arrays.asList("Writer 1", "Writer 2", "Writer 3"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Star 1", "Star 2", "Star 3"));
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
+
+        Date currentDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        int currentYear = Integer.valueOf(formatter.format(currentDate));
+
+        // Assert
+        assertThat(movie.getYear(), lessThanOrEqualTo(currentYear));
+    }
+
 
 }
