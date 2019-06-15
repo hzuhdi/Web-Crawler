@@ -4,9 +4,11 @@ import exception.AttributeNotPresentedException;
 import models.Movie;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -34,7 +36,7 @@ public class MoviesTest {
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
 
         // Assert
         assertThat(movie.getId(), equalTo(id));
@@ -61,7 +63,7 @@ public class MoviesTest {
         List<String> stars = null;
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
     }
 
     // Id should be bigger than zero
@@ -79,7 +81,7 @@ public class MoviesTest {
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
 
         //Assert
         assertNotNull(movie);
@@ -99,7 +101,7 @@ public class MoviesTest {
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
     }
 
     @Test(expected = AllowedWritersNumberExceededException.class)
@@ -112,11 +114,11 @@ public class MoviesTest {
         String format = "Blu-ray";
         int year = 2001;
         String director = "Peter Jackson";
-        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens","Noah","Tamer","Yousuf"));
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens", "Noah", "Tamer", "Yousuf"));
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
     }
 
     @Test
@@ -129,11 +131,11 @@ public class MoviesTest {
         String format = "Blu-ray";
         int year = 2001;
         String director = "Peter Jackson";
-        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens","Noah","Tamer"));
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens", "Noah", "Tamer"));
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
 
         // Assert
         assertThat(movie.getId(), equalTo(id));
@@ -156,11 +158,11 @@ public class MoviesTest {
         String format = "Blu-ray";
         int year = 2001;
         String director = "Peter Jackson";
-        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens","Noah","Tamer"));
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens", "Noah", "Tamer"));
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
 
         // Act
-        movie = new Movie(id,title, genre, format, year, director, writers, stars);
+        movie = new Movie(id, title, genre, format, year, director, writers, stars);
 
         // Assert
         assertThat(movie.getId(), equalTo(id));
@@ -171,6 +173,22 @@ public class MoviesTest {
         assertThat(movie.getDirector(), equalTo(director));
         assertThat(movie.getWriters().size(), equalTo(5));
         assertThat(movie.getStars().size(), equalTo(4));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void addStarToMovie_NullValueProvided_ThrowIllegalArgumentException() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director);
+        movie.addStarToMovie(null);
     }
 
 
