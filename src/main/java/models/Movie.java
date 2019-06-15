@@ -29,17 +29,17 @@ public class Movie {
      * @param director
      */
     public Movie(int id, String title, String genre, String format, int year, String director, List<String> writers, List<String> stars) {
-        if (title == null) {
+        if (title == null || title.trim().isEmpty()) {
             throw new AttributeNotPresentedException("title should not be null or empty");
         }
 
         if (id <= 0) {
             throw new AttributeNotPresentedException("id should not be null or 0");
         }
-        if (genre == null) {
+        if (genre == null || genre.trim().isEmpty()) {
             throw new AttributeNotPresentedException("genre should not be null or empty");
         }
-        if (format == null) {
+        if (format == null || format.trim().isEmpty()) {
             throw new AttributeNotPresentedException("format should not be null or empty");
         }
         if (year <= 0) {
@@ -55,15 +55,15 @@ public class Movie {
             throw new MovieYearShouldBeLessThanOrEqualCurrentYearException("Movie year should be less than or equal current");
         }
 
-        if (director == null) {
+        if (director == null || director.trim().isEmpty()) {
             throw new AttributeNotPresentedException("director should not be null or empty");
         }
         if (writers == null) {
-            throw new AttributeNotPresentedException("writers list should not be null or empty");
+            throw new AttributeNotPresentedException("writers list should not be null");
         }
 
         if (stars == null) {
-            throw new AttributeNotPresentedException("stars list should not be null or empty");
+            throw new AttributeNotPresentedException("stars list should not be null");
         }
 
         if (writers.size() > 5) {
