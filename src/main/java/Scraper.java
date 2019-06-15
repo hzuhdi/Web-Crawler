@@ -71,14 +71,14 @@ public class Scraper {
     public ArrayList<String> getDetailsWithinAList(Element myElement, String details){
         //Case Sensitive
         ArrayList<String> detailList = new ArrayList<>();
-        detailList.add(myElement.select("tr:contains("+details+")").get(0).toString());
+        detailList.add(myElement.select("tr:contains(" + details+ ")").get(0).toString());
         return detailList;
     }
 
     public String getDetailsOfElementFromEachTag(Element myElement, String details){
         //It has CSS Query feature where we can easily select the tag we want to highlight
         //Case sensitive
-        String cont = myElement.select("tr:contains(" + details+")").get(0).toString();
+        String cont = myElement.select("tr:contains(" + details + ")").get(0).toString();
         return cont;
     }
 
