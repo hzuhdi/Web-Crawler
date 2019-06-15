@@ -246,4 +246,30 @@ public class MoviesTest {
     }
 
 
+    @Test
+    public void addWriterToMovie_Passed() {
+        //Arrange
+        int id = 1;
+        String title = "Office Space";
+        String category = "Movies";
+        String genre = "Drama";
+        String format = "Blu-ray";
+        int year = 2001;
+        String director = "Peter Jackson";
+
+        // Act
+        movie = new Movie(id, title, genre, format, year, director);
+        movie.addWriterToMovie("Writer 1");
+        movie.addWriterToMovie("Writer 2");
+        movie.addWriterToMovie("Writer 3");
+
+        // Assert
+        assertThat(movie.getWriters().size(), equalTo(3));
+    }
+
+
+
+
+
+
 }
