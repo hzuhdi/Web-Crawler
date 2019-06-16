@@ -5,6 +5,7 @@ import exception.YearException;
 import models.Book;
 import models.Movie;
 import models.Music;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -25,5 +26,13 @@ public class ContentTest {
     public void YearOfMovieNotAfterTodayDate() throws YearException, MovieYearShouldBeLessThanOrEqualCurrentYearException, AllowedWritersNumberExceededException, AttributeNotPresentedException {
         Movie movie = new Movie(3, "title", "genre", "format", LocalDate.now().getYear() + 1, "director", Collections.emptyList(), Collections.emptyList());
     }
-    
+
+    @Test
+    public void MovieListCanBeNull() {
+        Content content = new Content(null, null, null);
+        Assert.assertNull(content.getBooks());
+        Assert.assertNull(content.getMovies());
+        Assert.assertNull(content.getMusics());
+    }
+
 }
