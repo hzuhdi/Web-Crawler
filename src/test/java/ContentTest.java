@@ -47,4 +47,17 @@ public class ContentTest {
         Assert.assertNotNull(content.getMovies());
         Assert.assertEquals(content.getMovies().size(), 1);
     }
+
+    @Test
+    public void shouldGetTheArrayOfBooks() throws YearException {
+        Content content = new Content(null, null, null);
+        Assert.assertNull(content.getBooks());
+        Book book = new Book(2, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
+        List<Book> books = new ArrayList<>();
+        books.add(book);
+        content.setBooks((ArrayList<Book>) books);
+        Assert.assertNotNull(content.getBooks());
+        Assert.assertEquals(content.getBooks().size(), 1);
+    }
+
 }
