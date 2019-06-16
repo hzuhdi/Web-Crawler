@@ -9,8 +9,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class ContentTest {
     @Test(expected = YearException.class)
@@ -34,5 +36,15 @@ public class ContentTest {
         Assert.assertNull(content.getMovies());
         Assert.assertNull(content.getMusics());
     }
-
+    @Test
+    public void shouldGetTheArrayOfMovies() throws MovieYearShouldBeLessThanOrEqualCurrentYearException, AllowedWritersNumberExceededException, AttributeNotPresentedException {
+        Content content = new Content(null, null, null);
+        Assert.assertNull(content.getMovies());
+        Movie movie = new Movie(3, "title", "genre", "format", LocalDate.now().getYear() - 1, "director", Collections.emptyList(), Collections.emptyList());
+        List<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        content.setMovies((ArrayList<Movie>) movies);
+        Assert.assertNotNull(content.getMovies());
+        Assert.assertEquals(content.getMovies().size(), 1);
+    }
 }
