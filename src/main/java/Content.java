@@ -64,4 +64,7 @@ public class Content {
     public void addToListMovie(Movie movie) {
 
     }
+    public void addToListMusic(Music music) {
+
+    }
 }
