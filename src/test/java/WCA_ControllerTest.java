@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class WCA_ControllerTest {
 
@@ -27,6 +27,7 @@ public class WCA_ControllerTest {
 
         // Assert
         assertNotNull("Response is null", response);
+        assertFalse("Response is empty", response.trim().isEmpty());
     }
 
 
