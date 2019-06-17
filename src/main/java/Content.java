@@ -58,4 +58,10 @@ public class Content {
     public void addToListBook(Book book) {
         this.books.add(book);
     }
+
+
+
+    public void addToListMovie(Movie movie) {
+
+    }
 }
