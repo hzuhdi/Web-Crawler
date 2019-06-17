@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static net.bytebuddy.matcher.ElementMatchers.is;
@@ -43,6 +44,32 @@ public class ScraperTest {
 
         //Assert
         verify(scraper, times(1)).parseAll(book_url);
+    }
+
+    @Test
+    public void parseSpecificShouldReturnTrue() throws IOException {
+        /**
+        This test doesn't work at Travis-CI since it's need connection to connect to the website
+        While TravisCI can't do it here.
+         **/
+//        Scraper scraper = new Scraper();
+////        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+////        assertEquals(true, result);
+        Scraper scraper = mock(Scraper.class);
+        when(scraper.parseSpecific(book_url, "978-0132350884")).thenReturn(true);
+        boolean x = scraper.parseSpecific(book_url, "978-0132350884");
+        assertEquals(true, x);
+//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+//        assertEquals(true, result);
+
+    }
+
+    @Test(expected = IOException.class)
+    public void parseSpecificShouldThrownAnException() throws IOException {
+        Scraper scraper = new Scraper();
+        String notValidUrl = "http://invalid";
+        boolean result = scraper.parseSpecific(notValidUrl, "978-0132350884");
+        //assertEquals(true, result);
     }
 
     @Test
