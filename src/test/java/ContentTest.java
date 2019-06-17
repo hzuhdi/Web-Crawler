@@ -7,7 +7,6 @@ import models.Movie;
 import models.Music;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,5 +69,7 @@ public class ContentTest {
         Assert.assertNotNull(content.getMusics());
         Assert.assertEquals(content.getMusics().size(), 1);
     }
+
+
 
 }
