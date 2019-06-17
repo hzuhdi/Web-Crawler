@@ -97,7 +97,7 @@ public class ContentTest {
     public void shouldAddBookToList_Fail() throws YearException {
         Content content = new Content(null, null, null);
         Book book = new Book(2, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
-
+        content.addToListBook(book);
     }
 
 
