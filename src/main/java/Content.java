@@ -62,7 +62,7 @@ public class Content {
 
 
     public void addToListMovie(Movie movie) {
-
+         this.movies.add(movie);
     }
     public void addToListMusic(Music music) {
 
