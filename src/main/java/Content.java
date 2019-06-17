@@ -55,4 +55,7 @@ public class Content {
     public void addToList(){
 
     }
+    public void addToListBook(Book book) {
+        this.books.add(book);
+    }
 }
