@@ -126,4 +126,18 @@ public class ContentTest {
         Assert.assertEquals(content.getBooks().size() , 2);
         Assert.assertEquals(content.getBooks().get(1) , bookToAdd);
     }
+    @Test
+    public void shouldAddMusicToList_Pass() throws YearException {
+        Content content = new Content(null, null, null);
+        Music music = new Music(12, "genre", "format", LocalDate.now().getYear() - 1, "artist", "title");
+        List<Music> musics = new ArrayList<>();
+        musics.add(music);
+        content.setMusics((ArrayList<Music>) musics);
+
+        Music musicToAdd = new Music(13, "genre", "format", LocalDate.now().getYear() - 1, "artist", "title");
+
+        content.addToListMusic(musicToAdd);
+        Assert.assertEquals(content.getMusics().size() , 2);
+        Assert.assertEquals(content.getMusics().get(1) , musicToAdd);
+    }
 }
