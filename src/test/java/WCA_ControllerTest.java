@@ -15,14 +15,15 @@ public class WCA_ControllerTest {
     public void getAllReturnValidResponse()
     {
         // Arrange
-        WCA_Controller controller = new WCA_Controller();
         Scraper scraper = new Scraper();
         Crawler crawler = new Crawler();
         Content content = new Content();
         String url = "";
 
+        WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
+
         // Act
-        String response = controller.getAll(scraper, crawler, content, url);
+        String response = controller.getAll(url);
 
         // Assert
         assertNotNull("Response is null", response);
