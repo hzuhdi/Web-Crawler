@@ -140,4 +140,18 @@ public class ContentTest {
         Assert.assertEquals(content.getMusics().size() , 2);
         Assert.assertEquals(content.getMusics().get(1) , musicToAdd);
     }
+    @Test
+    public void shouldAddMovieToList_Pass() throws MovieYearShouldBeLessThanOrEqualCurrentYearException, AllowedWritersNumberExceededException, AttributeNotPresentedException {
+        Content content = new Content(null, null, null);
+        Movie movie = new Movie(3, "title", "genre", "format", LocalDate.now().getYear() - 1, "director", Collections.emptyList(), Collections.emptyList());
+        List<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        content.setMovies((ArrayList<Movie>) movies);
+
+        Movie movieToAdd = new Movie(4, "title2", "genre2", "format2", LocalDate.now().getYear() - 1, "director", Collections.emptyList(), Collections.emptyList());
+
+        content.addToListMovie(movieToAdd);
+        Assert.assertEquals(content.getMovies().size() , 2);
+        Assert.assertEquals(content.getMovies().get(1) , movieToAdd);
+    }
 }
