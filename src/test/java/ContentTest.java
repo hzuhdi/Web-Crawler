@@ -106,5 +106,10 @@ public class ContentTest {
         content.addToListMovie(movie);
     }
 
-
+    @Test(expected = NullPointerException.class)
+    public void shouldAddMusicToList_Fail() throws YearException {
+        Content content = new Content(null, null, null);
+        Music music = new Music(12, "genre", "format", LocalDate.now().getYear() - 1, "artist", "title");
+        content.addToListMusic(music);
+    }
 }
