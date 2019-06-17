@@ -93,6 +93,7 @@ public class ContentTest {
         Assert.assertEquals(content.getMovies().size(), resultingContent.getMovies().size());
         Assert.assertEquals(content.getMusics().size(), resultingContent.getMusics().size());
     }
+
     @Test(expected = NullPointerException.class)
     public void shouldAddBookToList_Fail() throws YearException {
         Content content = new Content(null, null, null);

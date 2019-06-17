@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import models.Book;
 import models.Movie;
 import models.Music;
@@ -49,7 +50,7 @@ public class Content {
     }
 
     public String converToJson(){
-        return null;
+        return new Gson().toJson(this);
     }
 
     public void addToList(){
