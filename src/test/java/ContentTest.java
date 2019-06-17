@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import exception.AllowedWritersNumberExceededException;
 import exception.AttributeNotPresentedException;
 import exception.MovieYearShouldBeLessThanOrEqualCurrentYearException;
@@ -70,6 +71,27 @@ public class ContentTest {
         Assert.assertEquals(content.getMusics().size(), 1);
     }
 
-
+    @Test
+    public void shouldGetTheJSON() throws YearException, MovieYearShouldBeLessThanOrEqualCurrentYearException, AllowedWritersNumberExceededException, AttributeNotPresentedException {
+        Content content = new Content(null, null, null);
+        Movie movie = new Movie(3, "title", "genre", "format", LocalDate.now().getYear() - 1, "director", Collections.emptyList(), Collections.emptyList());
+        List<Movie> movies = new ArrayList<>();
+        movies.add(movie);
+        content.setMovies((ArrayList<Movie>) movies);
+        Book book = new Book(2, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
+        List<Book> books = new ArrayList<>();
+        books.add(book);
+        content.setBooks((ArrayList<Book>) books);
+        Music music = new Music(12, "genre", "format", LocalDate.now().getYear() - 1, "artist", "title");
+        List<Music> musics = new ArrayList<>();
+        musics.add(music);
+        content.setMusics((ArrayList<Music>) musics);
+        Gson gson = new Gson();
+        String json = content.converToJson();
+        Content resultingContent = gson.fromJson(json, Content.class);
+        Assert.assertEquals(content.getBooks().size(), resultingContent.getBooks().size());
+        Assert.assertEquals(content.getMovies().size(), resultingContent.getMovies().size());
+        Assert.assertEquals(content.getMusics().size(), resultingContent.getMusics().size());
+    }
 
 }
