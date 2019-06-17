@@ -93,5 +93,12 @@ public class ContentTest {
         Assert.assertEquals(content.getMovies().size(), resultingContent.getMovies().size());
         Assert.assertEquals(content.getMusics().size(), resultingContent.getMusics().size());
     }
+    @Test(expected = NullPointerException.class)
+    public void shouldAddBookToList_Fail() throws YearException {
+        Content content = new Content(null, null, null);
+        Book book = new Book(2, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
+        
+    }
+
 
 }
