@@ -155,6 +155,13 @@ public class WCA_ControllerTest {
         // Assert
         assertNotNull("Response is null", response);
         assertFalse("Response is empty", response.trim().isEmpty());
+        assertTrue(response.contains("movies"));
+        assertTrue(response.contains("books"));
+        assertTrue(response.contains("music"));
+
+        //assertTrue(response.contains("J.R.R. Tolkien"));
     }
+
+
 
 }
