@@ -47,7 +47,7 @@ public class ScraperTest {
     }
 
     @Test
-    public void parseSpecificShouldBeCalled() throws IOException {
+    public void parseSpecificShouldReturnTrue() throws IOException {
         Scraper scraper = new Scraper();
         boolean result = scraper.parseSpecific(book_url, "978-0132350884");
         assertEquals(true, result);
