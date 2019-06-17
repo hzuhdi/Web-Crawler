@@ -53,6 +53,14 @@ public class ScraperTest {
         assertEquals(true, result);
     }
 
+    @Test(expected = IOException.class)
+    public void parseSpecificShouldThrownAnException() throws IOException {
+        Scraper scraper = new Scraper();
+        String notValidUrl = "http://invalid";
+        boolean result = scraper.parseSpecific(notValidUrl, "978-0132350884");
+        //assertEquals(true, result);
+    }
+
     @Test
     public void shouldGiveTheExpectedElements(){
         //Arrange
