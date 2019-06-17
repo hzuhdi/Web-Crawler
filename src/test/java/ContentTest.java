@@ -99,6 +99,12 @@ public class ContentTest {
         Book book = new Book(2, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
         content.addToListBook(book);
     }
+    @Test(expected = NullPointerException.class)
+    public void shouldAddMovieToList_Fail() throws MovieYearShouldBeLessThanOrEqualCurrentYearException, AllowedWritersNumberExceededException, AttributeNotPresentedException {
+        Content content = new Content(null, null, null);
+        Movie movie = new Movie(3, "title", "genre", "format", LocalDate.now().getYear() - 1, "director", Collections.emptyList(), Collections.emptyList());
+        content.addToListMovie(movie);
+    }
 
 
 }
