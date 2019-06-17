@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static net.bytebuddy.matcher.ElementMatchers.is;
@@ -46,7 +47,7 @@ public class ScraperTest {
     }
 
     @Test
-    public void parseSpecificShouldBeCalled(){
+    public void parseSpecificShouldBeCalled() throws IOException {
         Scraper scraper = new Scraper();
         boolean result = scraper.parseSpecific(book_url, "978-0132350884");
         assertEquals(true, result);

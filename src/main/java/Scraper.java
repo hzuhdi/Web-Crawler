@@ -111,8 +111,17 @@ public class Scraper {
         return id;
     }
 
-    public boolean parseSpecific(String url, String keyword){
-        return false;
+    public boolean parseSpecific(String url, String keyword) throws IOException {
+        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+        Document htmlDocument = connection.get();
+        if(htmlDocument == null){
+            System.out.println("ERROR! The HTML document is not received");
+            return false;
+        }
+        this.document = htmlDocument;
+        String bodyText = this.document.body().text();
+        return bodyText.toLowerCase().contains(keyword.toLowerCase());
+
     }
 
     public Document getDocument() {
