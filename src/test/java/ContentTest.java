@@ -112,4 +112,18 @@ public class ContentTest {
         Music music = new Music(12, "genre", "format", LocalDate.now().getYear() - 1, "artist", "title");
         content.addToListMusic(music);
     }
+    @Test
+    public void shouldAddBookToList_Pass() throws YearException {
+        Content content = new Content(null, null, null);
+        Book book = new Book(2, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
+        List<Book> books = new ArrayList<>();
+        books.add(book);
+        content.setBooks((ArrayList<Book>) books);
+
+        Book bookToAdd = new Book(3, "title", "genre", "formqt", LocalDate.now().getYear() - 1, Arrays.asList("author1"), "pib", "isbn");
+
+        content.addToListBook(bookToAdd);
+        Assert.assertEquals(content.getBooks().size() , 2);
+        Assert.assertEquals(content.getBooks().get(1) , bookToAdd);
+    }
 }

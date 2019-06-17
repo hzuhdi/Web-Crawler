@@ -67,4 +67,5 @@ public class Content {
     public void addToListMusic(Music music) {
          this.musics.add(music);
     }
+
 }
