@@ -1,8 +1,14 @@
+import exception.YearException;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 public class WCA_ControllerTest {
 
@@ -12,15 +18,19 @@ public class WCA_ControllerTest {
     }
 
     @Test
-    public void getAllReturnValidResponse()
+    public void getAllReturnNonEmptyResponse() throws YearException
     {
         // Arrange
-        Scraper scraper = new Scraper();
-        Crawler crawler = new Crawler();
-        Content content = new Content();
+        Scraper scraper = mock(Scraper.class);
+        Crawler crawler = mock(Crawler.class);
+        Content content = mock(Content.class);
         String url = "";
+        String jsonResponse = "Test";
 
         WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
+
+        // expectations
+        when(content.converToJson()).thenReturn(jsonResponse);
 
         // Act
         String response = controller.getAll(url);
