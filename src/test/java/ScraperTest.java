@@ -46,6 +46,13 @@ public class ScraperTest {
     }
 
     @Test
+    public void parseSpecificShouldBeCalled(){
+        Scraper scraper = new Scraper();
+        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+        assertEquals(true, result);
+    }
+
+    @Test
     public void shouldGiveTheExpectedElements(){
         //Arrange
         Document document = mock(Document.class);
