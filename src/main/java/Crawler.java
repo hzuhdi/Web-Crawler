@@ -1,12 +1,12 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Set;
+import java.util.*;
 
 public class Crawler {
 
     private int MAX_PAGES;
-    private Set<String> pages_visited;
-    private ArrayList<String> pages_to_visit;
+    private Set<String> pages_visited= new HashSet<>();
+    //private ArrayList<String> pages_to_visit;
+    private List<String> pagesToVisit = new LinkedList<>();
     private static final String URL_PATTERN = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
     public Crawler(){
@@ -30,13 +30,22 @@ public class Crawler {
     public int getUrlSize(){
         return 0;
     }
-
+    /**
+     * Returns the next URL to visit (in the order that they were found). We also do a check to make
+     * sure this method doesn't return a URL that has already been visited.
+     *
+     * @return
+     */
     public String nextUrl(){
-        if (URL_PATTERN == ""){
+        String nextUrl = null;
+        if (nextUrl == ""){
             throw new NullPointerException("Page should not be empty");
         }
+        do {
+            nextUrl = this.pagesToVisit.remove(0);
+        } while (this.pagesVisited.contains(nextUrl));
+        this.pagesVisited.add(nextUrl);
 
-
-
+        return nextUrl;
     }
 }
