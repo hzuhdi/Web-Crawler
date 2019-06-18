@@ -118,6 +118,27 @@ public class WCA_ControllerTest {
         assertTrue(response.contains("The Princess Bride"));
     }
 
+    @Test
+    public void getSpecificReturnNonEmptyResponse() throws YearException, IOException {
+        // Arrange
+        Scraper scraper = mock(Scraper.class);
+        Crawler crawler = mock(Crawler.class);
+        Content content = mock(Content.class);
+        String url = "";
+        String keyword = "";
+        String jsonResponse = "Test";
 
+        WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
+
+        // expectations
+        when(content.converToJson()).thenReturn(jsonResponse);
+
+        // Act
+        String response = controller.getSpecific(url, keyword);
+
+        // Assert
+        assertNotNull("Response is null", response);
+        assertFalse("Response is empty", response.trim().isEmpty());
+    }
 
 }
