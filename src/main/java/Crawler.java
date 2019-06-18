@@ -32,6 +32,10 @@ public class Crawler {
     }
 
     public void nextUrl(){
+        if (URL_PATTERN == ""){
+            throw new NullPointerException("Page should not be empty");
+        }
+        
 
     }
 }
