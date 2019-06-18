@@ -21,7 +21,6 @@ public class Scraper {
     private Document document;
     private Element element;
     private Elements elements;
-    private String search;
 
     ArrayList<Movie> movies = new ArrayList<>();
     ArrayList<Book> books = new ArrayList<>();
@@ -39,7 +38,6 @@ public class Scraper {
     public void addToList(int id, String title, String category, Element elementObject) throws YearException {
         //All three objects have these three information
         String genre = getDetailsOfElementFromEachTag(elementObject, "Genre");
-        System.out.println(genre);
         String format = getDetailsOfElementFromEachTag(elementObject, "Format");
         String year = getDetailsOfElementFromEachTag(elementObject, "Year");
         int yearInt = Integer.parseInt(year);
@@ -92,9 +90,7 @@ public class Scraper {
             //All of this can be found on the target website
             Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
             String category = categoryElement.select("td").get(0).text();
-            System.out.println(category);
             String title = htmlElement.select("h1").get(0).text();
-            System.out.println(title);
             int id = getIdFromUrl(url);
             addToList(id, title, category, htmlElement);
             /**
