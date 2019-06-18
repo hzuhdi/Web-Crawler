@@ -23,38 +23,44 @@ import static org.mockito.Mockito.*;
 
 public class ScraperTest {
 
-    private String url, book_url;
+    private String url, book_url, movie_url, music_url;
     private ArrayList<String> authors = new ArrayList<>();
 
     @Before
     public void setUp(){
         url = "http://example.com";
         book_url = "http://localhost/sample_site_to_crawl/details.php?id=102";
+        music_url = "http://localhost/sample_site_to_crawl/details.php?id=301";
+        movie_url = "http://localhost/sample_site_to_crawl/details.php?id=201";
         String author1 = "James Bensen";
         authors.add(author1);
     }
 
+    /**
+     * verify the call of parseAll
+     * @throws YearException
+     */
     @Test
-    public void parseAllShouldBeCalled() throws YearException {
+    public void parseAllShouldBeCalled() throws YearException, IOException {
         //Arrange
         Scraper scraper = mock(Scraper.class);
-
-        //doCallRealMethod().when(scraper).parseAll(book_url);
+        doCallRealMethod().when(scraper).parseAll(book_url);
         scraper.parseAll(book_url);
-
         //Assert
         verify(scraper, times(1)).parseAll(book_url);
     }
 
+    /**
+     * parse specific will return true if found any character the user want to search for
+     * Doesn't applied: If it's applied to travis-ci the build is always broken, since the target website is in local
+     * @throws IOException
+     */
     @Test
     public void parseSpecificShouldReturnTrue() throws IOException {
-        /**
-        This test doesn't work at Travis-CI since it's need connection to connect to the website
-        While TravisCI can't do it here.
-         **/
+
 //        Scraper scraper = new Scraper();
-////        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
-////        assertEquals(true, result);
+//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+//        assertEquals(true, result);
         Scraper scraper = mock(Scraper.class);
         when(scraper.parseSpecific(book_url, "978-0132350884")).thenReturn(true);
         boolean x = scraper.parseSpecific(book_url, "978-0132350884");
@@ -64,14 +70,21 @@ public class ScraperTest {
 
     }
 
+    /**
+     * to check whether the url given is valid url or not
+     * @throws IOException is expected
+     */
     @Test(expected = IOException.class)
-    public void parseSpecificShouldThrownAnException() throws IOException {
+    public void parseSpecificShouldThrownAnExceptionOfInvalidUrl() throws IOException {
         Scraper scraper = new Scraper();
         String notValidUrl = "http://invalid";
         boolean result = scraper.parseSpecific(notValidUrl, "978-0132350884");
         //assertEquals(true, result);
     }
 
+    /**
+     * the scraper should return the expected elements (media-details)
+     */
     @Test
     public void shouldGiveTheExpectedElements(){
         //Arrange
@@ -86,28 +99,46 @@ public class ScraperTest {
         assertEquals(elements, scraper.getElements());
     }
 
+    /**
+     * to check whether the book is scraped or not
+     * @throws YearException
+     */
     @Test
-    public void parseAllShouldReturnAListOfBooksMoviesAndMusics() throws YearException {
+    public void parseAllShouldReturnAListOfBooks() throws YearException, IOException {
         //Arrange
         Elements elements = new Elements();
         Document document = mock(Document.class);
-        Scraper scraper = mock(Scraper.class);
-        ArrayList<Music> musics = new ArrayList<Music>();
+        Scraper scraper = new Scraper();
         ArrayList<Book> books = new ArrayList<Book>();
+        //Act
+        //Document.getElementsByClass will be called within the parseAll method
+        when(document.getElementsByClass("media-details")).thenReturn(elements);
+        scraper.setDocument(document);
+        scraper.parseAll(book_url);
+        books = scraper.getBooks();
+        //Assert
+        assertEquals(1, books.size());
+    }
+
+    /**
+     * to check whether the book is scraped or not
+     * @throws YearException
+     */
+    @Test
+    public void parseAllShouldReturnAListOfMovies() throws YearException, IOException {
+        //Arrange
+        Elements elements = new Elements();
+        Document document = mock(Document.class);
+        Scraper scraper = new Scraper();
         ArrayList<Movie> movies = new ArrayList<Movie>();
         //Act
         //Document.getElementsByClass will be called within the parseAll method
         when(document.getElementsByClass("media-details")).thenReturn(elements);
         scraper.setDocument(document);
-        scraper.parseAll(url);
+        scraper.parseAll(movie_url);
         movies = scraper.getMovies();
-        books = scraper.getBooks();
-        musics = scraper.getMusics();
         //Assert
-        assertNotNull(movies);
-        assertNotNull(books);
-        assertNotNull(musics);
-
+        assertEquals(1, movies.size());
     }
 
     @Test
@@ -159,9 +190,6 @@ public class ScraperTest {
         //Arrange
         Scraper scraper = mock(Scraper.class);
         Element element = mock(Element.class);
-        /**
-         * TO DO: FIX the Movie class to make it having the title
-         */
         //Act
         when(scraper.getDetailsOfElementFromEachTag(element, "Year")).thenReturn("2015");
         when(scraper.getDetailsOfElementFromEachTag(element, "Genre")).thenReturn("Rock");
