@@ -121,7 +121,7 @@ public class ScraperTest {
     }
 
     /**
-     * to check whether the book is scraped or not
+     * to check whether the movie is scraped or not
      * @throws YearException
      */
     @Test
@@ -139,6 +139,27 @@ public class ScraperTest {
         movies = scraper.getMovies();
         //Assert
         assertEquals(1, movies.size());
+    }
+
+    /**
+     * to check whether the music is scraped or not
+     * @throws YearException
+     */
+    @Test
+    public void parseAllShouldReturnAListOfMusics() throws YearException, IOException {
+        //Arrange
+        Elements elements = new Elements();
+        Document document = mock(Document.class);
+        Scraper scraper = new Scraper();
+        ArrayList<Music> musics = new ArrayList<Music>();
+        //Act
+        //Document.getElementsByClass will be called within the parseAll method
+        when(document.getElementsByClass("media-details")).thenReturn(elements);
+        scraper.setDocument(document);
+        scraper.parseAll(music_url);
+        musics = scraper.getMusics();
+        //Assert
+        assertEquals(1, musics.size());
     }
 
     @Test
