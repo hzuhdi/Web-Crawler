@@ -12,5 +12,9 @@ public class CrawlerTest {
         Crawler crawler = new Crawler();
         crawler.loopUrl(null, null);
     }
-
+    @Test(expected = IOException.class)
+    public void loopUrlInvalid() throws IOException {
+        Crawler crawler = new Crawler();
+        crawler.loopUrl("Invalid Url here", "demoWord");
+    }
 }
