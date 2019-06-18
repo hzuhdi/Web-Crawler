@@ -19,7 +19,6 @@ public class Scraper {
 
     public String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
     private Document document;
-    private Element element;
     private Elements elements;
 
     ArrayList<Movie> movies = new ArrayList<>();
@@ -27,6 +26,26 @@ public class Scraper {
     ArrayList<Music> musics = new ArrayList<>();
 
     public Scraper() {
+    }
+
+
+    /**
+     *
+     * @param url of the website
+     * @param keyword word that we're looking for
+     * @return
+     * @throws IOException
+     */
+    public boolean parseSpecific(String url, String keyword) throws IOException {
+        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+        Document htmlDocument = connection.get();
+        if (htmlDocument == null) {
+            System.out.println("ERROR! The HTML document is not received");
+            return false;
+        }
+        this.document = htmlDocument;
+        String bodyText = this.document.body().text();
+        return bodyText.toLowerCase().contains(keyword.toLowerCase());
     }
 
     /**
@@ -78,24 +97,28 @@ public class Scraper {
     }
 
     public void parseAll(String url) throws YearException, IOException {
-        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-        Document htmlDocument = connection.get();
-        this.document = htmlDocument;
-        if (connection.response().statusCode() == 200) {
-            System.out.println("\n**Visiting** Received web page at " + url);
-        }
-        Elements media = document.getElementsByClass("media-details");
-        this.elements = media;
-        for (Element htmlElement : elements) {
-            //All of this can be found on the target website
-            Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
-            String category = categoryElement.select("td").get(0).text();
-            String title = htmlElement.select("h1").get(0).text();
-            int id = getIdFromUrl(url);
-            addToList(id, title, category, htmlElement);
-            /**
-             * TO DO: Create a getter from url to get an id : https://stackoverflow.com/questions/45539506/how-to-extract-id-from-url-google-sheet
-             */
+        if (url != null || url != "") {
+            Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+            Document htmlDocument = connection.get();
+            this.document = htmlDocument;
+            if (connection.response().statusCode() == 200) {
+                System.out.println("\n**Visiting** Received web page at " + url);
+            }
+            Elements media = document.getElementsByClass("media-details");
+            this.elements = media;
+            for (Element htmlElement : elements) {
+                //All of this can be found on the target website
+                Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
+                String category = categoryElement.select("td").get(0).text();
+                String title = htmlElement.select("h1").get(0).text();
+                int id = getIdFromUrl(url);
+                addToList(id, title, category, htmlElement);
+                /**
+                 * TO DO: Create a getter from url to get an id : https://stackoverflow.com/questions/45539506/how-to-extract-id-from-url-google-sheet
+                 */
+            }
+        } else {
+            throw new NullPointerException();
         }
 
     }
@@ -108,19 +131,6 @@ public class Scraper {
         return id;
     }
 
-    public boolean parseSpecific(String url, String keyword) throws IOException {
-        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-        Document htmlDocument = connection.get();
-        if (htmlDocument == null) {
-            System.out.println("ERROR! The HTML document is not received");
-            return false;
-        }
-        this.document = htmlDocument;
-        String bodyText = this.document.body().text();
-        return bodyText.toLowerCase().contains(keyword.toLowerCase());
-
-    }
-
     public Document getDocument() {
         return document;
     }
@@ -129,13 +139,6 @@ public class Scraper {
         this.document = document;
     }
 
-    public Element getElement() {
-        return element;
-    }
-
-    public void setElement(Element element) {
-        this.element = element;
-    }
 
     public Elements getElements() {
         return elements;
