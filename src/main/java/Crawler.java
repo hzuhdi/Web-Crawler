@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Crawler {
 
-    private static final int MAX_PAGES = 20;
+    private static int MAX_PAGES = 20;
     private Set<String> pages_visited= new HashSet<>();
     //private ArrayList<String> pages_to_visit;
     private List<String> pagesToVisit = new LinkedList<>();
@@ -20,22 +20,6 @@ public class Crawler {
     public Crawler(){
 
     }
-//    public void loopUrl(String url,String searchWord)throws IOException{
-//        if (url == null || searchWord == null) {
-//            throw new IllegalArgumentException("Arguments should not be null");
-//        } else if (!url.matches(URL_PATTERN)) {
-//            throw new IOException("The url is not valid");
-//        }
-//        while (this.pages_visited.size() < MAX_PAGES) {
-//            String currentUrl;
-//
-//            if (this.pagesToVisit.isEmpty()) {
-//                currentUrl = url;
-//                this.pages_visited.add(url);
-//            } else {
-//                currentUrl = this.nextUrl();
-//            }
-//        }}
 
     public void loopUrl(String url) throws YearException, IOException {
         List<String> links = new LinkedList<String >();
@@ -50,21 +34,18 @@ public class Crawler {
             Document htmlDocument1 = Jsoup.connect(url).userAgent(USER_AGENT).get();
             Elements htmlElements1 =  htmlDocument1.select("a[href]");
             System.out.println("Found (" + htmlElements1.size() + ") links");
+
             for(Element element: htmlElements1){
-                links.add(element.absUrl("href"));
-                pagesToVisit.add(element.absUrl("href"));
+                if(!pages_visited.contains(element.absUrl("href"))){
+                    links.add(element.absUrl("href"));
+                    System.out.println(element.absUrl("href"));
+                    pagesToVisit.add(element.absUrl("href"));
+                }
             }
         }
         this.pagesToVisit = links;
     }
 
-    public int getUrlSize(){
-        return pagesToVisit.size();
-    }
-
-    public int getPageVisitedSize(){
-        return pages_visited.size();
-    }
     /**
      * Returns the next URL to visit (in the order that they were found). We also do a check to make
      * sure this method doesn't return a URL that has already been visited.
@@ -83,47 +64,22 @@ public class Crawler {
         return nextUrl;
     }
 
+    public int getUrlSize(){
+        return pagesToVisit.size();
+    }
+
+    public int getPageVisitedSize(){
+        return pages_visited.size();
+    }
+
+    public static int getMaxPages() {
+        return MAX_PAGES;
+    }
+
+    public void setMaxPages(int x){
+        MAX_PAGES = x;
+    }
+
+
 }
-class CrawlerUtil {
-    private List<String> links = new LinkedList<>();
-    private Document htmlDocument;
-    private static final String USER_AGENT ="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
-
-    public boolean crawl(String url) {
-        try {
-            Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-            Document htmlDocument = connection.get();
-            this.htmlDocument = htmlDocument;
-            if (connection.response().statusCode() == 200) {
-                System.out.println("\n**Visiting** Received web page at " + url);
-            }
-            if (!connection.response().contentType().contains("text/html")) {
-                System.out.println("**Failure** Retrieved something other than HTML");
-                return false;
-            }
-            Elements linksOnPage = htmlDocument.select("a[href]");
-            System.out.println("Found (" + linksOnPage.size() + ") links");
-            for (Element link : linksOnPage) {
-                this.links.add(link.absUrl("href"));
-            }
-            return true;
-        } catch (IOException ioe) {
-            // We were not successful in our HTTP request
-            return false;
-        }
-
-    }
-    public boolean searchForWord(String searchWord){
-        if (this.htmlDocument == null) {
-            System.out.println("ERROR! Call crawl() before performing analysis on the document");
-            return false;
-        }
-            System.out.println("Searching for the word " + searchWord + "...");
-            String bodyText = this.htmlDocument.body().text();
-            return bodyText.toLowerCase().contains(searchWord.toLowerCase());}
-        
-    public List<String> getLinks() {
-        return links;
-    }
-    }
 
