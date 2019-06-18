@@ -20,6 +20,6 @@ public class CrawlerTest {
     @Test(expected = NullPointerException.class)
     public void pageToVisitIsNotEmpty() throws IOException {
         Crawler crawler = new Crawler();
-        crawler.loopUrl("","demoWorld");
+        crawler.loopUrl("http://localhost/sample_site_to_crawl/details.php?id=201","demoWorld");
     }
 }
