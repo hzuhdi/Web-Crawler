@@ -17,25 +17,41 @@ import java.util.ArrayList;
 
 public class Scraper {
 
-    private String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
+    public String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
     private Document document;
-    private Element element;
     private Elements elements;
-    private String search;
 
     ArrayList<Movie> movies = new ArrayList<>();
     ArrayList<Book> books = new ArrayList<>();
     ArrayList<Music> musics = new ArrayList<>();
-    ArrayList<String> halo = new ArrayList<>();
 
     public Scraper() {
     }
 
+
     /**
      *
-     * @param id will be get through a url
-     * @param title parse the title of html element object
-     * @param category parse the category of html element object
+     * @param url of the website
+     * @param keyword word that we're looking for
+     * @return
+     * @throws IOException
+     */
+    public boolean parseSpecific(String url, String keyword) throws IOException {
+        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+        Document htmlDocument = connection.get();
+        if (htmlDocument == null) {
+            System.out.println("ERROR! The HTML document is not received");
+            return false;
+        }
+        this.document = htmlDocument;
+        String bodyText = this.document.body().text();
+        return bodyText.toLowerCase().contains(keyword.toLowerCase());
+    }
+
+    /**
+     * @param id            will be get through a url
+     * @param title         parse the title of html element object
+     * @param category      parse the category of html element object
      * @param elementObject will be reference to the actual table in html
      */
     public void addToList(int id, String title, String category, Element elementObject) throws YearException {
@@ -45,83 +61,74 @@ public class Scraper {
         String year = getDetailsOfElementFromEachTag(elementObject, "Year");
         int yearInt = Integer.parseInt(year);
 
-        if(category.equalsIgnoreCase("Books")){
+        if (category.equalsIgnoreCase("Books")) {
             ArrayList<String> authors = new ArrayList<>();
             authors = getDetailsWithinAList(elementObject, "Authors");
             String publisher = getDetailsOfElementFromEachTag(elementObject, "Publisher");
             String isbn = getDetailsOfElementFromEachTag(elementObject, "ISBN");
             Book book = new Book(id, title, genre, format, yearInt, authors, publisher, isbn);
             books.add(book);
-        } else if(category.equalsIgnoreCase("Music")){
-            //String artist = getDetailsOfElementFromEachTag(elementObject, "Artist");
-            //Music music = new Music(id, genre, format, yearInt, artist);
-            //musics.add(music);
-        } else if(category.equalsIgnoreCase("Movies")){
-
+        } else if (category.equalsIgnoreCase("Music")) {
+            String artist = getDetailsOfElementFromEachTag(elementObject, "Artist");
+            Music music = new Music(id, genre, format, yearInt, artist, title);
+            musics.add(music);
+        } else if (category.equalsIgnoreCase("Movies")) {
+            String director = getDetailsOfElementFromEachTag(elementObject, "Director");
+            ArrayList<String> writers = getDetailsWithinAList(elementObject, "Writers");
+            ArrayList<String> stars = getDetailsWithinAList(elementObject, "Stars");
+            Movie movie = new Movie(id, title, genre, format, yearInt, director, writers, stars);
+            movies.add(movie);
         }
     }
 
-    public ArrayList<String> getDetailsWithinAList(Element myElement, String details){
+    public ArrayList<String> getDetailsWithinAList(Element myElement, String details) {
         //Case Sensitive
         ArrayList<String> detailList = new ArrayList<>();
-        detailList.add(myElement.select("tr:contains(" + details+ ")").get(0).toString());
+        detailList.add(myElement.select("tr:contains(" + details + ")").get(0).toString());
         return detailList;
     }
 
-    public String getDetailsOfElementFromEachTag(Element myElement, String details){
+    public String getDetailsOfElementFromEachTag(Element myElement, String details) {
         //It has CSS Query feature where we can easily select the tag we want to highlight
         //Case sensitive
-        String cont = myElement.select("tr:contains(" + details + ")").get(0).toString();
-        return cont;
+        Element elementTag = myElement.select("tr:contains(" + details + ")").get(0);
+        String contentTag = elementTag.select("td").get(0).text();
+        return contentTag;
     }
 
-    public void parseAll(String url) throws YearException {
-            try {
-                Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-                Document htmlDocument = connection.get();
-                this.document = htmlDocument;
-                if(connection.response().statusCode() == 200) {
-                    System.out.println("\n**Visiting** Received web page at " + url);
-                }
-                Elements media = document.getElementsByClass("media-details");
-                System.out.println("Found media: " + media.size());
-                int z = 1;
-                for(Element htmlElement : elements){
-                    //All of this can be found on the target website
-                    Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
-                    String category = categoryElement.select("td").get(0).text();
-                    String title = categoryElement.select("h1").get(0).text();
-                    int id = getIdFromUrl(url);
-                    addToList(id, title, category, htmlElement);
-                    /**
-                     * TO DO: Create a getter from url to get an id : https://stackoverflow.com/questions/45539506/how-to-extract-id-from-url-google-sheet
-                     */
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+    public void parseAll(String url) throws YearException, IOException {
+        if (url != null || url != "") {
+            Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+            Document htmlDocument = connection.get();
+            this.document = htmlDocument;
+            if (connection.response().statusCode() == 200) {
+                System.out.println("\n**Visiting** Received web page at " + url);
             }
+            Elements media = document.getElementsByClass("media-details");
+            this.elements = media;
+            for (Element htmlElement : elements) {
+                //All of this can be found on the target website
+                Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
+                String category = categoryElement.select("td").get(0).text();
+                String title = htmlElement.select("h1").get(0).text();
+                int id = getIdFromUrl(url);
+                addToList(id, title, category, htmlElement);
+                /**
+                 * TO DO: Create a getter from url to get an id : https://stackoverflow.com/questions/45539506/how-to-extract-id-from-url-google-sheet
+                 */
+            }
+        } else {
+            throw new NullPointerException();
+        }
 
     }
 
-    public int getIdFromUrl(String url){
+    public int getIdFromUrl(String url) {
         //Normal Url : http://localhost/sample_site_to_crawl/details.php?id=102
-        String [] parts = url.split("id=");
+        String[] parts = url.split("id=");
         //System.out.println(parts[1]);
         int id = Integer.parseInt(parts[1]);
         return id;
-    }
-
-    public boolean parseSpecific(String url, String keyword) throws IOException {
-        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-        Document htmlDocument = connection.get();
-        if(htmlDocument == null){
-            System.out.println("ERROR! The HTML document is not received");
-            return false;
-        }
-        this.document = htmlDocument;
-        String bodyText = this.document.body().text();
-        return bodyText.toLowerCase().contains(keyword.toLowerCase());
-
     }
 
     public Document getDocument() {
@@ -132,13 +139,6 @@ public class Scraper {
         this.document = document;
     }
 
-    public Element getElement() {
-        return element;
-    }
-
-    public void setElement(Element element) {
-        this.element = element;
-    }
 
     public Elements getElements() {
         return elements;
@@ -148,15 +148,15 @@ public class Scraper {
         this.elements = elements;
     }
 
-    public ArrayList<Music> getMusics(){
+    public ArrayList<Music> getMusics() {
         return this.musics;
     }
 
-    public ArrayList<Book> getBooks(){
+    public ArrayList<Book> getBooks() {
         return this.books;
     }
 
-    public ArrayList<Movie> getMovies(){
+    public ArrayList<Movie> getMovies() {
         return this.movies;
     }
 
