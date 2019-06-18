@@ -98,8 +98,10 @@ class CrawlerUtil {
             System.out.println("ERROR! Call crawl() before performing analysis on the document");
             return false;
         }
-
-        return true;}
+            System.out.println("Searching for the word " + searchWord + "...");
+            String bodyText = this.htmlDocument.body().text();
+            return bodyText.toLowerCase().contains(searchWord.toLowerCase());}
+        
     public List<String> getLinks() {
         return links;
     }
