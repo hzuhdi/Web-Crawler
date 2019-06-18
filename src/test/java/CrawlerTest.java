@@ -17,4 +17,9 @@ public class CrawlerTest {
         Crawler crawler = new Crawler();
         crawler.loopUrl("Invalid Url here", "demoWord");
     }
+    @Test(expected = NullPointerException.class)
+    public void pageToVisitIsNotEmpty() throws IOException {
+        Crawler crawler = new Crawler();
+        crawler.loopUrl("","demoWorld");
+    }
 }
