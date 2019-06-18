@@ -40,6 +40,12 @@ public class ScraperTest {
         authors.add(author1);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void parseAllShouldThrowAnExceptioOEmptyUrl() throws YearException, IOException {
+        Scraper scraper = new Scraper();
+        scraper.parseAll("");
+    }
+
     /**
      * verify the call of parseAll
      * @throws YearException
@@ -199,9 +205,8 @@ public class ScraperTest {
         when(scraper.getDetailsOfElementFromEachTag(element, "ISBN")).thenReturn(attributeIsbn);
         when(scraper.getDetailsOfElementFromEachTag(element, "Publisher")).thenReturn(attributePublisher);
         when(scraper.getDetailsWithinAList(element, "Authors")).thenReturn(authors);
-        //doCallRealMethod().when(scraper).addToList(id, title, category, element);
+        doCallRealMethod().when(scraper).addToList(id, title, category, element);
         scraper.addToList(id, title, category, element);
-
         //Assert
         verify(scraper, times(1)).addToList(id, title, category, element);
     }
@@ -212,11 +217,16 @@ public class ScraperTest {
         //Arrange
         Scraper scraper = mock(Scraper.class);
         Element element = mock(Element.class);
+        ArrayList<Music> musics = new ArrayList<>();
         //Act
         when(scraper.getDetailsOfElementFromEachTag(element, "Year")).thenReturn("2015");
         when(scraper.getDetailsOfElementFromEachTag(element, "Genre")).thenReturn("Rock");
         when(scraper.getDetailsOfElementFromEachTag(element, "Format")).thenReturn("Vinyl");
         when(scraper.getDetailsOfElementFromEachTag(element, "Artist")).thenReturn("Elvis Presley");
+        //PartialMocking
+        doCallRealMethod().when(scraper).setMusics(musics);
+        doCallRealMethod().when(scraper).addToList(302, "Elvis Forever", "Music", element);
+        scraper.setMusics(musics);
         scraper.addToList(302, "Elvis Forever", "Music", element);
         //Assert
         verify(scraper, times(1)).addToList(302, "Elvis Forever", "Music", element);
