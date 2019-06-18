@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Crawler {
 
-    private int MAX_PAGES;
+    private static final int MAX_PAGES = 10;
     private Set<String> pages_visited= new HashSet<>();
     //private ArrayList<String> pages_to_visit;
     private List<String> pagesToVisit = new LinkedList<>();
@@ -25,7 +25,16 @@ public class Crawler {
         } else if (!url.matches(URL_PATTERN)) {
             throw new IOException("The url is not valid");
         }
-    }
+        while (this.pages_visited.size() < MAX_PAGES) {
+            String currentUrl;
+
+            if (this.pagesToVisit.isEmpty()) {
+                currentUrl = url;
+                this.pages_visited.add(url);
+            } else {
+                currentUrl = this.nextUrl();
+            }
+    }}
 
     public int getUrlSize(){
         return 0;
@@ -48,4 +57,5 @@ public class Crawler {
 
         return nextUrl;
     }
+
 }
