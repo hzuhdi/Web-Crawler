@@ -43,8 +43,8 @@ public class Crawler {
         }
         do {
             nextUrl = this.pagesToVisit.remove(0);
-        } while (this.pagesVisited.contains(nextUrl));
-        this.pagesVisited.add(nextUrl);
+        } while (this.pages_visited.contains(nextUrl));
+        this.pages_visited.add(nextUrl);
 
         return nextUrl;
     }
