@@ -20,6 +20,13 @@ public class CrawlerTest {
         assertEquals(12, crawler.getUrlSize());
     }
 
+    @Test
+    public void getPageVisitedSize(){
+        Crawler crawler = new Crawler();
+        int x = crawler.getPagevisitedSize();
+        assertEquals(0, x);
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void parameterOfLoopUrlShouldNotBeNull() throws IOException {
         Crawler crawler = new Crawler();
