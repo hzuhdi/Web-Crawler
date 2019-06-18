@@ -30,8 +30,7 @@ public class Scraper {
 
 
     /**
-     *
-     * @param url of the website
+     * @param url     of the website
      * @param keyword word that we're looking for
      * @return
      * @throws IOException
@@ -98,7 +97,9 @@ public class Scraper {
 
     public void parseAll(String url) throws YearException, IOException {
         if (url != null || url != "") {
-            Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+            //TODO
+            //Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+            Connection connection = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1");
             Document htmlDocument = connection.get();
             this.document = htmlDocument;
             if (connection.response().statusCode() == 200) {
