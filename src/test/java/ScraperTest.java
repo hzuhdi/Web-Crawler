@@ -26,6 +26,9 @@ public class ScraperTest {
     private String url, book_url, movie_url, music_url, invalid_url;
     private ArrayList<String> authors = new ArrayList<>();
 
+    public ScraperTest() throws IOException {
+    }
+
     @Before
     public void setUp(){
         url = "http://example.com";
@@ -119,16 +122,9 @@ public class ScraperTest {
      */
     @Test
     public void parseSpecificShouldReturnTrue() throws IOException {
-
-//        Scraper scraper = new Scraper();
-//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
-//        assertEquals(true, result);
-        Scraper scraper = mock(Scraper.class);
-        when(scraper.parseSpecific(book_url, "978-0132350884")).thenReturn(true);
-        boolean x = scraper.parseSpecific(book_url, "978-0132350884");
-        assertEquals(true, x);
-//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
-//        assertEquals(true, result);
+        Scraper scraper = new Scraper();
+        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+        assertEquals(true, result);
 
     }
 
@@ -142,6 +138,17 @@ public class ScraperTest {
         String notValidUrl = "http://invalid";
         boolean result = scraper.parseSpecific(notValidUrl, "978-0132350884");
         //assertEquals(true, result);
+    }
+
+    /**
+     * Id should be returned and splitted from an url
+     * @throws IOException
+     */
+    @Test
+    public void idShouldbeReturnedFromURL() throws IOException {
+        Scraper scraper = new Scraper();
+        int id = scraper.getIdFromUrl(book_url);
+        assertEquals(102, id);
     }
 
     /**
@@ -199,12 +206,6 @@ public class ScraperTest {
         verify(scraper, times(1)).addToList(id, title, category, element);
     }
 
-    @Test
-    public void idShouldbeReturnedFromURL(){
-        Scraper scraper = new Scraper();
-        int id = scraper.getIdFromUrl(book_url);
-        assertEquals(102, id);
-    }
 
     @Test
     public void shouldAddAListToTheMusics() throws YearException {
