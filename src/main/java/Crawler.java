@@ -71,5 +71,8 @@ class CrawlerUtil {
 
     public boolean crawl(String url) {return true;}
     public boolean searchForWord(String searchWord){return true;}
+    public List<String> getLinks() {
+        return links;
+    }
     }
 
