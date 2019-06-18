@@ -23,7 +23,7 @@ public class CrawlerTest {
     @Test
     public void getPageVisitedSize(){
         Crawler crawler = new Crawler();
-        int x = crawler.getPagevisitedSize();
+        int x = crawler.getPageVisitedSize();
         assertEquals(0, x);
     }
 

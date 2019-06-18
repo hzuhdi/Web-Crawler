@@ -61,6 +61,10 @@ public class Crawler {
     public int getUrlSize(){
         return pagesToVisit.size();
     }
+
+    public int getPageVisitedSize(){
+        return pages_visited.size();
+    }
     /**
      * Returns the next URL to visit (in the order that they were found). We also do a check to make
      * sure this method doesn't return a URL that has already been visited.
