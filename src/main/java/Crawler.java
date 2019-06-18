@@ -93,7 +93,13 @@ class CrawlerUtil {
         }
 
     }
-    public boolean searchForWord(String searchWord){return true;}
+    public boolean searchForWord(String searchWord){
+        if (this.htmlDocument == null) {
+            System.out.println("ERROR! Call crawl() before performing analysis on the document");
+            return false;
+        }
+
+        return true;}
     public List<String> getLinks() {
         return links;
     }
