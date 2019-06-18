@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
 
 public class ScraperTest {
 
-    private String url, book_url, movie_url, music_url;
+    private String url, book_url, movie_url, music_url, invalid_url;
     private ArrayList<String> authors = new ArrayList<>();
 
     @Before
@@ -32,6 +32,7 @@ public class ScraperTest {
         book_url = "http://localhost/sample_site_to_crawl/details.php?id=102";
         music_url = "http://localhost/sample_site_to_crawl/details.php?id=301";
         movie_url = "http://localhost/sample_site_to_crawl/details.php?id=201";
+        invalid_url = "http://halo";
         String author1 = "James Bensen";
         authors.add(author1);
     }
@@ -40,63 +41,12 @@ public class ScraperTest {
      * verify the call of parseAll
      * @throws YearException
      */
-    @Test
-    public void parseAllShouldBeCalled() throws YearException, IOException {
-        //Arrange
-        Scraper scraper = mock(Scraper.class);
-        doCallRealMethod().when(scraper).parseAll(book_url);
-        scraper.parseAll(book_url);
-        //Assert
-        verify(scraper, times(1)).parseAll(book_url);
-    }
-
-    /**
-     * parse specific will return true if found any character the user want to search for
-     * Doesn't applied: If it's applied to travis-ci the build is always broken, since the target website is in local
-     * @throws IOException
-     */
-    @Test
-    public void parseSpecificShouldReturnTrue() throws IOException {
-
-//        Scraper scraper = new Scraper();
-//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
-//        assertEquals(true, result);
-        Scraper scraper = mock(Scraper.class);
-        when(scraper.parseSpecific(book_url, "978-0132350884")).thenReturn(true);
-        boolean x = scraper.parseSpecific(book_url, "978-0132350884");
-        assertEquals(true, x);
-//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
-//        assertEquals(true, result);
-
-    }
-
-    /**
-     * to check whether the url given is valid url or not
-     * @throws IOException is expected
-     */
     @Test(expected = IOException.class)
-    public void parseSpecificShouldThrownAnExceptionOfInvalidUrl() throws IOException {
-        Scraper scraper = new Scraper();
-        String notValidUrl = "http://invalid";
-        boolean result = scraper.parseSpecific(notValidUrl, "978-0132350884");
-        //assertEquals(true, result);
-    }
-
-    /**
-     * the scraper should return the expected elements (media-details)
-     */
-    @Test
-    public void shouldGiveTheExpectedElements(){
+    public void parseAllShouldThrownAnException_WhenHandlingInvalidURL() throws YearException, IOException {
         //Arrange
-        Document document = mock(Document.class);
-        Elements elements = mock(Elements.class);
         Scraper scraper = new Scraper();
         //Act
-        //The document will take only a search on the class div of media-details
-        when(document.getElementsByClass("media-details")).thenReturn(elements);
-        scraper.setElements(document.getElementsByClass("media-details"));
-        //Assert
-        assertEquals(elements, scraper.getElements());
+        scraper.parseAll(invalid_url);
     }
 
     /**
@@ -161,6 +111,56 @@ public class ScraperTest {
         //Assert
         assertEquals(1, musics.size());
     }
+
+    /**
+     * parse specific will return true if found any character the user want to search for
+     * Doesn't applied: If it's applied to travis-ci the build is always broken, since the target website is in local
+     * @throws IOException
+     */
+    @Test
+    public void parseSpecificShouldReturnTrue() throws IOException {
+
+//        Scraper scraper = new Scraper();
+//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+//        assertEquals(true, result);
+        Scraper scraper = mock(Scraper.class);
+        when(scraper.parseSpecific(book_url, "978-0132350884")).thenReturn(true);
+        boolean x = scraper.parseSpecific(book_url, "978-0132350884");
+        assertEquals(true, x);
+//        boolean result = scraper.parseSpecific(book_url, "978-0132350884");
+//        assertEquals(true, result);
+
+    }
+
+    /**
+     * to check whether the url given is valid url or not
+     * @throws IOException is expected
+     */
+    @Test(expected = IOException.class)
+    public void parseSpecificShouldThrownAnExceptionOfInvalidUrl() throws IOException {
+        Scraper scraper = new Scraper();
+        String notValidUrl = "http://invalid";
+        boolean result = scraper.parseSpecific(notValidUrl, "978-0132350884");
+        //assertEquals(true, result);
+    }
+
+    /**
+     * the scraper should return the expected elements (media-details)
+     */
+    @Test
+    public void shouldGiveTheExpectedElements(){
+        //Arrange
+        Document document = mock(Document.class);
+        Elements elements = mock(Elements.class);
+        Scraper scraper = new Scraper();
+        //Act
+        //The document will take only a search on the class div of media-details
+        when(document.getElementsByClass("media-details")).thenReturn(elements);
+        scraper.setElements(document.getElementsByClass("media-details"));
+        //Assert
+        assertEquals(elements, scraper.getElements());
+    }
+
 
     @Test
     public void shouldAddAListToBooks() throws YearException {
