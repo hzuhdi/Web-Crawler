@@ -1,3 +1,4 @@
+import exception.YearException;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,40 +10,56 @@ import java.util.*;
 
 public class Crawler {
 
-    private static final int MAX_PAGES = 10;
+    private static final int MAX_PAGES = 20;
     private Set<String> pages_visited= new HashSet<>();
     //private ArrayList<String> pages_to_visit;
     private List<String> pagesToVisit = new LinkedList<>();
+    private static final String USER_AGENT ="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
+
     private static final String URL_PATTERN = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
     public Crawler(){
 
     }
-    /**
-     * Our main launching point for the Spider's functionality. It creates spider legs
-     * that make an HTTP request and parse the response (the web page).
-     *
-     * @param url        - The starting point of the spider
-     * @param searchWord - The word or string that you are searching for
-     */
-    public void loopUrl(String url,String searchWord)throws IOException{
-        if (url == null || searchWord == null) {
-            throw new IllegalArgumentException("Arguments should not be null");
-        } else if (!url.matches(URL_PATTERN)) {
-            throw new IOException("The url is not valid");
-        }
-        while (this.pages_visited.size() < MAX_PAGES) {
-            String currentUrl;
+//    public void loopUrl(String url,String searchWord)throws IOException{
+//        if (url == null || searchWord == null) {
+//            throw new IllegalArgumentException("Arguments should not be null");
+//        } else if (!url.matches(URL_PATTERN)) {
+//            throw new IOException("The url is not valid");
+//        }
+//        while (this.pages_visited.size() < MAX_PAGES) {
+//            String currentUrl;
+//
+//            if (this.pagesToVisit.isEmpty()) {
+//                currentUrl = url;
+//                this.pages_visited.add(url);
+//            } else {
+//                currentUrl = this.nextUrl();
+//            }
+//        }}
 
-            if (this.pagesToVisit.isEmpty()) {
-                currentUrl = url;
-                this.pages_visited.add(url);
-            } else {
-                currentUrl = this.nextUrl();
+    public void loopUrl(String url) throws YearException, IOException {
+        List<String> links = new LinkedList<String >();
+        this.pagesToVisit.add(url);
+        Document htmlDocument = Jsoup.connect(url).userAgent(USER_AGENT).get();
+        Elements htmlElements =  htmlDocument.select("a[href]");
+        int sizeActual = htmlElements.size();
+        //will be looping until the pageToVisit zero
+        while(this.pagesToVisit.size() < sizeActual){
+            String currentUrl;
+            System.out.println("\n**Visiting** Received web page at " + url);
+            Document htmlDocument1 = Jsoup.connect(url).userAgent(USER_AGENT).get();
+            Elements htmlElements1 =  htmlDocument1.select("a[href]");
+            System.out.println("Found (" + htmlElements1.size() + ") links");
+            for(Element element: htmlElements1){
+                links.add(element.absUrl("href"));
+                pagesToVisit.add(element.absUrl("href"));
             }
-    }}
+        }
+        this.pagesToVisit = links;
+    }
 
     public int getUrlSize(){
-        return 0;
+        return pagesToVisit.size();
     }
     /**
      * Returns the next URL to visit (in the order that they were found). We also do a check to make
@@ -59,7 +76,6 @@ public class Crawler {
             nextUrl = this.pagesToVisit.remove(0);
         } while (this.pages_visited.contains(nextUrl));
         this.pages_visited.add(nextUrl);
-
         return nextUrl;
     }
 
