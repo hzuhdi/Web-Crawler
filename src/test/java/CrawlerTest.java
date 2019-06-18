@@ -7,6 +7,10 @@ public class CrawlerTest {
     public void getURLSizeReturnIntValue() throws IOException {
         Crawler crawler = new Crawler();
     }
-
+    @Test(expected = IllegalArgumentException.class)
+    public void parameterOfLoopUrlShouldNotBeNull() throws IOException {
+        Crawler crawler = new Crawler();
+        crawler.loopUrl(null, null);
+    }
 
 }
