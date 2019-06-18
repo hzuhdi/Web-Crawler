@@ -10,7 +10,7 @@ public class CrawlerTest {
     public void getURLSizeReturnIntValue() throws IOException, YearException {
         Crawler crawler = new Crawler();
         crawler.loopUrl("http://localhost/sample_site_to_crawl/catalog.php");
-        assertEquals(12, crawler.getUrlSize());
+        assertEquals(19, crawler.getUrlSize());
     }
     @Test(expected = IllegalArgumentException.class)
     public void parameterOfLoopUrlShouldNotBeNull() throws IOException {
