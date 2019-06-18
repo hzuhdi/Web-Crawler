@@ -31,11 +31,12 @@ public class Crawler {
         return 0;
     }
 
-    public void nextUrl(){
+    public String nextUrl(){
         if (URL_PATTERN == ""){
             throw new NullPointerException("Page should not be empty");
         }
-        
+
+
 
     }
 }
