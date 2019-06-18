@@ -32,7 +32,7 @@ public class Crawler {
         }
         while (this.pages_visited.size() < MAX_PAGES) {
             String currentUrl;
-
+            CrawlerUtil util = new CrawlerUtil();
             if (this.pagesToVisit.isEmpty()) {
                 currentUrl = url;
                 this.pages_visited.add(url);
