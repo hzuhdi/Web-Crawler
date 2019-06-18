@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -18,9 +19,11 @@ public class Crawler {
      * @param url        - The starting point of the spider
      * @param searchWord - The word or string that you are searching for
      */
-    public void loopUrl(String url,String searchWord){
+    public void loopUrl(String url,String searchWord)throws IOException{
         if (url == null || searchWord == null) {
             throw new IllegalArgumentException("Arguments should not be null");
+        } else if (!url.matches(URL_PATTERN)) {
+            throw new IOException("The url is not valid");
         }
     }
 
