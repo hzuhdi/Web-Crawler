@@ -11,8 +11,14 @@ public class Crawler {
     public Crawler(){
 
     }
-
-    public void loopUrl(String url){
+    /**
+     * Our main launching point for the Spider's functionality. It creates spider legs
+     * that make an HTTP request and parse the response (the web page).
+     *
+     * @param url        - The starting point of the spider
+     * @param searchWord - The word or string that you are searching for
+     */
+    public void loopUrl(String url,String searchWord){
 
     }
 
