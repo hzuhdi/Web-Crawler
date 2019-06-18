@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.io.IOException;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +33,7 @@ public class WCA_ControllerTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void getAllReturnNonEmptyResponse() throws YearException
+    public void getAllReturnNonEmptyResponse() throws YearException, IOException
     {
         // Arrange
         Scraper scraper = mock(Scraper.class);
@@ -55,7 +56,7 @@ public class WCA_ControllerTest {
     }
 
     @Test
-    public void getAllThrowsYearException() throws YearException
+    public void getAllThrowsYearException() throws YearException, IOException
     {
         exception.expect(YearException.class);
         exception.expectMessage(containsString("year"));
@@ -74,7 +75,7 @@ public class WCA_ControllerTest {
     }
 
     @Test
-    public void getAllReturnValidResponse() throws YearException
+    public void getAllReturnValidResponse() throws YearException, IOException
     {
         // Arrange
         Scraper scraper = mock(Scraper.class);

@@ -1,5 +1,6 @@
 import exception.YearException;
 
+import java.io.IOException;
 import java.util.Date;
 
 public class WCA_Controller {
@@ -21,7 +22,7 @@ public class WCA_Controller {
     public WCA_Controller() {
     }
 
-    public String getAll(String url) throws YearException {
+    public String getAll(String url) throws YearException, IOException {
         startTime = new Date();
 
         scraper.parseAll(url);
@@ -30,7 +31,9 @@ public class WCA_Controller {
 
         timeElapsedInMS = endTime.getTime() - startTime.getTime();
 
-        content.addToList(scraper.getBooks(), scraper.getMovies(), scraper.getMusics());
+        content.setBooks(scraper.getBooks());
+        content.setMovies(scraper.getMovies());
+        content.setMusics(scraper.getMusics());
 
         return content.converToJson();
     }
