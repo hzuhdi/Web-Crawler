@@ -26,7 +26,6 @@ public class Scraper {
     ArrayList<Movie> movies = new ArrayList<>();
     ArrayList<Book> books = new ArrayList<>();
     ArrayList<Music> musics = new ArrayList<>();
-    ArrayList<String> halo = new ArrayList<>();
 
     public Scraper() {
     }
@@ -57,7 +56,11 @@ public class Scraper {
             //Music music = new Music(id, genre, format, yearInt, artist);
             //musics.add(music);
         } else if (category.equalsIgnoreCase("Movies")) {
-
+            String director = getDetailsOfElementFromEachTag(elementObject, "Director");
+            ArrayList<String> writers = getDetailsWithinAList(elementObject, "Writers");
+            ArrayList<String> stars = getDetailsWithinAList(elementObject, "Stars");
+            Movie movie = new Movie(id, title, genre, format, yearInt, director, writers, stars);
+            movies.add(movie);
         }
     }
 
