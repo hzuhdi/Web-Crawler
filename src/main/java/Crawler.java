@@ -19,7 +19,9 @@ public class Crawler {
      * @param searchWord - The word or string that you are searching for
      */
     public void loopUrl(String url,String searchWord){
-
+        if (url == null || searchWord == null) {
+            throw new IllegalArgumentException("Arguments should not be null");
+        }
     }
 
     public int getUrlSize(){
