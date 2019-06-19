@@ -138,11 +138,12 @@ public class WCA_ControllerTest {
         String url = "http://localhost/sample_site_to_crawl/details.php?id=204";
         String keyword = "Princess";
 
-        ArrayList<Book> books = new ArrayList<>();
+        WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
+        /*ArrayList<Book> books = new ArrayList<>();
         ArrayList<Movie> movies = new ArrayList<>();
         ArrayList<Music> musics = new ArrayList<>();
 
-        WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
+
 
         List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens"));
         List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
@@ -154,7 +155,7 @@ public class WCA_ControllerTest {
 
         content.setBooks(books);
         content.setMovies(movies);
-        content.setMusics(musics);
+        content.setMusics(musics);*/
 
 
         // Act
