@@ -59,14 +59,15 @@ public class WCA_Controller {
         }
         if (newObject != null) {
             endTime = new Date();
-
             timeElapsedInMS = endTime.getTime() - startTime.getTime();
-
             String x = new Gson().toJson(newObject).toString();
             return new Gson().toJson(newObject).toString();
         } else {
+            endTime = new Date();
+            timeElapsedInMS = endTime.getTime() - startTime.getTime();
             return "Keyword can't be found";
         }
+
 
         //Object o = scraper.parseSpecific(url, keyword);
 

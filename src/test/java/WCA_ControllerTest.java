@@ -52,16 +52,15 @@ public class WCA_ControllerTest {
     @Test
     public void getAllReturnNonEmptyResponse() throws YearException, IOException {
         // Arrange
-        Scraper scraper = mock(Scraper.class);
-        Crawler crawler = mock(Crawler.class);
-        Content content = mock(Content.class);
-        String url = "";
-        String jsonResponse = "Test";
+        Scraper scraper = new Scraper();
+        Crawler crawler = new Crawler();
+        Content content = new Content();
+        String url = "http://localhost/sample_site_to_crawl/catalog.php";
 
         WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
 
-        // expectations
-        when(content.converToJson()).thenReturn(jsonResponse);
+        /*// expectations
+        when(content.converToJson()).thenReturn(jsonResponse);*/
 
         // Act
         String response = controller.getAll(url);
@@ -251,6 +250,5 @@ public class WCA_ControllerTest {
         assertTrue(response.contains("movies"));
         assertTrue(response.contains("books"));
         assertTrue(response.contains("music"));
-        assertTrue(response.contains("The Princess Bride"));
     }
 }
