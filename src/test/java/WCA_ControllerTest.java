@@ -13,6 +13,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -39,6 +40,9 @@ public class WCA_ControllerTest {
 
     @Rule
     public ErrorCollector collector = new ErrorCollector();
+
+    @Rule
+    public Timeout timeout = Timeout.seconds(5);
 
     @Test
     public void getAllReturnNonEmptyResponse() throws YearException, IOException {
@@ -197,7 +201,48 @@ public class WCA_ControllerTest {
         // Assert
         assertNotNull("Response is null", response);
         assertFalse("Response is empty", response.trim().isEmpty());
-
         collector.checkThat(endTime, greaterThan(startTime));
+    }
+
+
+    @Test
+    public void getAllFailedDueToTimeOut() throws YearException, IOException, InterruptedException {
+        Thread.sleep(6000);
+
+        // Arrange
+        Scraper scraper = new Scraper();
+        Crawler crawler = new Crawler();
+        Content content = new Content();
+        String url = "http://localhost/sample_site_to_crawl/details.php?id=204";
+
+        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Movie> movies = new ArrayList<>();
+        ArrayList<Music> musics = new ArrayList<>();
+
+        WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
+
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
+        List<String> authors = new ArrayList<>(Arrays.asList("author 1", "author 2"));
+
+        books.add(new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789"));
+        movies.add(new Movie(1, "The Princess Bride", "Drama", "Blue-ray", 2001, "Peter Jackson", writers, stars));
+        musics.add(new Music(1, "genre1", "format", 2011, ("artist1"), "title"));
+
+        content.setBooks(books);
+        content.setMovies(movies);
+        content.setMusics(musics);
+
+        // Act
+        String response = controller.getAll(url);
+        System.out.println(response);
+
+        // Assert
+        assertNotNull("Response is null", response);
+        assertFalse("Response is empty", response.trim().isEmpty());
+        assertTrue(response.contains("movies"));
+        assertTrue(response.contains("books"));
+        assertTrue(response.contains("music"));
+        assertTrue(response.contains("The Princess Bride"));
     }
 }
