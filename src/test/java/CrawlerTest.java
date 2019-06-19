@@ -2,6 +2,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+
 public class CrawlerTest {
     @Test
     public void getURLSizeReturnIntValue() throws IOException {
@@ -26,6 +28,9 @@ public class CrawlerTest {
     @Test
     public void shouldGetAllUrl() throws IOException {
         Crawler crawler = new Crawler();
-        crawler.getAllUrl("http://localhost/sample_site_to_crawl/catalog.php");
+        String url = "http://localhost/sample_site_to_crawl/catalog.php";
+        crawler.getAllUrl(url);
+        int x = crawler.getPagesToVisit().size();
+        assertEquals(19, x);
     }
 }

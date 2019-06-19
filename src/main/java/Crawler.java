@@ -82,6 +82,22 @@ public class Crawler {
         }
     }
 
+    public Set<String> getPages_visited() {
+        return pages_visited;
+    }
+
+    public void setPages_visited(Set<String> pages_visited) {
+        this.pages_visited = pages_visited;
+    }
+
+    public List<String> getPagesToVisit() {
+        return pagesToVisit;
+    }
+
+    public void setPagesToVisit(List<String> pagesToVisit) {
+        this.pagesToVisit = pagesToVisit;
+    }
+
     /**
      *
      * Returns the next URL to visit (in the order that they were found). We also do a check to make
