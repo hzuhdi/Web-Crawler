@@ -55,6 +55,7 @@ public class WCA_Controller {
         List<String> pagesToVisit = crawler.getPagesToVisit();
         for (int i = 0; i < pagesToVisit.size(); i++) {
             newObject = scraper.parseSpecific(pagesToVisit.get(i), keyword);
+            if(newObject!= null) break;
         }
         if (newObject != null) {
             endTime = new Date();
