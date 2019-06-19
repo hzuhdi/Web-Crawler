@@ -47,30 +47,30 @@ public class Crawler {
 //        return 0;
 //    }
 
-    public void loopUrl(String url) throws YearException, IOException {
-        List<String> links = new LinkedList<String >();
-        this.pagesToVisit.add(url);
-        Document htmlDocument = Jsoup.connect(url).userAgent(USER_AGENT).get();
-        Elements htmlElements =  htmlDocument.select("a[href]");
-        int sizeActual = htmlElements.size();
-        //will be looping until the pageToVisit zero
-        while(this.pagesToVisit.size() < sizeActual){
-            String currentUrl;
-            System.out.println("\n**Visiting** Received web page at " + url);
-            Document htmlDocument1 = Jsoup.connect(url).userAgent(USER_AGENT).get();
-            Elements htmlElements1 =  htmlDocument1.select("a[href]");
-            System.out.println("Found (" + htmlElements1.size() + ") links");
-
-            for(Element element: htmlElements1){
-                if(!pages_visited.contains(element.absUrl("href"))){
-                    links.add(element.absUrl("href"));
-                    System.out.println(element.absUrl("href"));
-                    pagesToVisit.add(element.absUrl("href"));
-                }
-            }
-        }
-        this.pagesToVisit = links;
-    }
+//    public void loopUrl(String url) throws YearException, IOException {
+//        List<String> links = new LinkedList<String >();
+//        this.pagesToVisit.add(url);
+//        Document htmlDocument = Jsoup.connect(url).userAgent(USER_AGENT).get();
+//        Elements htmlElements =  htmlDocument.select("a[href]");
+//        int sizeActual = htmlElements.size();
+//        //will be looping until the pageToVisit zero
+//        while(this.pagesToVisit.size() < sizeActual){
+//            String currentUrl;
+//            System.out.println("\n**Visiting** Received web page at " + url);
+//            Document htmlDocument1 = Jsoup.connect(url).userAgent(USER_AGENT).get();
+//            Elements htmlElements1 =  htmlDocument1.select("a[href]");
+//            System.out.println("Found (" + htmlElements1.size() + ") links");
+//
+//            for(Element element: htmlElements1){
+//                if(!pages_visited.contains(element.absUrl("href"))){
+//                    links.add(element.absUrl("href"));
+//                    System.out.println(element.absUrl("href"));
+//                    pagesToVisit.add(element.absUrl("href"));
+//                }
+//            }
+//        }
+//        this.pagesToVisit = links;
+//    }
 
     //This methods intends to thDocument
     public void getAllUrl(String url) throws IOException {
@@ -108,18 +108,18 @@ public class Crawler {
      *
      * @return
      */
-    public String nextUrl(){
-        String nextUrl = null;
-        if (nextUrl == ""){
-            throw new NullPointerException("Page should not be empty");
-        }
-        do {
-            nextUrl = this.pagesToVisit.remove(0);
-        } while (this.pages_visited.contains(nextUrl));
-        this.pages_visited.add(nextUrl);
-
-        return nextUrl;
-    }
+//    public String nextUrl(){
+//        String nextUrl = null;
+//        if (nextUrl == ""){
+//            throw new NullPointerException("Page should not be empty");
+//        }
+//        do {
+//            nextUrl = this.pagesToVisit.remove(0);
+//        } while (this.pages_visited.contains(nextUrl));
+//        this.pages_visited.add(nextUrl);
+//
+//        return nextUrl;
+//    }
 
 }
 
