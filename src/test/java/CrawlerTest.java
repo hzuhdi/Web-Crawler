@@ -31,7 +31,7 @@ public class CrawlerTest {
         String url = "http://localhost/sample_site_to_crawl/catalog.php";
         crawler.getAllUrl(url);
         int x = crawler.getPagesToVisit().size();
-        assertEquals(19, x);
+        assertEquals(12, x);
     }
 
     @Test (expected = IOException.class)
@@ -39,5 +39,21 @@ public class CrawlerTest {
         Crawler crawler = new Crawler();
         String url = "";
         crawler.getAllUrl(url);
+    }
+
+    @Test
+    public void checkCategoryUrl(){
+        Crawler crawler = new Crawler();
+        String url = "http://twitter.com";
+        boolean x = crawler.checkIfCategoryUrl(url);
+        assertEquals(false, x);
+    }
+
+    @Test
+    public void checkCategoryUrlShouldbeInvalidOfNotReferingToTheId(){
+        Crawler crawler = new Crawler();
+        String url = "http://localhost/sample_site_to_crawl/catalog.php?cat=books";
+        boolean x = crawler.checkIfCategoryUrl(url);
+        assertEquals(false, x);
     }
 }

@@ -83,7 +83,31 @@ public class Crawler {
             String link = element.absUrl("href").toString();
             System.out.println(link);
             pagesToVisit.add(link);
+            if(!checkIfCategoryUrl(link)){
+                pagesToVisit.remove(link);
+            }
         }
+    }
+
+    public void getAllUrlForSpecific(String url) throws IOException {
+        if(url.isEmpty()){
+            throw new IOException();
+        }
+        Document document = Jsoup.connect(url).userAgent(USER_AGENT).get();
+        Elements htmlElements = document.select("a[href]");
+        for(Element element: htmlElements){
+            String link = element.absUrl("href").toString();
+            System.out.println(link);
+            pagesToVisit.add(link);
+        }
+    }
+
+    public boolean checkIfCategoryUrl(String url){
+        boolean myStatus = true;
+        if(!url.contains("id=")){
+            myStatus = false;
+        }
+        return myStatus;
     }
 
     public Set<String> getPages_visited() {
