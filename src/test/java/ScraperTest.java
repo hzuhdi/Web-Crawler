@@ -232,4 +232,13 @@ public class ScraperTest {
         verify(scraper, times(1)).addToList(302, "Elvis Forever", "Music", element);
     }
 
+    @Test
+    public void parseSpecific() throws IOException, YearException {
+        Scraper scraper = new Scraper();
+        String url = "http://localhost/sample_site_to_crawl/details.php?id=204";
+        Object object = scraper.parseSpecific(url, "Princess");
+        //System.out.println(object);
+        assertNotNull(object);
+    }
+
 }

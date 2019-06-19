@@ -46,33 +46,38 @@ public class Scraper {
 //        String bodyText = this.document.body().text();
 //        return bodyText.toLowerCase().contains(keyword.toLowerCase());
 //    }
-
     public Object parseSpecific(String url, String keyword) throws IOException, YearException {
         Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
         Document htmlDocument = connection.get();
-        String cat = "";
         Object obj = null;
         if (htmlDocument == null || htmlDocument.equals(null)) {
             System.out.println("ERROR! The HTML document is not received");
             throw new NullPointerException();
         }
+
+        String cat = "";
         this.document = htmlDocument;
         String bodyText = this.document.body().text();
+        //String tit = "";
         Elements media = document.getElementsByClass("media-details");
         for (Element htmlElement : media) {
             Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
             String category = categoryElement.select("td").get(0).text();
+            int id = getIdFromUrl(url);
             cat = category;
             String title = htmlElement.select("h1").get(0).text();
-            int id = getIdFromUrl(url);
-            addToList(id, title, category, htmlElement);
-        }
-        if (cat.equalsIgnoreCase("Books")) {
-            obj = getBooks().get(0);
-        } else if (cat.equalsIgnoreCase("Music")) {
-            obj = getMusics().get(0);
-        } else if (cat.equalsIgnoreCase("Movies")) {
-            obj = getMovies().get(0);
+            if(title.contains(keyword)){
+                addToList(id, title, category, htmlElement);
+                if (cat.equalsIgnoreCase("Books")) {
+                    obj = getBooks().get(0);
+                } else if (cat.equalsIgnoreCase("Music")) {
+                    obj = getMusics().get(0);
+                } else if (cat.equalsIgnoreCase("Movies")) {
+                    obj = getMovies().get(0);
+                }
+            } else {
+                obj = null;
+            }
         }
         return obj;
 
