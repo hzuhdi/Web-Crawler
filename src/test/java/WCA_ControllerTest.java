@@ -11,19 +11,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.internal.runners.statements.FailOnTimeout;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 import org.junit.rules.Timeout;
+import org.junit.runners.model.TestTimedOutException;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.Assert.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.rules.Timeout.builder;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -196,7 +201,7 @@ public class WCA_ControllerTest {
         String response = controller.getSpecific(url, keyword);
         startTime = controller.getStartTime();
         endTime = controller.getEndTime();
-        System.out.println("end time:"+ endTime.getTime()+" -- "+" start time:"+startTime.getTime());
+        System.out.println("end time:" + endTime.getTime() + " -- " + " start time:" + startTime.getTime());
 
         // Assert
         assertNotNull("Response is null", response);
@@ -206,8 +211,9 @@ public class WCA_ControllerTest {
 
 
     @Test
-    public void getAllFailedDueToTimeOut() throws YearException, IOException, InterruptedException {
-        Thread.sleep(6000);
+    public void getAllCompletedInTime() throws YearException, IOException, InterruptedException, Throwable {
+
+        Thread.sleep(2000);
 
         // Arrange
         Scraper scraper = new Scraper();
