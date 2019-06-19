@@ -20,19 +20,24 @@ public class WCA_Main {
             System.out.println("3. Exit");
             int x = sc.nextInt();
             if(x==1){
+                System.out.println("Please input the url you want to take a look for: e.g: http://localhost/sample_site_to_crawl/catalog.php" );
+                String input = sc.next();
                 WCA_Controller wca_controller = new WCA_Controller();
-                System.out.println("Please input the url you want to take a look for: e.g: http://localhost/sample_site_to_crawl/index.php" );
-                String input = sc.nextLine();
-                String xy = wca_controller.getAll(input);
-                System.out.println(xy);
+                String y = wca_controller.getAll(input);
+                Long l = wca_controller.getTimeElapsedInMS();
+                System.out.println(y);
+                System.out.println("Time taken: " + l.toString() + "miliseconds");
+                break;
             } else if(x==2){
                 WCA_Controller wca_controller = new WCA_Controller();
-                System.out.println("Please input the url you want to take a look for: e.g: http://localhost/sample_site_to_crawl/index.php" );
-                String input = sc.nextLine();
-                System.out.println("Please input the keyword" );
-                String word = sc.nextLine();
+                System.out.println("Please input the url you want to take a look for: e.g: http://localhost/sample_site_to_crawl/catalog.php" );
+                String input = sc.next();
+                System.out.println("Please input the keyword: e.g: Princess" );
+                String word = sc.next();
                 Object y = wca_controller.getSpecific(input, word);
+                Long l = wca_controller.getTimeElapsedInMS();
                 System.out.println(y);
+                System.out.println("Time taken: " + l.toString() + "miliseconds");
             } if(x==3){
                 break;
             } else {

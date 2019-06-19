@@ -26,6 +26,7 @@ public class WCA_Controller {
 
     public String getAll(String url) throws YearException, IOException {
         startTime = new Date();
+        content = new Content();
         scraper = new Scraper();
         crawler = new Crawler();
         crawler.getAllUrl(url);
@@ -74,6 +75,13 @@ public class WCA_Controller {
 
     }
 
+    public long getTimeElapsedInMS() {
+        return timeElapsedInMS;
+    }
+
+    public void setTimeElapsedInMS(long timeElapsedInMS) {
+        this.timeElapsedInMS = timeElapsedInMS;
+    }
 
     public Date getStartTime() {
         return startTime;
