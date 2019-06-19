@@ -38,8 +38,21 @@ public class WCA_Controller {
         return content.converToJson();
     }
 
-    public String getSpecific(String url, String keyword){
-        return "";
+    public String getSpecific(String url, String keyword) throws YearException, IOException{
+
+        startTime = new Date();
+
+        scraper.parseSpecific(url, keyword);
+
+        endTime = new Date();
+
+        timeElapsedInMS = endTime.getTime() - startTime.getTime();
+
+        content.setBooks(scraper.getBooks());
+        content.setMovies(scraper.getMovies());
+        content.setMusics(scraper.getMusics());
+
+        return content.converToJson();
     }
 
 

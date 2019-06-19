@@ -121,20 +121,35 @@ public class WCA_ControllerTest {
     @Test
     public void getSpecificReturnNonEmptyResponse() throws YearException, IOException {
         // Arrange
-        Scraper scraper = mock(Scraper.class);
-        Crawler crawler = mock(Crawler.class);
-        Content content = mock(Content.class);
-        String url = "";
-        String keyword = "";
-        String jsonResponse = "Test";
+        Scraper scraper = new Scraper();
+        Crawler crawler = new Crawler();
+        Content content = new Content();
+
+        String url = "http://localhost/sample_site_to_crawl/details.php?id=204";
+        String keyword = "Princess";
+
+        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Movie> movies = new ArrayList<>();
+        ArrayList<Music> musics = new ArrayList<>();
 
         WCA_Controller controller = new WCA_Controller(scraper, crawler, content);
 
-        // expectations
-        when(content.converToJson()).thenReturn(jsonResponse);
+        List<String> writers = new ArrayList<>(Arrays.asList("J.R.R. Tolkien", "Fran Walsh", "Philippa Boyens"));
+        List<String> stars = new ArrayList<>(Arrays.asList("Ron Livingston", "Jennifer Aniston", "Ali", "Ahmed"));
+        List<String> authors = new ArrayList<>(Arrays.asList("author 1", "author 2"));
+
+        books.add(new Book(1, "How to code in Java", "Computer", "pdf", 2009, authors, "Gramedia Publisher", "ISBN123456789"));
+        movies.add(new Movie(1, "The Princess Bride", "Drama", "Blue-ray", 2001, "Peter Jackson", writers, stars));
+        musics.add(new Music(1, "genre1", "format", 2011, ("artist1"), "title"));
+
+        content.setBooks(books);
+        content.setMovies(movies);
+        content.setMusics(musics);
+
 
         // Act
         String response = controller.getSpecific(url, keyword);
+        System.out.println(response);
 
         // Assert
         assertNotNull("Response is null", response);
