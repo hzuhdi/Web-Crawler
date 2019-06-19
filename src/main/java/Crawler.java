@@ -81,7 +81,7 @@ public class Crawler {
         Elements htmlElements = document.select("a[href]");
         for(Element element: htmlElements){
             String link = element.absUrl("href").toString();
-            System.out.println(link);
+            //System.out.println(link);
             pagesToVisit.add(link);
             if(!checkIfCategoryUrl(link)){
                 pagesToVisit.remove(link);

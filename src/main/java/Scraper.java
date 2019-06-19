@@ -134,17 +134,16 @@ public class Scraper {
             Document htmlDocument = connection.get();
             this.document = htmlDocument;
             if (connection.response().statusCode() == 200) {
-                System.out.println("\n**Visiting** Received web page at " + url);
-            }
-            Elements media = document.getElementsByClass("media-details");
-            this.elements = media;
-            for (Element htmlElement : elements) {
-                //All of this can be found on the target website
-                Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
-                String category = categoryElement.select("td").get(0).text();
-                String title = htmlElement.select("h1").get(0).text();
-                int id = getIdFromUrl(url);
-                addToList(id, title, category, htmlElement);
+                Elements media = document.getElementsByClass("media-details");
+                this.elements = media;
+                for (Element htmlElement : elements) {
+                    //All of this can be found on the target website
+                    Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
+                    String category = categoryElement.select("td").get(0).text();
+                    String title = htmlElement.select("h1").get(0).text();
+                    int id = getIdFromUrl(url);
+                    addToList(id, title, category, htmlElement);
+                }
             }
         } else {
             throw new NullPointerException();

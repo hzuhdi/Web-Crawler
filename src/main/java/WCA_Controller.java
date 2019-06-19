@@ -26,12 +26,11 @@ public class WCA_Controller {
 
     public String getAll(String url) throws YearException, IOException {
         startTime = new Date();
-        scraper =  new Scraper();
+        scraper = new Scraper();
         crawler = new Crawler();
         crawler.getAllUrl(url);
         List<String> pagesToVisit = crawler.getPagesToVisit();
-        for(int i =0; i<pagesToVisit.size(); i++){
-            System.out.println(pagesToVisit.get(i));
+        for (int i = 0; i < pagesToVisit.size(); i++) {
             scraper.parseAll(pagesToVisit.get(i));
         }
 
@@ -49,15 +48,28 @@ public class WCA_Controller {
     public String getSpecific(String url, String keyword) throws YearException, IOException {
 
         startTime = new Date();
+        scraper = new Scraper();
+        crawler = new Crawler();
+        Object newObject = null;
+        crawler.getAllUrl(url);
+        List<String> pagesToVisit = crawler.getPagesToVisit();
+        for (int i = 0; i < pagesToVisit.size(); i++) {
+            newObject = scraper.parseSpecific(pagesToVisit.get(i), keyword);
+        }
+        if (newObject != null) {
+            endTime = new Date();
 
-        Object o = scraper.parseSpecific(url, keyword);
+            timeElapsedInMS = endTime.getTime() - startTime.getTime();
 
-        endTime = new Date();
+            String x = new Gson().toJson(newObject).toString();
+            return new Gson().toJson(newObject).toString();
+        } else {
+            return "Keyword can't be found";
+        }
 
-        timeElapsedInMS = endTime.getTime() - startTime.getTime();
+        //Object o = scraper.parseSpecific(url, keyword);
 
-        String x=new Gson().toJson(o).toString();
-        return new Gson().toJson(o).toString();
+
     }
 
 
