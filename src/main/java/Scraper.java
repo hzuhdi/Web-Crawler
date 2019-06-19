@@ -35,16 +35,47 @@ public class Scraper {
      * @return
      * @throws IOException
      */
-    public boolean parseSpecific(String url, String keyword) throws IOException {
+//    public boolean parseSpecific(String url, String keyword) throws IOException {
+//        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+//        Document htmlDocument = connection.get();
+//        if (htmlDocument == null) {
+//            System.out.println("ERROR! The HTML document is not received");
+//            return false;
+//        }
+//        this.document = htmlDocument;
+//        String bodyText = this.document.body().text();
+//        return bodyText.toLowerCase().contains(keyword.toLowerCase());
+//    }
+
+    public Object parseSpecific(String url, String keyword) throws IOException, YearException {
         Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
         Document htmlDocument = connection.get();
-        if (htmlDocument == null) {
+        String cat = "";
+        Object obj = null;
+        if (htmlDocument == null || htmlDocument.equals(null)) {
             System.out.println("ERROR! The HTML document is not received");
-            return false;
+            throw new NullPointerException();
         }
         this.document = htmlDocument;
         String bodyText = this.document.body().text();
-        return bodyText.toLowerCase().contains(keyword.toLowerCase());
+        Elements media = document.getElementsByClass("media-details");
+        for (Element htmlElement : media) {
+            Element categoryElement = htmlElement.select("tr:contains(category)").get(0);
+            String category = categoryElement.select("td").get(0).text();
+            cat = category;
+            String title = htmlElement.select("h1").get(0).text();
+            int id = getIdFromUrl(url);
+            addToList(id, title, category, htmlElement);
+        }
+        if (cat.equalsIgnoreCase("Books")) {
+            obj = getBooks().get(0);
+        } else if (cat.equalsIgnoreCase("Music")) {
+            obj = getMusics().get(0);
+        } else if (cat.equalsIgnoreCase("Movies")) {
+            obj = getMovies().get(0);
+        }
+        return obj;
+
     }
 
     /**
@@ -114,14 +145,10 @@ public class Scraper {
                 String title = htmlElement.select("h1").get(0).text();
                 int id = getIdFromUrl(url);
                 addToList(id, title, category, htmlElement);
-                /**
-                 * TO DO: Create a getter from url to get an id : https://stackoverflow.com/questions/45539506/how-to-extract-id-from-url-google-sheet
-                 */
             }
         } else {
             throw new NullPointerException();
         }
-
     }
 
     public int getIdFromUrl(String url) {

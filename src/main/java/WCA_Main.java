@@ -31,8 +31,8 @@ public class WCA_Main {
                 String input = sc.nextLine();
                 System.out.println("Please input the keyword" );
                 String word = sc.nextLine();
-                String xy = wca_controller.getSpecific(input, word);
-                System.out.println(xy);
+                Object y = wca_controller.getSpecific(input, word);
+                System.out.println(y);
             } if(x==3){
                 break;
             } else {
