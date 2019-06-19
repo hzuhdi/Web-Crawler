@@ -3,6 +3,7 @@ import exception.YearException;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 public class WCA_Controller {
 
@@ -25,8 +26,14 @@ public class WCA_Controller {
 
     public String getAll(String url) throws YearException, IOException {
         startTime = new Date();
-
-        scraper.parseAll(url);
+        scraper =  new Scraper();
+        crawler = new Crawler();
+        crawler.getAllUrl(url);
+        List<String> pagesToVisit = crawler.getPagesToVisit();
+        for(int i =0; i<pagesToVisit.size(); i++){
+            System.out.println(pagesToVisit.get(i));
+            scraper.parseAll(pagesToVisit.get(i));
+        }
 
         endTime = new Date();
 

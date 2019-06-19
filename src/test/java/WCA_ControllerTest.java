@@ -95,7 +95,8 @@ public class WCA_ControllerTest {
         Scraper scraper = new Scraper();
         Crawler crawler = new Crawler();
         Content content = new Content();
-        String url = "http://localhost/sample_site_to_crawl/details.php?id=204";
+        String url = "http://localhost/sample_site_to_crawl/catalog.php";
+        //String url = "http://localhost/sample_site_to_crawl/details.php?id=204";
 
         ArrayList<Book> books = new ArrayList<>();
         ArrayList<Movie> movies = new ArrayList<>();
