@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import exception.YearException;
 
 import java.io.IOException;
@@ -38,21 +39,18 @@ public class WCA_Controller {
         return content.converToJson();
     }
 
-    public String getSpecific(String url, String keyword) throws YearException, IOException{
+    public String getSpecific(String url, String keyword) throws YearException, IOException {
 
         startTime = new Date();
 
-        scraper.parseSpecific(url, keyword);
+        Object o = scraper.parseSpecific(url, keyword);
 
         endTime = new Date();
 
         timeElapsedInMS = endTime.getTime() - startTime.getTime();
 
-        content.setBooks(scraper.getBooks());
-        content.setMovies(scraper.getMovies());
-        content.setMusics(scraper.getMusics());
-
-        return content.converToJson();
+        String x=new Gson().toJson(o).toString();
+        return new Gson().toJson(o).toString();
     }
 
 
