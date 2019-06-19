@@ -74,6 +74,9 @@ public class Crawler {
 
     //This methods intends to thDocument
     public void getAllUrl(String url) throws IOException {
+        if(url.isEmpty()){
+            throw new IOException();
+        }
         Document document = Jsoup.connect(url).userAgent(USER_AGENT).get();
         Elements htmlElements = document.select("a[href]");
         for(Element element: htmlElements){

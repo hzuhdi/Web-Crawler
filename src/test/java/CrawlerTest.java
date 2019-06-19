@@ -33,4 +33,11 @@ public class CrawlerTest {
         int x = crawler.getPagesToVisit().size();
         assertEquals(19, x);
     }
+
+    @Test (expected = IOException.class)
+    public void shouldThrownAnExceptionIfItsANull() throws IOException {
+        Crawler crawler = new Crawler();
+        String url = "";
+        crawler.getAllUrl(url);
+    }
 }
