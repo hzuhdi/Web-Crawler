@@ -192,7 +192,7 @@ public class WCA_ControllerTest {
         String response = controller.getSpecific(url, keyword);
         startTime = controller.getStartTime();
         endTime = controller.getEndTime();
-        System.out.println(response);
+        System.out.println("end time:"+ endTime.getTime()+" -- "+" start time:"+startTime.getTime());
 
         // Assert
         assertNotNull("Response is null", response);

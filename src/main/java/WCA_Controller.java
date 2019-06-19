@@ -56,4 +56,11 @@ public class WCA_Controller {
     }
 
 
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
 }
