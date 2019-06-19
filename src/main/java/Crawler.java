@@ -88,7 +88,7 @@ public class Crawler {
 
     public boolean checkIfCategoryUrl(String url){
         boolean myStatus = true;
-        if(url.contains(".com")){
+        if(url.contains(".com") || url.contains("cat=")){
             myStatus = false;
         }
         return myStatus;
