@@ -31,7 +31,7 @@ public class CrawlerTest {
         String url = "http://localhost/sample_site_to_crawl/catalog.php";
         crawler.getAllUrl(url);
         int x = crawler.getPagesToVisit().size();
-        assertEquals(19, x);
+        assertEquals(12, x);
     }
 
     @Test (expected = IOException.class)
