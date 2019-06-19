@@ -80,7 +80,8 @@ public class Crawler {
         Document document = Jsoup.connect(url).userAgent(USER_AGENT).get();
         Elements htmlElements = document.select("a[href]");
         for(Element element: htmlElements){
-            String link = element.absUrl("a[href]");
+            String link = element.absUrl("href").toString();
+            System.out.println(link);
             pagesToVisit.add(link);
         }
     }
