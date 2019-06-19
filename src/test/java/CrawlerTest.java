@@ -40,4 +40,12 @@ public class CrawlerTest {
         String url = "";
         crawler.getAllUrl(url);
     }
+
+    @Test
+    public void checkCategoryUrl(){
+        Crawler crawler = new Crawler();
+        String url = "http://twitter.com";
+        boolean x = crawler.checkIfCategoryUrl(url);
+        assertEquals(false, x);
+    }
 }

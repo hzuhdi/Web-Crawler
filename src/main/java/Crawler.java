@@ -86,6 +86,14 @@ public class Crawler {
         }
     }
 
+    public boolean checkIfCategoryUrl(String url){
+        boolean myStatus = true;
+        if(url.contains(".com")){
+            myStatus = false;
+        }
+        return myStatus;
+    }
+
     public Set<String> getPages_visited() {
         return pages_visited;
     }
