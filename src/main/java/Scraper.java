@@ -28,24 +28,14 @@ public class Scraper {
     public Scraper() {
     }
 
-
     /**
-     * @param url     of the website
-     * @param keyword word that we're looking for
+     *
+     * @param url of the web we are currently in
+     * @param keyword word that we want to looking for
      * @return
      * @throws IOException
+     * @throws YearException
      */
-//    public boolean parseSpecific(String url, String keyword) throws IOException {
-//        Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
-//        Document htmlDocument = connection.get();
-//        if (htmlDocument == null) {
-//            System.out.println("ERROR! The HTML document is not received");
-//            return false;
-//        }
-//        this.document = htmlDocument;
-//        String bodyText = this.document.body().text();
-//        return bodyText.toLowerCase().contains(keyword.toLowerCase());
-//    }
     public Object parseSpecific(String url, String keyword) throws IOException, YearException {
         Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
         Document htmlDocument = connection.get();
@@ -116,12 +106,25 @@ public class Scraper {
         }
     }
 
+    /**
+     *
+     * @param myElement each element tag that related with a list
+     * @param details what kind of tag
+     * @return
+     */
     public ArrayList<String> getDetailsWithinAList(Element myElement, String details) {
         //Case Sensitive
         ArrayList<String> detailList = new ArrayList<>();
         detailList.add(myElement.select("tr:contains(" + details + ")").get(0).toString());
         return detailList;
     }
+
+    /**
+     *
+     * @param myElement each element common tags
+     * @param details what kind of tag
+     * @return
+     */
 
     public String getDetailsOfElementFromEachTag(Element myElement, String details) {
         //It has CSS Query feature where we can easily select the tag we want to highlight
@@ -131,6 +134,12 @@ public class Scraper {
         return contentTag;
     }
 
+    /**
+     *
+     * @param url base url
+     * @throws YearException
+     * @throws IOException
+     */
     public void parseAll(String url) throws YearException, IOException {
         if (url != null || url != "") {
             //TODO
@@ -155,6 +164,11 @@ public class Scraper {
         }
     }
 
+    /**
+     *
+     * @param url
+     * @return the split of id
+     */
     public int getIdFromUrl(String url) {
         //Normal Url : http://localhost/sample_site_to_crawl/details.php?id=102
         String[] parts = url.split("id=");
