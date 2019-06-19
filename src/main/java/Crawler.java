@@ -71,6 +71,17 @@ public class Crawler {
         }
         this.pagesToVisit = links;
     }
+
+    //This methods intends to thDocument
+    public void getAllUrl(String url) throws IOException {
+        Document document = Jsoup.connect(url).userAgent(USER_AGENT).get();
+        Elements htmlElements = document.select("a[href]");
+        for(Element element: htmlElements){
+            String link = element.absUrl("a[href]");
+            pagesToVisit.add(link);
+        }
+    }
+
     /**
      *
      * Returns the next URL to visit (in the order that they were found). We also do a check to make
