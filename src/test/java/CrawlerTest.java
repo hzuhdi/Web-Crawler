@@ -48,4 +48,12 @@ public class CrawlerTest {
         boolean x = crawler.checkIfCategoryUrl(url);
         assertEquals(false, x);
     }
+
+    @Test
+    public void checkCategoryUrlShouldbeInvalidOfNotReferingToTheId(){
+        Crawler crawler = new Crawler();
+        String url = "http://localhost/sample_site_to_crawl/catalog.php?cat=books";
+        boolean x = crawler.checkIfCategoryUrl(url);
+        assertEquals(false, x);
+    }
 }
