@@ -68,11 +68,6 @@ public class WCA_Controller {
             timeElapsedInMS = endTime.getTime() - startTime.getTime();
             return "Keyword can't be found";
         }
-
-
-        //Object o = scraper.parseSpecific(url, keyword);
-
-
     }
 
     public long getTimeElapsedInMS() {
